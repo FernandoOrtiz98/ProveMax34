@@ -19,6 +19,7 @@ public class Menu extends javax.swing.JFrame {
      */
     public Menu() {
         initComponents();
+        this.setLocationRelativeTo(null);
     }
 
     /**
@@ -35,16 +36,18 @@ public class Menu extends javax.swing.JFrame {
         panelHome = new javax.swing.JPanel();
         txtHome = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
-        jPanel4 = new javax.swing.JPanel();
-        jLabel2 = new javax.swing.JLabel();
+        panelProveedores = new javax.swing.JPanel();
+        txtProveedores = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
-        jPanel5 = new javax.swing.JPanel();
-        jLabel3 = new javax.swing.JLabel();
+        panelCompras = new javax.swing.JPanel();
+        txtCompras = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
-        jPanel6 = new javax.swing.JPanel();
-        jLabel4 = new javax.swing.JLabel();
+        panelProductos = new javax.swing.JPanel();
+        txtProductos = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
+        escritorio = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -82,56 +85,87 @@ public class Menu extends javax.swing.JFrame {
 
         jPanel2.add(panelHome, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 140, 210, 60));
 
-        jPanel4.setBackground(new java.awt.Color(51, 51, 51));
-        jPanel4.setForeground(new java.awt.Color(51, 51, 51));
-        jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        panelProveedores.setBackground(new java.awt.Color(51, 51, 51));
+        panelProveedores.setForeground(new java.awt.Color(51, 51, 51));
+        panelProveedores.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel2.setFont(new java.awt.Font("Roboto Light", 1, 14)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel2.setText("PROVEEDORES");
-        jLabel2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jPanel4.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 4, 150, 50));
+        txtProveedores.setFont(new java.awt.Font("Roboto Light", 1, 14)); // NOI18N
+        txtProveedores.setForeground(new java.awt.Color(255, 255, 255));
+        txtProveedores.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        txtProveedores.setText("PROVEEDORES");
+        txtProveedores.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        txtProveedores.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                txtProveedoresMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                txtProveedoresMouseExited(evt);
+            }
+        });
+        panelProveedores.add(txtProveedores, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 4, 150, 50));
 
         jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/provemax34/Imagenes/8666814_truck_transport_icon (1).png"))); // NOI18N
-        jPanel4.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 70, 60));
+        panelProveedores.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 70, 60));
 
-        jPanel2.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 200, 210, 60));
+        jPanel2.add(panelProveedores, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 200, 210, 60));
 
-        jPanel5.setBackground(new java.awt.Color(51, 51, 51));
-        jPanel5.setForeground(new java.awt.Color(51, 51, 51));
-        jPanel5.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        panelCompras.setBackground(new java.awt.Color(51, 51, 51));
+        panelCompras.setForeground(new java.awt.Color(51, 51, 51));
+        panelCompras.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel3.setFont(new java.awt.Font("Roboto Light", 1, 14)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel3.setText("COMPRAS");
-        jLabel3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jPanel5.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 0, 150, 60));
+        txtCompras.setFont(new java.awt.Font("Roboto Light", 1, 14)); // NOI18N
+        txtCompras.setForeground(new java.awt.Color(255, 255, 255));
+        txtCompras.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        txtCompras.setText("COMPRAS");
+        txtCompras.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        txtCompras.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                txtComprasMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                txtComprasMouseExited(evt);
+            }
+        });
+        panelCompras.add(txtCompras, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 0, 150, 60));
 
         jLabel8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/provemax34/Imagenes/8666616_shopping_cart_icon (1).png"))); // NOI18N
-        jPanel5.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 60, 60));
+        panelCompras.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 60, 60));
 
-        jPanel2.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 260, 210, 60));
+        jPanel2.add(panelCompras, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 260, 210, 60));
 
-        jPanel6.setBackground(new java.awt.Color(51, 51, 51));
-        jPanel6.setForeground(new java.awt.Color(51, 51, 51));
-        jPanel6.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        panelProductos.setBackground(new java.awt.Color(51, 51, 51));
+        panelProductos.setForeground(new java.awt.Color(51, 51, 51));
+        panelProductos.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel4.setFont(new java.awt.Font("Roboto Light", 1, 14)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel4.setText("PRODUCTOS");
-        jLabel4.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jPanel6.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 0, 150, 60));
+        txtProductos.setFont(new java.awt.Font("Roboto Light", 1, 14)); // NOI18N
+        txtProductos.setForeground(new java.awt.Color(255, 255, 255));
+        txtProductos.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        txtProductos.setText("PRODUCTOS");
+        txtProductos.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        txtProductos.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                txtProductosMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                txtProductosMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                txtProductosMouseExited(evt);
+            }
+        });
+        panelProductos.add(txtProductos, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 0, 150, 60));
 
         jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/provemax34/Imagenes/8666822_package_delivery_icon (1).png"))); // NOI18N
-        jPanel6.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 60, 60));
+        panelProductos.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 60, 60));
 
-        jPanel2.add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 320, 210, 60));
+        jPanel2.add(panelProductos, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 320, 210, 60));
+
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/provemax34/Imagenes/logo_empresa_pequeño.png"))); // NOI18N
+        jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 200, 140));
 
         background.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 210, 540));
 
@@ -148,7 +182,23 @@ public class Menu extends javax.swing.JFrame {
             .addGap(0, 110, Short.MAX_VALUE)
         );
 
-        background.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 60, 780, 110));
+        background.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 30, 780, 110));
+
+        escritorio.setBackground(new java.awt.Color(255, 255, 255));
+        escritorio.setForeground(new java.awt.Color(255, 255, 255));
+
+        javax.swing.GroupLayout escritorioLayout = new javax.swing.GroupLayout(escritorio);
+        escritorio.setLayout(escritorioLayout);
+        escritorioLayout.setHorizontalGroup(
+            escritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 780, Short.MAX_VALUE)
+        );
+        escritorioLayout.setVerticalGroup(
+            escritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 400, Short.MAX_VALUE)
+        );
+
+        background.add(escritorio, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 140, 780, 400));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -171,6 +221,39 @@ public class Menu extends javax.swing.JFrame {
     private void txtHomeMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtHomeMouseExited
         panelHome.setBackground(new Color(51,51,51));
     }//GEN-LAST:event_txtHomeMouseExited
+
+    private void txtProveedoresMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtProveedoresMouseEntered
+        panelProveedores.setBackground(Color.gray);
+    }//GEN-LAST:event_txtProveedoresMouseEntered
+
+    private void txtProveedoresMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtProveedoresMouseExited
+        panelProveedores.setBackground(new Color(51,51,51));
+    }//GEN-LAST:event_txtProveedoresMouseExited
+
+    private void txtComprasMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtComprasMouseEntered
+        panelCompras.setBackground(Color.gray);
+    }//GEN-LAST:event_txtComprasMouseEntered
+
+    private void txtComprasMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtComprasMouseExited
+        panelCompras.setBackground(new Color(51,51,51));
+    }//GEN-LAST:event_txtComprasMouseExited
+
+    private void txtProductosMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtProductosMouseEntered
+        panelProductos.setBackground(Color.gray);
+    }//GEN-LAST:event_txtProductosMouseEntered
+
+    private void txtProductosMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtProductosMouseExited
+        panelProductos.setBackground(new Color(51,51,51));
+    }//GEN-LAST:event_txtProductosMouseExited
+
+    private void txtProductosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtProductosMouseClicked
+        escritorio.removeAll();
+        escritorio.repaint();
+        Productos prod = new Productos();
+        
+        escritorio.add(prod);
+        prod.setVisible(true);
+    }//GEN-LAST:event_txtProductosMouseClicked
 
     /**
      * @param args the command line arguments
@@ -209,19 +292,21 @@ public class Menu extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel background;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
+    private javax.swing.JPanel escritorio;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
-    private javax.swing.JPanel jPanel4;
-    private javax.swing.JPanel jPanel5;
-    private javax.swing.JPanel jPanel6;
+    private javax.swing.JPanel panelCompras;
     private javax.swing.JPanel panelHome;
+    private javax.swing.JPanel panelProductos;
+    private javax.swing.JPanel panelProveedores;
+    private javax.swing.JLabel txtCompras;
     private javax.swing.JLabel txtHome;
+    private javax.swing.JLabel txtProductos;
+    private javax.swing.JLabel txtProveedores;
     // End of variables declaration//GEN-END:variables
 }
