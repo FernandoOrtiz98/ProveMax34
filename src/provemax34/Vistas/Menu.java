@@ -67,6 +67,9 @@ public class Menu extends javax.swing.JFrame {
         txtHome.setText("HOME");
         txtHome.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         txtHome.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                txtHomeMouseClicked(evt);
+            }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 txtHomeMouseEntered(evt);
             }
@@ -95,6 +98,9 @@ public class Menu extends javax.swing.JFrame {
         txtProveedores.setText("PROVEEDORES");
         txtProveedores.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         txtProveedores.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                txtProveedoresMouseClicked(evt);
+            }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 txtProveedoresMouseEntered(evt);
             }
@@ -254,6 +260,20 @@ public class Menu extends javax.swing.JFrame {
         escritorio.add(prod);
         prod.setVisible(true);
     }//GEN-LAST:event_txtProductosMouseClicked
+
+    private void txtHomeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtHomeMouseClicked
+        escritorio.removeAll();
+        escritorio.repaint();
+    }//GEN-LAST:event_txtHomeMouseClicked
+
+    private void txtProveedoresMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtProveedoresMouseClicked
+        escritorio.removeAll();
+        escritorio.repaint();
+        Proveedores prov = new Proveedores();
+        
+        escritorio.add(prov);
+        prov.setVisible(true);
+    }//GEN-LAST:event_txtProveedoresMouseClicked
 
     /**
      * @param args the command line arguments
