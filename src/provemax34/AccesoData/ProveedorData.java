@@ -6,7 +6,6 @@
 package provemax34.AccesoData;
 
 import java.sql.Connection;
-import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -27,7 +26,7 @@ public class ProveedorData {
     }
 
     public void guardarProveedor(Proveedor prov) {
-        String query = "INSERT INTO proveedor(razon social,domicilio,telefono) VALUES (?,?,?,?)";
+        String query = "INSERT INTO proveedor(razonSocial,domicilio,telefono,estado) VALUES (?,?,?,?)";
         try {
             PreparedStatement ps = con.prepareStatement(query, Statement.RETURN_GENERATED_KEYS);
             ps.setString(1, prov.getRazonSocial());
@@ -49,11 +48,11 @@ public class ProveedorData {
         }
     }
 
-    public void eliminarProveedor(String razonSocial) {
+    public void eliminarProveedor(int idProveedor) {
         String query = "UPDATE proveedor SET estado=0 where idProveedor = ?";
         try {
             PreparedStatement ps = con.prepareStatement(query);
-            ps.setString(1, razonSocial);
+            ps.setInt(1, idProveedor);
             int exito = ps.executeUpdate();
             if (exito == 1) {
                 JOptionPane.showMessageDialog(null, "Proveedor eliminado");
@@ -64,22 +63,22 @@ public class ProveedorData {
         }
     }
 
-//    public void modificarAlumno(Proveedor prov) {
-//        String query = "UPDATE proveedor SET dni=?, apellido=?, nombre=?, fNacimiento=?"
-//                + " where idAlumno=?";
-//        try {
-//            PreparedStatement ps = con.prepareStatement(query);
-//            ps.setInt(1, prov.getDni());
-//            ps.setString(2, prov.getApellido());
-//            ps.setString(3, prov.getNombre());
-//            ps.setDate(4, Date.valueOf(prov.getfNacimiento()));
-//            ps.setInt(5, prov.getIdAlumno());
-//            int exito = ps.executeUpdate();
-//            if (exito == 1) {
-//                JOptionPane.showMessageDialog(null, "Alumno Modificado");
-//            }
-//        } catch (SQLException ex) {
-//            JOptionPane.showMessageDialog(null, "Error de conexion... " + ex.getMessage());
-//        }
-//    }
+    public void modificarProveedor(Proveedor prov) {
+        String query = "UPDATE proveedor SET razonSocial=?, domicilio=?, telefono=?, estado =?"
+                + " where idProveedor=?";
+        try {
+            PreparedStatement ps = con.prepareStatement(query);
+            ps.setString(1, prov.getRazonSocial());
+            ps.setString(2, prov.getDomicilio());
+            ps.setString(3, prov.getTelefono());
+            ps.setBoolean(4, prov.getEstado());
+            ps.setInt(5, prov.getIdProveedor());
+            int exito = ps.executeUpdate();
+            if (exito == 1) {
+                JOptionPane.showMessageDialog(null, "Proveedor Modificado");
+            }
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Error de conexion... " + ex.getMessage());
+        }
+    }
 }
