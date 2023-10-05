@@ -55,6 +55,7 @@ public class Login extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jpInfoRegistro.setBackground(new java.awt.Color(51, 51, 51));
         jpInfoRegistro.setForeground(new java.awt.Color(51, 51, 51));
@@ -175,6 +176,9 @@ public class Login extends javax.swing.JFrame {
         txtIniciar.setText("INICIAR");
         txtIniciar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         txtIniciar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                txtIniciarMouseClicked(evt);
+            }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 txtIniciarMouseEntered(evt);
             }
@@ -369,16 +373,7 @@ public class Login extends javax.swing.JFrame {
 
         jpInfoRegistro.add(btnRegistrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 440, 170, 50));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jpInfoRegistro, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jpInfoRegistro, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
+        getContentPane().add(jpInfoRegistro, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -436,6 +431,12 @@ public class Login extends javax.swing.JFrame {
     private void txtRegistrarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtRegistrarMouseClicked
         jPanelXDerecha(-400, 0, 10, 5, jpRegistro);
     }//GEN-LAST:event_txtRegistrarMouseClicked
+
+    private void txtIniciarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtIniciarMouseClicked
+        Menu menu= new Menu();
+        menu.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_txtIniciarMouseClicked
 
     /**
      * @param args the command line arguments
