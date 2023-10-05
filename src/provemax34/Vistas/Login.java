@@ -54,6 +54,7 @@ public class Login extends javax.swing.JFrame {
         txtRegistrar = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setResizable(false);
 
         jpInfoRegistro.setBackground(new java.awt.Color(51, 51, 51));
         jpInfoRegistro.setForeground(new java.awt.Color(51, 51, 51));
@@ -103,7 +104,7 @@ public class Login extends javax.swing.JFrame {
                 .addGroup(jpRegistroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jpRegistroLayout.createSequentialGroup()
                         .addGap(25, 25, 25)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 315, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 315, Short.MAX_VALUE))
                     .addGroup(jpRegistroLayout.createSequentialGroup()
                         .addGap(83, 83, 83)
                         .addComponent(btnRegistrarse, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -113,7 +114,7 @@ public class Login extends javax.swing.JFrame {
             jpRegistroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jpRegistroLayout.createSequentialGroup()
                 .addGap(47, 47, 47)
-                .addComponent(jLabel1)
+                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 117, Short.MAX_VALUE)
                 .addComponent(btnRegistrarse, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(57, 57, 57))
