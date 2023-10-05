@@ -39,10 +39,8 @@ public class Login extends javax.swing.JFrame {
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
-        jLabel11 = new javax.swing.JLabel();
         jSeparator4 = new javax.swing.JSeparator();
         jTextField1 = new javax.swing.JTextField();
-        jSeparator3 = new javax.swing.JSeparator();
         jTextField2 = new javax.swing.JTextField();
         jTextField3 = new javax.swing.JTextField();
         jTextField4 = new javax.swing.JTextField();
@@ -280,11 +278,6 @@ public class Login extends javax.swing.JFrame {
         jLabel10.setText("DNI");
         jpInfoRegistro.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 280, -1, -1));
 
-        jLabel11.setFont(new java.awt.Font("Roboto Light", 1, 14)); // NOI18N
-        jLabel11.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel11.setText("Nivel de Acceso");
-        jpInfoRegistro.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 360, -1, -1));
-
         jSeparator4.setBackground(new java.awt.Color(255, 255, 255));
         jSeparator4.setForeground(new java.awt.Color(255, 255, 255));
         jSeparator4.setFont(new java.awt.Font("Arial Black", 0, 14)); // NOI18N
@@ -295,11 +288,6 @@ public class Login extends javax.swing.JFrame {
         jTextField1.setForeground(new java.awt.Color(255, 255, 255));
         jTextField1.setBorder(null);
         jpInfoRegistro.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 60, 310, -1));
-
-        jSeparator3.setBackground(new java.awt.Color(255, 255, 255));
-        jSeparator3.setForeground(new java.awt.Color(255, 255, 255));
-        jSeparator3.setFont(new java.awt.Font("Arial Black", 0, 14)); // NOI18N
-        jpInfoRegistro.add(jSeparator3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 420, 50, 10));
 
         jTextField2.setBackground(new java.awt.Color(51, 51, 51));
         jTextField2.setFont(new java.awt.Font("Roboto Light", 0, 12)); // NOI18N
@@ -479,7 +467,6 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JPanel btnRegistrarse;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -491,7 +478,6 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel3;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
-    private javax.swing.JSeparator jSeparator3;
     private javax.swing.JSeparator jSeparator4;
     private javax.swing.JSeparator jSeparator5;
     private javax.swing.JSeparator jSeparator6;
