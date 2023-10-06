@@ -332,6 +332,7 @@ public class Productos extends javax.swing.JInternalFrame {
         txtSalir.setForeground(new java.awt.Color(255, 255, 255));
         txtSalir.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         txtSalir.setText("SALIR");
+        txtSalir.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         txtSalir.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 txtSalirMouseClicked(evt);
@@ -353,6 +354,7 @@ public class Productos extends javax.swing.JInternalFrame {
         txtEliminar.setForeground(new java.awt.Color(255, 255, 255));
         txtEliminar.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         txtEliminar.setText("ELIMINAR");
+        txtEliminar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         txtEliminar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 txtEliminarMouseClicked(evt);
@@ -388,6 +390,7 @@ public class Productos extends javax.swing.JInternalFrame {
         txtEditar.setForeground(new java.awt.Color(255, 255, 255));
         txtEditar.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         txtEditar.setText("EDITAR");
+        txtEditar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         txtEditar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 txtEditarMouseClicked(evt);
@@ -477,13 +480,12 @@ public class Productos extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_txtAgregarMouseClicked
 
     private void txtEditarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtEditarMouseClicked
-//        AgregarProducto ap=new AgregarProducto();
-//        ap.setVisible(true);
-          prueba p=new prueba();
-//          escritorio.add(p);
+        EditarProducto ep=new EditarProducto();
+        ep.setVisible(true);
+ 
+
           
-          p.setVisible(true);
-          p.moveToFront();
+          
           
     }//GEN-LAST:event_txtEditarMouseClicked
 
