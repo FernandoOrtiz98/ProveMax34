@@ -6,16 +6,21 @@
 package provemax34.Vistas;
 
 import java.awt.Color;
+import java.time.LocalDate;
+import java.time.ZoneId;
+import javax.swing.JOptionPane;
+import provemax34.AccesoData.ProductoData;
+import provemax34.Entidades.Producto;
 
 /**
  *
  * @author Fer
  */
 public class AgregarProducto extends javax.swing.JFrame {
-
-    /**
-     * Creates new form AgregarProducto
-     */
+    private Producto prod=null;
+    private ProductoData prodData=new ProductoData();
+    
+    
     public AgregarProducto() {
         initComponents();
         this.setLocationRelativeTo(null);
@@ -36,11 +41,11 @@ public class AgregarProducto extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jTextField3 = new javax.swing.JTextField();
-        jTextField4 = new javax.swing.JTextField();
-        jTextField5 = new javax.swing.JTextField();
-        jCheckBox1 = new javax.swing.JCheckBox();
+        jTNombre = new javax.swing.JTextField();
+        jTDescripcion = new javax.swing.JTextField();
+        jTPrecio = new javax.swing.JTextField();
+        jTStock = new javax.swing.JTextField();
+        jCBEstado = new javax.swing.JCheckBox();
         btnAgregarProd = new javax.swing.JPanel();
         txtAgregarProd = new javax.swing.JLabel();
 
@@ -82,18 +87,24 @@ public class AgregarProducto extends javax.swing.JFrame {
         jLabel5.setText("Stock");
         jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(25, 232, -1, -1));
 
-        jTextField1.setForeground(new java.awt.Color(255, 255, 255));
-        jPanel1.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(39, 51, 324, -1));
+        jTNombre.setForeground(new java.awt.Color(0, 0, 0));
+        jTNombre.setSelectedTextColor(new java.awt.Color(0, 0, 0));
+        jTNombre.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTNombreActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jTNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(39, 51, 324, -1));
 
-        jTextField3.setForeground(new java.awt.Color(255, 255, 255));
-        jPanel1.add(jTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 125, 323, -1));
+        jTDescripcion.setForeground(new java.awt.Color(0, 0, 0));
+        jPanel1.add(jTDescripcion, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 125, 323, -1));
 
-        jTextField4.setForeground(new java.awt.Color(255, 255, 255));
-        jPanel1.add(jTextField4, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 197, 323, -1));
+        jTPrecio.setForeground(new java.awt.Color(0, 0, 0));
+        jPanel1.add(jTPrecio, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 197, 323, -1));
 
-        jTextField5.setForeground(new java.awt.Color(255, 255, 255));
-        jPanel1.add(jTextField5, new org.netbeans.lib.awtextra.AbsoluteConstraints(42, 265, 321, -1));
-        jPanel1.add(jCheckBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(93, 301, -1, -1));
+        jTStock.setForeground(new java.awt.Color(0, 0, 0));
+        jPanel1.add(jTStock, new org.netbeans.lib.awtextra.AbsoluteConstraints(42, 265, 321, -1));
+        jPanel1.add(jCBEstado, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 310, -1, -1));
 
         btnAgregarProd.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -104,6 +115,9 @@ public class AgregarProducto extends javax.swing.JFrame {
         txtAgregarProd.setText("Agregar");
         txtAgregarProd.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         txtAgregarProd.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                txtAgregarProdMouseClicked(evt);
+            }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 txtAgregarProdMouseEntered(evt);
             }
@@ -138,9 +152,36 @@ public class AgregarProducto extends javax.swing.JFrame {
         btnAgregarProd.setBackground(Color.white);
     }//GEN-LAST:event_txtAgregarProdMouseExited
 
-    /**
-     * @param args the command line arguments
-     */
+    private void txtAgregarProdMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtAgregarProdMouseClicked
+      try{
+        int id=9;
+        String nombre = jTNombre.getText();
+        String descr = jTDescripcion.getText();
+        double precio = Double.parseDouble(jTPrecio.getText());
+        int stock = Integer.parseInt(jTStock.getText());
+        
+         if(nombre.isEmpty()|| descr.isEmpty()){
+              JOptionPane.showMessageDialog(this, "No puedo haber campos vacios");
+                       return;
+           }
+           if(prod==null){
+               prod= new Producto(nombre,descr,precio,stock, true);
+               prodData.guardarProducto(prod);
+               limpiarCampos();
+           }
+      }catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(this,"Datos incompatible" );
+        } catch (NullPointerException ex){
+            JOptionPane.showMessageDialog(this,"Completar datos" );
+        }
+
+    }//GEN-LAST:event_txtAgregarProdMouseClicked
+
+    private void jTNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTNombreActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTNombreActionPerformed
+
+
 public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -175,17 +216,26 @@ public static void main(String args[]) {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel btnAgregarProd;
-    private javax.swing.JCheckBox jCheckBox1;
+    private javax.swing.JCheckBox jCBEstado;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
-    private javax.swing.JTextField jTextField5;
+    private javax.swing.JTextField jTDescripcion;
+    private javax.swing.JTextField jTNombre;
+    private javax.swing.JTextField jTPrecio;
+    private javax.swing.JTextField jTStock;
     private javax.swing.JLabel txtAgregarProd;
     // End of variables declaration//GEN-END:variables
+
+public void limpiarCampos(){
+        jTNombre.setText("");
+        jTDescripcion.setText("");
+        jTPrecio.setText("");
+        jTStock.setText("");
+        jCBEstado.setEnabled(false);
+        prod=null;
+    }
 }
