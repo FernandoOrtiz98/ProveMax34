@@ -19,6 +19,7 @@ public class ProductoData {
     private Producto prod=null;
     public ProductoData() {
         this.con = Conexion.getConexion();
+        prod=null;
     }
 
     public void guardarProducto(Producto prod){
@@ -104,7 +105,7 @@ public class ProductoData {
         return prod;      
     }
      
-     public List<Producto> listarProductos() {
+     public ArrayList<Producto> listarProductos() {
 
         String sql = "SELECT idProducto,nombreProducto,descripcion,precioActual,stock,estado FROM producto WHERE estado = 1";
         ArrayList<Producto> productos = new ArrayList<>();
@@ -113,12 +114,13 @@ public class ProductoData {
 
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
+                Producto prod=new Producto();
                 prod.setIdProducto(rs.getInt("idProducto"));
                 prod.setNombreProducto(rs.getString("nombreProducto"));
                 prod.setDescripcion(rs.getString("descripcion"));
                 prod.setPrecioActual(rs.getDouble("precioActual"));
                 prod.setStock(rs.getInt("stock"));
-                prod.setEstado(true);
+                prod.setEstado(rs.getBoolean("estado"));
                 productos.add(prod); //Por cada vuelta del while, agregamos un alumno al ArrayList productos.
             }
             ps.close();
