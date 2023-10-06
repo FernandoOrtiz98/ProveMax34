@@ -452,7 +452,7 @@ public class Productos extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_txtAgregarMouseEntered
 
     private void txtAgregarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtAgregarMouseExited
-        panelAgregar.setBackground(new Color(51,51,51));
+        panelAgregar.setBackground(Color.black);
     }//GEN-LAST:event_txtAgregarMouseExited
 
     private void txtAgregarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtAgregarMouseClicked
@@ -479,7 +479,7 @@ public class Productos extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_txtEditarMouseEntered
 
     private void txtEditarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtEditarMouseExited
-        panelEditar.setBackground(new Color(51,51,51));
+        panelEditar.setBackground(Color.black);
     }//GEN-LAST:event_txtEditarMouseExited
 
     private void txtEliminarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtEliminarMouseClicked
@@ -491,7 +491,7 @@ public class Productos extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_txtEliminarMouseEntered
 
     private void txtEliminarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtEliminarMouseExited
-        panelEliminar.setBackground(new Color(51,51,51));
+        panelEliminar.setBackground(Color.black);
     }//GEN-LAST:event_txtEliminarMouseExited
 
     private void txtSalirMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtSalirMouseClicked
@@ -503,7 +503,7 @@ public class Productos extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_txtSalirMouseEntered
 
     private void txtSalirMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtSalirMouseExited
-        PanelSalir.setBackground(new Color(51,51,51));
+        PanelSalir.setBackground(Color.black);
     }//GEN-LAST:event_txtSalirMouseExited
 
 
