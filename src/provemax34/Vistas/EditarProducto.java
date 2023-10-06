@@ -18,12 +18,15 @@ import provemax34.Entidades.Producto;
  */
 public class EditarProducto extends javax.swing.JFrame {
     private Producto prod=null;
-    private ProductoData prodData=new ProductoData();
+    private ProductoData prodData;
     
     
     public EditarProducto() {
         initComponents();
         this.setLocationRelativeTo(null);
+        prodData=new ProductoData();
+        CargarCampos();
+        
     }
 
     /**
@@ -47,7 +50,7 @@ public class EditarProducto extends javax.swing.JFrame {
         jTStock = new javax.swing.JTextField();
         jCBEstado = new javax.swing.JCheckBox();
         btnAgregarProd = new javax.swing.JPanel();
-        txtAgregarProd = new javax.swing.JLabel();
+        txtModificarProd = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setResizable(false);
@@ -108,21 +111,21 @@ public class EditarProducto extends javax.swing.JFrame {
 
         btnAgregarProd.setBackground(new java.awt.Color(255, 255, 255));
 
-        txtAgregarProd.setBackground(new java.awt.Color(255, 255, 255));
-        txtAgregarProd.setFont(new java.awt.Font("Roboto Medium", 1, 18)); // NOI18N
-        txtAgregarProd.setForeground(new java.awt.Color(0, 0, 0));
-        txtAgregarProd.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        txtAgregarProd.setText("Modificar");
-        txtAgregarProd.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        txtAgregarProd.addMouseListener(new java.awt.event.MouseAdapter() {
+        txtModificarProd.setBackground(new java.awt.Color(255, 255, 255));
+        txtModificarProd.setFont(new java.awt.Font("Roboto Medium", 1, 18)); // NOI18N
+        txtModificarProd.setForeground(new java.awt.Color(0, 0, 0));
+        txtModificarProd.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        txtModificarProd.setText("Modificar");
+        txtModificarProd.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        txtModificarProd.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                txtAgregarProdMouseClicked(evt);
+                txtModificarProdMouseClicked(evt);
             }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                txtAgregarProdMouseEntered(evt);
+                txtModificarProdMouseEntered(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                txtAgregarProdMouseExited(evt);
+                txtModificarProdMouseExited(evt);
             }
         });
 
@@ -130,11 +133,11 @@ public class EditarProducto extends javax.swing.JFrame {
         btnAgregarProd.setLayout(btnAgregarProdLayout);
         btnAgregarProdLayout.setHorizontalGroup(
             btnAgregarProdLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(txtAgregarProd, javax.swing.GroupLayout.DEFAULT_SIZE, 136, Short.MAX_VALUE)
+            .addComponent(txtModificarProd, javax.swing.GroupLayout.DEFAULT_SIZE, 136, Short.MAX_VALUE)
         );
         btnAgregarProdLayout.setVerticalGroup(
             btnAgregarProdLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(txtAgregarProd, javax.swing.GroupLayout.DEFAULT_SIZE, 51, Short.MAX_VALUE)
+            .addComponent(txtModificarProd, javax.swing.GroupLayout.DEFAULT_SIZE, 51, Short.MAX_VALUE)
         );
 
         jPanel1.add(btnAgregarProd, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 331, -1, -1));
@@ -144,38 +147,24 @@ public class EditarProducto extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void txtAgregarProdMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtAgregarProdMouseEntered
+    private void txtModificarProdMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtModificarProdMouseEntered
         btnAgregarProd.setBackground(Color.gray);
-    }//GEN-LAST:event_txtAgregarProdMouseEntered
+    }//GEN-LAST:event_txtModificarProdMouseEntered
 
-    private void txtAgregarProdMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtAgregarProdMouseExited
+    private void txtModificarProdMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtModificarProdMouseExited
         btnAgregarProd.setBackground(Color.white);
-    }//GEN-LAST:event_txtAgregarProdMouseExited
+    }//GEN-LAST:event_txtModificarProdMouseExited
 
-    private void txtAgregarProdMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtAgregarProdMouseClicked
+    private void txtModificarProdMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtModificarProdMouseClicked
       try{
-        int id=9;
-        String nombre = jTNombre.getText();
-        String descr = jTDescripcion.getText();
-        double precio = Double.parseDouble(jTPrecio.getText());
-        int stock = Integer.parseInt(jTStock.getText());
         
-         if(nombre.isEmpty()|| descr.isEmpty()){
-              JOptionPane.showMessageDialog(this, "No puedo haber campos vacios");
-                       return;
-           }
-           if(prod==null){
-               prod= new Producto(nombre,descr,precio,stock, true);
-               prodData.guardarProducto(prod);
-               limpiarCampos();
-           }
       }catch (NumberFormatException e) {
             JOptionPane.showMessageDialog(this,"Datos incompatible" );
         } catch (NullPointerException ex){
             JOptionPane.showMessageDialog(this,"Completar datos" );
         }
 
-    }//GEN-LAST:event_txtAgregarProdMouseClicked
+    }//GEN-LAST:event_txtModificarProdMouseClicked
 
     private void jTNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTNombreActionPerformed
         // TODO add your handling code here:
@@ -227,7 +216,7 @@ public static void main(String args[]) {
     private javax.swing.JTextField jTNombre;
     private javax.swing.JTextField jTPrecio;
     private javax.swing.JTextField jTStock;
-    private javax.swing.JLabel txtAgregarProd;
+    private javax.swing.JLabel txtModificarProd;
     // End of variables declaration//GEN-END:variables
 
 public void limpiarCampos(){
@@ -238,4 +227,13 @@ public void limpiarCampos(){
         jCBEstado.setEnabled(false);
         prod=null;
     }
+public void CargarCampos(){
+   prod = prodData.buscarProducto(Productos.idProd);
+        jTNombre.setText(prod.getNombreProducto());
+        jTDescripcion.setText(prod.getDescripcion());
+        jTPrecio.setText(prod.getPrecioActual()+"");
+        jTStock.setText(prod.getStock()+"");
+        jCBEstado.isSelected();
+//        System.out.println("id en editar :"+Productos.idProd);
+}
 }
