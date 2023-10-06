@@ -35,6 +35,7 @@ public class Login extends javax.swing.JFrame {
         jSeparator2 = new javax.swing.JSeparator();
         btnIniciar = new javax.swing.JPanel();
         txtIniciar = new javax.swing.JLabel();
+        jpRegistrar = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
@@ -258,75 +259,65 @@ public class Login extends javax.swing.JFrame {
 
         jpInfoRegistro.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 0, 430, 520));
 
+        jpRegistrar.setBackground(new java.awt.Color(51, 51, 51));
+        jpRegistrar.setForeground(new java.awt.Color(51, 51, 51));
+
         jLabel2.setFont(new java.awt.Font("Roboto Light", 1, 14)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Nombre y Apellido");
-        jpInfoRegistro.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 30, -1, -1));
 
         jLabel8.setFont(new java.awt.Font("Roboto Light", 1, 14)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(255, 255, 255));
         jLabel8.setText("Correo");
-        jpInfoRegistro.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 110, -1, -1));
 
         jLabel9.setFont(new java.awt.Font("Roboto Light", 1, 14)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(255, 255, 255));
         jLabel9.setText("Contraseña");
-        jpInfoRegistro.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 190, -1, -1));
 
         jLabel10.setFont(new java.awt.Font("Roboto Light", 1, 14)); // NOI18N
         jLabel10.setForeground(new java.awt.Color(255, 255, 255));
         jLabel10.setText("DNI");
-        jpInfoRegistro.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 280, -1, -1));
 
         jSeparator4.setBackground(new java.awt.Color(255, 255, 255));
         jSeparator4.setForeground(new java.awt.Color(255, 255, 255));
         jSeparator4.setFont(new java.awt.Font("Arial Black", 0, 14)); // NOI18N
-        jpInfoRegistro.add(jSeparator4, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 80, 310, 10));
 
         jTextField1.setBackground(new java.awt.Color(51, 51, 51));
         jTextField1.setFont(new java.awt.Font("Roboto Light", 0, 12)); // NOI18N
         jTextField1.setForeground(new java.awt.Color(255, 255, 255));
         jTextField1.setBorder(null);
-        jpInfoRegistro.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 60, 310, -1));
 
         jTextField2.setBackground(new java.awt.Color(51, 51, 51));
         jTextField2.setFont(new java.awt.Font("Roboto Light", 0, 12)); // NOI18N
         jTextField2.setForeground(new java.awt.Color(255, 255, 255));
         jTextField2.setBorder(null);
-        jpInfoRegistro.add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 150, 310, -1));
 
         jTextField3.setBackground(new java.awt.Color(51, 51, 51));
         jTextField3.setFont(new java.awt.Font("Roboto Light", 0, 12)); // NOI18N
         jTextField3.setForeground(new java.awt.Color(255, 255, 255));
         jTextField3.setBorder(null);
-        jpInfoRegistro.add(jTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 230, 310, -1));
 
         jTextField4.setBackground(new java.awt.Color(51, 51, 51));
         jTextField4.setFont(new java.awt.Font("Roboto Light", 0, 12)); // NOI18N
         jTextField4.setForeground(new java.awt.Color(255, 255, 255));
         jTextField4.setBorder(null);
-        jpInfoRegistro.add(jTextField4, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 320, 310, -1));
 
         jTextField5.setBackground(new java.awt.Color(51, 51, 51));
         jTextField5.setFont(new java.awt.Font("Roboto Light", 0, 12)); // NOI18N
         jTextField5.setForeground(new java.awt.Color(255, 255, 255));
         jTextField5.setBorder(null);
-        jpInfoRegistro.add(jTextField5, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 400, 50, -1));
 
         jSeparator5.setBackground(new java.awt.Color(255, 255, 255));
         jSeparator5.setForeground(new java.awt.Color(255, 255, 255));
         jSeparator5.setFont(new java.awt.Font("Arial Black", 0, 14)); // NOI18N
-        jpInfoRegistro.add(jSeparator5, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 170, 310, 10));
 
         jSeparator6.setBackground(new java.awt.Color(255, 255, 255));
         jSeparator6.setForeground(new java.awt.Color(255, 255, 255));
         jSeparator6.setFont(new java.awt.Font("Arial Black", 0, 14)); // NOI18N
-        jpInfoRegistro.add(jSeparator6, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 250, 310, 10));
 
         jSeparator7.setBackground(new java.awt.Color(255, 255, 255));
         jSeparator7.setForeground(new java.awt.Color(255, 255, 255));
         jSeparator7.setFont(new java.awt.Font("Arial Black", 0, 14)); // NOI18N
-        jpInfoRegistro.add(jSeparator7, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 340, 310, 10));
 
         btnRegistrar.setBackground(new java.awt.Color(102, 102, 102));
         btnRegistrar.setForeground(new java.awt.Color(102, 102, 102));
@@ -359,7 +350,70 @@ public class Login extends javax.swing.JFrame {
             .addComponent(txtRegistrar, javax.swing.GroupLayout.DEFAULT_SIZE, 50, Short.MAX_VALUE)
         );
 
-        jpInfoRegistro.add(btnRegistrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 440, 170, 50));
+        javax.swing.GroupLayout jpRegistrarLayout = new javax.swing.GroupLayout(jpRegistrar);
+        jpRegistrar.setLayout(jpRegistrarLayout);
+        jpRegistrarLayout.setHorizontalGroup(
+            jpRegistrarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 380, Short.MAX_VALUE)
+            .addGroup(jpRegistrarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jpRegistrarLayout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addGroup(jpRegistrarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(jLabel2)
+                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 310, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jSeparator4, javax.swing.GroupLayout.PREFERRED_SIZE, 310, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel8)
+                        .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 310, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jSeparator5, javax.swing.GroupLayout.PREFERRED_SIZE, 310, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel9)
+                        .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 310, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jSeparator6, javax.swing.GroupLayout.PREFERRED_SIZE, 310, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel10)
+                        .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 310, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jSeparator7, javax.swing.GroupLayout.PREFERRED_SIZE, 310, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(jpRegistrarLayout.createSequentialGroup()
+                            .addGap(80, 80, 80)
+                            .addComponent(btnRegistrar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGap(0, 0, Short.MAX_VALUE)))
+        );
+        jpRegistrarLayout.setVerticalGroup(
+            jpRegistrarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 520, Short.MAX_VALUE)
+            .addGroup(jpRegistrarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jpRegistrarLayout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(jLabel2)
+                    .addGap(13, 13, 13)
+                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(5, 5, 5)
+                    .addComponent(jSeparator4, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(20, 20, 20)
+                    .addComponent(jLabel8)
+                    .addGap(23, 23, 23)
+                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(5, 5, 5)
+                    .addComponent(jSeparator5, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(10, 10, 10)
+                    .addComponent(jLabel9)
+                    .addGap(23, 23, 23)
+                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(5, 5, 5)
+                    .addComponent(jSeparator6, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(20, 20, 20)
+                    .addComponent(jLabel10)
+                    .addGap(23, 23, 23)
+                    .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(5, 5, 5)
+                    .addComponent(jSeparator7, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(50, 50, 50)
+                    .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(25, 25, 25)
+                    .addComponent(btnRegistrar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
+        );
+
+        jpInfoRegistro.add(jpRegistrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(-400, 0, 380, 520));
 
         getContentPane().add(jpInfoRegistro, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
@@ -406,6 +460,7 @@ public class Login extends javax.swing.JFrame {
 
     private void txtRegistrarseMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtRegistrarseMouseClicked
         jPanelXIzquierda(0, -400, 10, 5, jpRegistro);
+        jPanelXDerecha(-400, 0, 10, 5, jpRegistrar);
     }//GEN-LAST:event_txtRegistrarseMouseClicked
 
     private void txtRegistrarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtRegistrarMouseEntered
@@ -418,6 +473,7 @@ public class Login extends javax.swing.JFrame {
 
     private void txtRegistrarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtRegistrarMouseClicked
         jPanelXDerecha(-400, 0, 10, 5, jpRegistro);
+        jPanelXIzquierda(0, -400, 10, 5, jpRegistrar);
     }//GEN-LAST:event_txtRegistrarMouseClicked
 
     private void txtIniciarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtIniciarMouseClicked
@@ -488,6 +544,7 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField4;
     private javax.swing.JTextField jTextField5;
     private javax.swing.JPanel jpInfoRegistro;
+    private javax.swing.JPanel jpRegistrar;
     private javax.swing.JPanel jpRegistro;
     private javax.swing.JLabel txtIniciar;
     private javax.swing.JPasswordField txtPass;
