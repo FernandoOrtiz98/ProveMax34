@@ -20,19 +20,21 @@ public class Productos extends javax.swing.JInternalFrame {
   private ArrayList<Producto>listaProd;
   private Producto prod=null;
   private ProductoData prodData;
+  public static int idProd;
   private DefaultTableModel modelo= new DefaultTableModel(){
     public boolean isCellEditable(int fila,int columna){
-        if(columna==2){
-            System.out.println("hla");
-            return true;
-            
-        }else{
+//        if(columna==2){
+//            System.out.println("hla");
+//            return true;
+//            
+//        }else{
         return false;}
-    }
+//    }
     };
     public Productos() {
         prodData=new ProductoData();
         prod = new Producto();
+        idProd=0;
         initComponents();
         armarCabecera();
         cargaDatosInscriptas();
@@ -480,7 +482,8 @@ public class Productos extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_txtAgregarMouseClicked
 
     private void txtEditarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtEditarMouseClicked
-        EditarProducto ep=new EditarProducto();
+        idProd=(Integer) jTProd.getValueAt(jTProd.getSelectedRow(),0);
+        EditarProducto ep=new EditarProducto(); 
         ep.setVisible(true);
  
 
