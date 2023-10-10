@@ -153,7 +153,7 @@ public class AgregarProducto extends javax.swing.JFrame {
                 .addGap(41, 41, 41))
         );
 
-        jPanel1.add(PanelInicio, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 400, 470));
+        jPanel1.add(PanelInicio, new org.netbeans.lib.awtextra.AbsoluteConstraints(-400, 0, 400, 470));
 
         PanelSecundario.setBackground(new java.awt.Color(0, 0, 0));
 
@@ -331,7 +331,7 @@ public class AgregarProducto extends javax.swing.JFrame {
                     .addGap(0, 0, Short.MAX_VALUE)))
         );
 
-        jPanel1.add(PanelSecundario, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 0, 400, 470));
+        jPanel1.add(PanelSecundario, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 400, 470));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 400, 470));
 
@@ -347,7 +347,12 @@ public class AgregarProducto extends javax.swing.JFrame {
     }//GEN-LAST:event_txtAgregarProdMouseExited
 
     private void txtAgregarProdMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtAgregarProdMouseClicked
-      try{
+        jPanelXDerecha(-400, 0, 10, 5, PanelInicio);
+        jPanelXDerecha(0, 400, 10, 5, PanelSecundario);
+        
+        
+        
+        try{
         int id=9;
         String nombre = jTNombre.getText();
         String descr = jTDescripcion.getText();
