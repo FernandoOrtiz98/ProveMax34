@@ -89,11 +89,6 @@ public class AgregarProducto extends javax.swing.JFrame {
 
         jTNombre.setForeground(new java.awt.Color(0, 0, 0));
         jTNombre.setSelectedTextColor(new java.awt.Color(0, 0, 0));
-        jTNombre.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTNombreActionPerformed(evt);
-            }
-        });
         jPanel1.add(jTNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(39, 51, 324, -1));
 
         jTDescripcion.setForeground(new java.awt.Color(0, 0, 0));
@@ -176,10 +171,6 @@ public class AgregarProducto extends javax.swing.JFrame {
         }
 
     }//GEN-LAST:event_txtAgregarProdMouseClicked
-
-    private void jTNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTNombreActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTNombreActionPerformed
 
 
 public static void main(String args[]) {

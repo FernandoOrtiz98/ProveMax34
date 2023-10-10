@@ -122,9 +122,6 @@
               <Color blue="0" green="0" red="0" type="rgb"/>
             </Property>
           </Properties>
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTRazonSocialActionPerformed"/>
-          </Events>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
               <AbsoluteConstraints x="40" y="50" width="324" height="-1"/>
@@ -179,7 +176,7 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="1" attributes="0">
                       <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                      <Component id="txtAgregarProd" min="-2" max="-2" attributes="0"/>
+                      <Component id="txtAgregarProv" min="-2" max="-2" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -187,13 +184,13 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="1" attributes="0">
                       <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                      <Component id="txtAgregarProd" min="-2" max="-2" attributes="0"/>
+                      <Component id="txtAgregarProv" min="-2" max="-2" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
           </Layout>
           <SubComponents>
-            <Component class="javax.swing.JLabel" name="txtAgregarProd">
+            <Component class="javax.swing.JLabel" name="txtAgregarProv">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -211,9 +208,9 @@
                 </Property>
               </Properties>
               <Events>
-                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="txtAgregarProdMouseClicked"/>
-                <EventHandler event="mouseEntered" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="txtAgregarProdMouseEntered"/>
-                <EventHandler event="mouseExited" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="txtAgregarProdMouseExited"/>
+                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="txtAgregarProvMouseClicked"/>
+                <EventHandler event="mouseEntered" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="txtAgregarProvMouseEntered"/>
+                <EventHandler event="mouseExited" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="txtAgregarProvMouseExited"/>
               </Events>
             </Component>
           </SubComponents>

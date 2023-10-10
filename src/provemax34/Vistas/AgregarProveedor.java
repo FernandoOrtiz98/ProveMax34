@@ -8,16 +8,15 @@ package provemax34.Vistas;
 import java.awt.Color;
 import javax.swing.JOptionPane;
 import provemax34.AccesoData.ProveedorData;
-import provemax34.Entidades.Producto;
+import provemax34.Entidades.Proveedor;
 
 /**
  *
  * @author Fer
  */
 public class AgregarProveedor extends javax.swing.JFrame {
-    private Producto prov=null;
+    private Proveedor prov=null;
     private ProveedorData provData=new ProveedorData();
-    
     
     public AgregarProveedor() {
         initComponents();
@@ -43,7 +42,7 @@ public class AgregarProveedor extends javax.swing.JFrame {
         jTTelefono = new javax.swing.JTextField();
         jCBEstado = new javax.swing.JCheckBox();
         btnAgregarProd = new javax.swing.JPanel();
-        txtAgregarProd = new javax.swing.JLabel();
+        txtAgregarProv = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setResizable(false);
@@ -79,11 +78,6 @@ public class AgregarProveedor extends javax.swing.JFrame {
 
         jTRazonSocial.setForeground(new java.awt.Color(0, 0, 0));
         jTRazonSocial.setSelectedTextColor(new java.awt.Color(0, 0, 0));
-        jTRazonSocial.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTRazonSocialActionPerformed(evt);
-            }
-        });
         jPanel1.add(jTRazonSocial, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 50, 324, -1));
 
         jTDomicilio.setForeground(new java.awt.Color(0, 0, 0));
@@ -95,21 +89,21 @@ public class AgregarProveedor extends javax.swing.JFrame {
 
         btnAgregarProd.setBackground(new java.awt.Color(255, 255, 255));
 
-        txtAgregarProd.setBackground(new java.awt.Color(255, 255, 255));
-        txtAgregarProd.setFont(new java.awt.Font("Roboto Medium", 1, 18)); // NOI18N
-        txtAgregarProd.setForeground(new java.awt.Color(0, 0, 0));
-        txtAgregarProd.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        txtAgregarProd.setText("Agregar");
-        txtAgregarProd.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        txtAgregarProd.addMouseListener(new java.awt.event.MouseAdapter() {
+        txtAgregarProv.setBackground(new java.awt.Color(255, 255, 255));
+        txtAgregarProv.setFont(new java.awt.Font("Roboto Medium", 1, 18)); // NOI18N
+        txtAgregarProv.setForeground(new java.awt.Color(0, 0, 0));
+        txtAgregarProv.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        txtAgregarProv.setText("Agregar");
+        txtAgregarProv.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        txtAgregarProv.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                txtAgregarProdMouseClicked(evt);
+                txtAgregarProvMouseClicked(evt);
             }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                txtAgregarProdMouseEntered(evt);
+                txtAgregarProvMouseEntered(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                txtAgregarProdMouseExited(evt);
+                txtAgregarProvMouseExited(evt);
             }
         });
 
@@ -119,13 +113,13 @@ public class AgregarProveedor extends javax.swing.JFrame {
             btnAgregarProdLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, btnAgregarProdLayout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(txtAgregarProd))
+                .addComponent(txtAgregarProv))
         );
         btnAgregarProdLayout.setVerticalGroup(
             btnAgregarProdLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, btnAgregarProdLayout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(txtAgregarProd))
+                .addComponent(txtAgregarProv))
         );
 
         jPanel1.add(btnAgregarProd, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 280, -1, -1));
@@ -135,42 +129,36 @@ public class AgregarProveedor extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void txtAgregarProdMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtAgregarProdMouseEntered
+    private void txtAgregarProvMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtAgregarProvMouseEntered
         btnAgregarProd.setBackground(Color.gray);
-    }//GEN-LAST:event_txtAgregarProdMouseEntered
+    }//GEN-LAST:event_txtAgregarProvMouseEntered
 
-    private void txtAgregarProdMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtAgregarProdMouseExited
+    private void txtAgregarProvMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtAgregarProvMouseExited
         btnAgregarProd.setBackground(Color.white);
-    }//GEN-LAST:event_txtAgregarProdMouseExited
+    }//GEN-LAST:event_txtAgregarProvMouseExited
 
-    private void txtAgregarProdMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtAgregarProdMouseClicked
-      try{
-        int id=9;
-        String nombre = jTRazonSocial.getText();
-        String descr = jTDomicilio.getText();
-        double precio = Double.parseDouble(jTTelefono.getText());
-        
-         if(nombre.isEmpty()|| descr.isEmpty()){
-              JOptionPane.showMessageDialog(this, "No puedo haber campos vacios");
-                       return;
-           }
-           if(prod==null){
-               prod= new Producto(nombre,descr,precio,stock, true);
-               prodData.guardarProducto(prod);
-               limpiarCampos();
-           }
-      }catch (NumberFormatException e) {
-            JOptionPane.showMessageDialog(this,"Datos incompatible" );
-        } catch (NullPointerException ex){
-            JOptionPane.showMessageDialog(this,"Completar datos" );
+    private void txtAgregarProvMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtAgregarProvMouseClicked
+        try {
+            int id = 9;
+            String razonSocial = jTRazonSocial.getText();
+            String domicilio = jTDomicilio.getText();
+            String telefono = jTTelefono.getText();
+
+            if (razonSocial.isEmpty() || domicilio.isEmpty() || telefono.isEmpty()) {
+                JOptionPane.showMessageDialog(this, "No puedo haber campos vacios");
+                return;
+            }
+            if (prov == null) {
+                prov = new Proveedor(razonSocial, domicilio, telefono, true);
+                provData.guardarProveedor(prov);
+                limpiarCampos();
+            }
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(this, "Datos incompatible");
+        } catch (NullPointerException ex) {
+            JOptionPane.showMessageDialog(this, "Completar datos");
         }
-
-    }//GEN-LAST:event_txtAgregarProdMouseClicked
-
-    private void jTRazonSocialActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTRazonSocialActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTRazonSocialActionPerformed
-
+    }//GEN-LAST:event_txtAgregarProvMouseClicked
 
 public static void main(String args[]) {
         /* Set the Nimbus look and feel */
@@ -215,7 +203,7 @@ public static void main(String args[]) {
     private javax.swing.JTextField jTDomicilio;
     private javax.swing.JTextField jTRazonSocial;
     private javax.swing.JTextField jTTelefono;
-    private javax.swing.JLabel txtAgregarProd;
+    private javax.swing.JLabel txtAgregarProv;
     // End of variables declaration//GEN-END:variables
 
 public void limpiarCampos(){
@@ -223,6 +211,6 @@ public void limpiarCampos(){
         jTDomicilio.setText("");
         jTTelefono.setText("");
         jCBEstado.setEnabled(false);
-        prod=null;
+        prov=null;
     }
 }
