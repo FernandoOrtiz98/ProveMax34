@@ -28,8 +28,8 @@ public class CompraData {
         String query="INSERT INTO compra(idProveedor,fecha) VALUES (?,?)";
         try {
             PreparedStatement ps = con.prepareStatement(query,Statement.RETURN_GENERATED_KEYS);
-                ps.setInt(1,compra.getProveedor().getIdProveedor());               //compra.getProveedor().getIdProveedor()
-                ps.setDate(2, Date.valueOf(compra.getFecha()));                //compra.getFecha()
+                ps.setInt(1,compra.getProveedor().getIdProveedor());              
+                ps.setDate(2, Date.valueOf(compra.getFecha()));               
                 
                 ps.executeUpdate();
                 
