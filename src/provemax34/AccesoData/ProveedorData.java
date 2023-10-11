@@ -12,7 +12,6 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
-import provemax34.Entidades.Producto;
 import provemax34.Entidades.Proveedor;
 
 /**
@@ -89,10 +88,8 @@ public class ProveedorData {
         ArrayList<Proveedor> proveedores = new ArrayList<>();
         try {
             PreparedStatement ps = con.prepareStatement(sql);
-
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
-                Proveedor prov=new Proveedor();
                 prov.setIdProveedor(rs.getInt("idProveedor"));
                 prov.setRazonSocial(rs.getString("razonSocial"));
                 prov.setDomicilio(rs.getString("domicilio"));

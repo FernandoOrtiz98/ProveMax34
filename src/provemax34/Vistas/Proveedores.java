@@ -4,18 +4,33 @@
  * and open the template in the editor.
  */
 package provemax34.Vistas;
+import java.util.ArrayList;
+import javax.swing.table.DefaultTableModel;
+import provemax34.Entidades.Proveedor;
+import provemax34.AccesoData.ProveedorData;
 
-/**
- *
- * @author Fer
- */
 public class Proveedores extends javax.swing.JInternalFrame {
+    
+    private ArrayList<Proveedor>listaProv;
+    private Proveedor prov = null;
+    private ProveedorData provData;
+    public static int idProd;
+    private DefaultTableModel modelo = new DefaultTableModel() {
+        public boolean isCellEditable(int fila, int columna) {
+            return false;
+        }
+    };
 
     /**
      * Creates new form Proveedores
      */
     public Proveedores() {
+        provData=new ProveedorData();
+        prov = new Proveedor();
+        idProd=0;
         initComponents();
+        armarCabecera();
+        cargarDatosProveedores();
     }
 
     /**
@@ -44,7 +59,7 @@ public class Proveedores extends javax.swing.JInternalFrame {
         jLabel10 = new javax.swing.JLabel();
         background = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        jTProveedores = new javax.swing.JTable();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jTextField1 = new javax.swing.JTextField();
@@ -226,10 +241,10 @@ public class Proveedores extends javax.swing.JInternalFrame {
         background.setForeground(new java.awt.Color(255, 255, 255));
         background.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jTable1.setBackground(new java.awt.Color(255, 255, 255));
-        jTable1.setFont(new java.awt.Font("Roboto Light", 0, 12)); // NOI18N
-        jTable1.setForeground(new java.awt.Color(0, 0, 0));
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        jTProveedores.setBackground(new java.awt.Color(255, 255, 255));
+        jTProveedores.setFont(new java.awt.Font("Roboto Light", 0, 12)); // NOI18N
+        jTProveedores.setForeground(new java.awt.Color(0, 0, 0));
+        jTProveedores.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -254,7 +269,7 @@ public class Proveedores extends javax.swing.JInternalFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(jTProveedores);
 
         background.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 70, 780, 200));
 
@@ -403,7 +418,7 @@ public class Proveedores extends javax.swing.JInternalFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(background, javax.swing.GroupLayout.DEFAULT_SIZE, 374, Short.MAX_VALUE))
+                .addComponent(background, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
@@ -436,9 +451,31 @@ public class Proveedores extends javax.swing.JInternalFrame {
     private javax.swing.JPanel jPanel9;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JTable jTable1;
+    private javax.swing.JTable jTProveedores;
     private javax.swing.JTable jTable2;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
     // End of variables declaration//GEN-END:variables
+
+     private void armarCabecera() {
+        ArrayList<Object> filaCabecera = new ArrayList<>();
+        filaCabecera.add("Id");
+        filaCabecera.add("Razon Social");
+        filaCabecera.add("Domicilio");
+        filaCabecera.add("Telefono");
+        filaCabecera.add("Estado");
+        for (Object i : filaCabecera) {
+            modelo.addColumn(i);
+        }
+        jTProveedores.setModel(modelo);
+        
+    }
+
+    private void cargarDatosProveedores(){
+        listaProv = provData.listarProveedores();
+        for(Proveedor i: listaProv){
+            modelo.addRow(new Object[]{i.getIdProveedor(), i.getRazonSocial(), i.getDomicilio(),i.getTelefono(),i.getEstado()});
+        }        
+    }
+
 }
