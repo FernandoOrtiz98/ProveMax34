@@ -393,14 +393,14 @@ public class AgregarProducto extends javax.swing.JFrame {
     private void jLBuscadorMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLBuscadorMouseClicked
         try {
             prod=prodData.buscarProducto(Integer.parseInt(jTId.getText()));
-            jtApellido.setText(alu.getApellido());
-            jtNombre.setText(alu.getNombre());
-            jrEstado.setSelected(alu.isEstado());
-            jdCalendario.setDate(Date.valueOf(alu.getfNacimiento()));
+        jTNombre.setText(prod.getNombreProducto());
+        jTDescripcion.setText(prod.getDescripcion());
+        jTPrecioCliente.setText(prod.getPrecioActual()+"");
+        jCBEstado.setSelected(true);
         } catch (NumberFormatException e) {
-            JOptionPane.showMessageDialog(this, "Dni incorrecto");
+            JOptionPane.showMessageDialog(this, "Datos incompatibles");
         } catch (NullPointerException nu){
-            JOptionPane.showMessageDialog(this, "No se encontro el alumno");
+            JOptionPane.showMessageDialog(this, "No se encontro el Producto");
         }
     }//GEN-LAST:event_jLBuscadorMouseClicked
 
