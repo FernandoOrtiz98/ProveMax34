@@ -53,7 +53,7 @@
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="0" y="0" width="400" height="470"/>
+              <AbsoluteConstraints x="-400" y="0" width="400" height="470"/>
             </Constraint>
           </Constraints>
 
@@ -207,7 +207,7 @@
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="400" y="0" width="400" height="470"/>
+              <AbsoluteConstraints x="0" y="0" width="400" height="470"/>
             </Constraint>
           </Constraints>
 
@@ -220,12 +220,12 @@
                           <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" attributes="0">
-                                  <Component id="jTNombre" min="-2" pref="230" max="-2" attributes="0"/>
+                                  <Component id="jTId" min="-2" pref="230" max="-2" attributes="0"/>
                                   <EmptySpace min="50" pref="50" max="-2" attributes="0"/>
                                   <Component id="jPanel2" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <Component id="jLabel7" min="-2" max="-2" attributes="0"/>
-                              <Component id="jTNombre1" min="-2" pref="324" max="-2" attributes="0"/>
+                              <Component id="jTNombre" min="-2" pref="324" max="-2" attributes="0"/>
                               <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
                               <Component id="jTDescripcion" min="-2" pref="323" max="-2" attributes="0"/>
                               <Group type="102" attributes="0">
@@ -234,12 +234,12 @@
                                   <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <Group type="102" attributes="0">
-                                  <Component id="jTPrecio1" min="-2" pref="100" max="-2" attributes="0"/>
+                                  <Component id="jTPrecioCliente" min="-2" pref="100" max="-2" attributes="0"/>
                                   <EmptySpace min="130" pref="130" max="-2" attributes="0"/>
-                                  <Component id="jTPrecio" min="-2" pref="100" max="-2" attributes="0"/>
+                                  <Component id="jTPrecioCosto" min="-2" pref="100" max="-2" attributes="0"/>
                               </Group>
                               <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
-                              <Component id="jTStock" min="-2" pref="100" max="-2" attributes="0"/>
+                              <Component id="jTCantidad" min="-2" pref="100" max="-2" attributes="0"/>
                               <Group type="102" attributes="0">
                                   <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace min="20" pref="20" max="-2" attributes="0"/>
@@ -262,14 +262,14 @@
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" attributes="0">
                                   <EmptySpace min="10" pref="10" max="-2" attributes="0"/>
-                                  <Component id="jTNombre" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jTId" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <Component id="jPanel2" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace min="10" pref="10" max="-2" attributes="0"/>
                           <Component id="jLabel7" min="-2" max="-2" attributes="0"/>
                           <EmptySpace min="13" pref="13" max="-2" attributes="0"/>
-                          <Component id="jTNombre1" min="-2" max="-2" attributes="0"/>
+                          <Component id="jTNombre" min="-2" max="-2" attributes="0"/>
                           <EmptySpace min="16" pref="16" max="-2" attributes="0"/>
                           <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
                           <EmptySpace min="13" pref="13" max="-2" attributes="0"/>
@@ -281,13 +281,13 @@
                           </Group>
                           <EmptySpace min="23" pref="23" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="jTPrecio1" min="-2" max="-2" attributes="0"/>
-                              <Component id="jTPrecio" min="-2" max="-2" attributes="0"/>
+                              <Component id="jTPrecioCliente" min="-2" max="-2" attributes="0"/>
+                              <Component id="jTPrecioCosto" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace min="36" pref="36" max="-2" attributes="0"/>
                           <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
                           <EmptySpace min="13" pref="13" max="-2" attributes="0"/>
-                          <Component id="jTStock" min="-2" max="-2" attributes="0"/>
+                          <Component id="jTCantidad" min="-2" max="-2" attributes="0"/>
                           <EmptySpace min="6" pref="6" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Component id="btnAgregarProd" min="-2" max="-2" attributes="0"/>
@@ -354,7 +354,7 @@
                 <Property name="text" type="java.lang.String" value="Cantidad"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="jTNombre">
+            <Component class="javax.swing.JTextField" name="jTId">
               <Properties>
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="0" green="0" red="0" type="rgb"/>
@@ -372,14 +372,14 @@
                 </Property>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="jTPrecio">
+            <Component class="javax.swing.JTextField" name="jTPrecioCosto">
               <Properties>
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="0" green="0" red="0" type="rgb"/>
                 </Property>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="jTStock">
+            <Component class="javax.swing.JTextField" name="jTCantidad">
               <Properties>
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="0" green="0" red="0" type="rgb"/>
@@ -451,7 +451,7 @@
                 <Property name="text" type="java.lang.String" value="Precio Actual"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="jTPrecio1">
+            <Component class="javax.swing.JTextField" name="jTPrecioCliente">
               <Properties>
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="0" green="0" red="0" type="rgb"/>
@@ -470,7 +470,7 @@
                 <Property name="text" type="java.lang.String" value="Nombre"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="jTNombre1">
+            <Component class="javax.swing.JTextField" name="jTNombre">
               <Properties>
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="0" green="0" red="0" type="rgb"/>
@@ -490,17 +490,17 @@
               <Layout>
                 <DimensionLayout dim="0">
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="jLabel1" alignment="0" pref="60" max="32767" attributes="0"/>
+                      <Component id="jLBuscador" alignment="0" pref="60" max="32767" attributes="0"/>
                   </Group>
                 </DimensionLayout>
                 <DimensionLayout dim="1">
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="jLabel1" alignment="0" pref="50" max="32767" attributes="0"/>
+                      <Component id="jLBuscador" alignment="0" pref="50" max="32767" attributes="0"/>
                   </Group>
                 </DimensionLayout>
               </Layout>
               <SubComponents>
-                <Component class="javax.swing.JLabel" name="jLabel1">
+                <Component class="javax.swing.JLabel" name="jLBuscador">
                   <Properties>
                     <Property name="horizontalAlignment" type="int" value="0"/>
                     <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
@@ -510,6 +510,9 @@
                       <Color id="Cursor de Mano"/>
                     </Property>
                   </Properties>
+                  <Events>
+                    <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jLBuscadorMouseClicked"/>
+                  </Events>
                 </Component>
               </SubComponents>
             </Container>
