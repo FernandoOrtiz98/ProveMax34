@@ -6,6 +6,7 @@
 package provemax34.Vistas;
 
 import java.awt.Color;
+import java.sql.Date;
 import java.time.LocalDate;
 import java.time.ZoneId;
 import java.util.ArrayList;
@@ -53,19 +54,19 @@ public class AgregarProducto extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        jTNombre = new javax.swing.JTextField();
+        jTId = new javax.swing.JTextField();
         jTDescripcion = new javax.swing.JTextField();
-        jTPrecio = new javax.swing.JTextField();
-        jTStock = new javax.swing.JTextField();
+        jTPrecioCosto = new javax.swing.JTextField();
+        jTCantidad = new javax.swing.JTextField();
         jCBEstado = new javax.swing.JCheckBox();
         btnAgregarProd = new javax.swing.JPanel();
         txtAgregarProd = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
-        jTPrecio1 = new javax.swing.JTextField();
+        jTPrecioCliente = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
-        jTNombre1 = new javax.swing.JTextField();
+        jTNombre = new javax.swing.JTextField();
         jPanel2 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
+        jLBuscador = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setResizable(false);
@@ -157,7 +158,7 @@ public class AgregarProducto extends javax.swing.JFrame {
                 .addGap(41, 41, 41))
         );
 
-        jPanel1.add(PanelInicio, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 400, 470));
+        jPanel1.add(PanelInicio, new org.netbeans.lib.awtextra.AbsoluteConstraints(-400, 0, 400, 470));
 
         PanelSecundario.setBackground(new java.awt.Color(0, 0, 0));
 
@@ -181,15 +182,15 @@ public class AgregarProducto extends javax.swing.JFrame {
         jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel5.setText("Cantidad");
 
-        jTNombre.setForeground(new java.awt.Color(0, 0, 0));
-        jTNombre.setText("Buscar por Codigo...");
-        jTNombre.setSelectedTextColor(new java.awt.Color(0, 0, 0));
+        jTId.setForeground(new java.awt.Color(0, 0, 0));
+        jTId.setText("Buscar por Codigo...");
+        jTId.setSelectedTextColor(new java.awt.Color(0, 0, 0));
 
         jTDescripcion.setForeground(new java.awt.Color(0, 0, 0));
 
-        jTPrecio.setForeground(new java.awt.Color(0, 0, 0));
+        jTPrecioCosto.setForeground(new java.awt.Color(0, 0, 0));
 
-        jTStock.setForeground(new java.awt.Color(0, 0, 0));
+        jTCantidad.setForeground(new java.awt.Color(0, 0, 0));
 
         btnAgregarProd.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -231,31 +232,36 @@ public class AgregarProducto extends javax.swing.JFrame {
         jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel6.setText("Precio Actual");
 
-        jTPrecio1.setForeground(new java.awt.Color(0, 0, 0));
+        jTPrecioCliente.setForeground(new java.awt.Color(0, 0, 0));
 
         jLabel7.setFont(new java.awt.Font("Roboto Light", 1, 14)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(255, 255, 255));
         jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel7.setText("Nombre");
 
-        jTNombre1.setForeground(new java.awt.Color(0, 0, 0));
-        jTNombre1.setSelectedTextColor(new java.awt.Color(0, 0, 0));
+        jTNombre.setForeground(new java.awt.Color(0, 0, 0));
+        jTNombre.setSelectedTextColor(new java.awt.Color(0, 0, 0));
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
 
-        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/provemax34/Imagenes/8666693_search_icon.png"))); // NOI18N
-        jLabel1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jLBuscador.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLBuscador.setIcon(new javax.swing.ImageIcon(getClass().getResource("/provemax34/Imagenes/8666693_search_icon.png"))); // NOI18N
+        jLBuscador.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jLBuscador.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLBuscadorMouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 60, Short.MAX_VALUE)
+            .addComponent(jLBuscador, javax.swing.GroupLayout.DEFAULT_SIZE, 60, Short.MAX_VALUE)
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 50, Short.MAX_VALUE)
+            .addComponent(jLBuscador, javax.swing.GroupLayout.DEFAULT_SIZE, 50, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout PanelSecundarioLayout = new javax.swing.GroupLayout(PanelSecundario);
@@ -268,11 +274,11 @@ public class AgregarProducto extends javax.swing.JFrame {
                     .addGap(0, 0, Short.MAX_VALUE)
                     .addGroup(PanelSecundarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(PanelSecundarioLayout.createSequentialGroup()
-                            .addComponent(jTNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jTId, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGap(50, 50, 50)
                             .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addComponent(jLabel7)
-                        .addComponent(jTNombre1, javax.swing.GroupLayout.PREFERRED_SIZE, 324, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jTNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 324, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jLabel2)
                         .addComponent(jTDescripcion, javax.swing.GroupLayout.PREFERRED_SIZE, 323, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGroup(PanelSecundarioLayout.createSequentialGroup()
@@ -280,11 +286,11 @@ public class AgregarProducto extends javax.swing.JFrame {
                             .addGap(135, 135, 135)
                             .addComponent(jLabel3))
                         .addGroup(PanelSecundarioLayout.createSequentialGroup()
-                            .addComponent(jTPrecio1, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jTPrecioCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGap(130, 130, 130)
-                            .addComponent(jTPrecio, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jTPrecioCosto, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addComponent(jLabel5)
-                        .addComponent(jTStock, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jTCantidad, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGroup(PanelSecundarioLayout.createSequentialGroup()
                             .addComponent(jLabel4)
                             .addGap(20, 20, 20)
@@ -302,12 +308,12 @@ public class AgregarProducto extends javax.swing.JFrame {
                     .addGroup(PanelSecundarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(PanelSecundarioLayout.createSequentialGroup()
                             .addGap(10, 10, 10)
-                            .addComponent(jTNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jTId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGap(10, 10, 10)
                     .addComponent(jLabel7)
                     .addGap(13, 13, 13)
-                    .addComponent(jTNombre1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGap(16, 16, 16)
                     .addComponent(jLabel2)
                     .addGap(13, 13, 13)
@@ -318,12 +324,12 @@ public class AgregarProducto extends javax.swing.JFrame {
                         .addComponent(jLabel3))
                     .addGap(23, 23, 23)
                     .addGroup(PanelSecundarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jTPrecio1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jTPrecio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jTPrecioCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jTPrecioCosto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGap(36, 36, 36)
                     .addComponent(jLabel5)
                     .addGap(13, 13, 13)
-                    .addComponent(jTStock, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTCantidad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGap(6, 6, 6)
                     .addGroup(PanelSecundarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addComponent(btnAgregarProd, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -335,7 +341,7 @@ public class AgregarProducto extends javax.swing.JFrame {
                     .addGap(0, 0, Short.MAX_VALUE)))
         );
 
-        jPanel1.add(PanelSecundario, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 0, 400, 470));
+        jPanel1.add(PanelSecundario, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 400, 470));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 400, 470));
 
@@ -355,18 +361,17 @@ public class AgregarProducto extends javax.swing.JFrame {
         jPanelXDerecha(0, 400, 10, 5, PanelSecundario);
 
         try{
-        int id=9;
-        String nombre = jTNombre.getText();
+        String nombre = jTId.getText();
         String descr = jTDescripcion.getText();
-        double precio = Double.parseDouble(jTPrecio.getText());
-        int stock = Integer.parseInt(jTStock.getText());
+        double precioCl = Double.parseDouble(jTPrecioCliente.getText());
+        int stock = Integer.parseInt(jTCantidad.getText());
         
          if(nombre.isEmpty()|| descr.isEmpty()){
               JOptionPane.showMessageDialog(this, "No puedo haber campos vacios");
                        return;
            }
            if(prod==null){
-               prod= new Producto(nombre,descr,precio,stock, true);
+               prod= new Producto(nombre,descr,precioCl,stock, true);
                prodData.guardarProducto(prod);
                limpiarCampos();
            }
@@ -384,6 +389,20 @@ public class AgregarProducto extends javax.swing.JFrame {
         jPanelXIzquierda(400, 0, 10, 5, PanelSecundario);
         
     }//GEN-LAST:event_btnContinuarMouseClicked
+
+    private void jLBuscadorMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLBuscadorMouseClicked
+        try {
+            prod=prodData.buscarProducto(Integer.parseInt(jTId.getText()));
+            jtApellido.setText(alu.getApellido());
+            jtNombre.setText(alu.getNombre());
+            jrEstado.setSelected(alu.isEstado());
+            jdCalendario.setDate(Date.valueOf(alu.getfNacimiento()));
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(this, "Dni incorrecto");
+        } catch (NullPointerException nu){
+            JOptionPane.showMessageDialog(this, "No se encontro el alumno");
+        }
+    }//GEN-LAST:event_jLBuscadorMouseClicked
 
 
 public static void main(String args[]) {
@@ -425,7 +444,7 @@ public static void main(String args[]) {
     private javax.swing.JLabel btnContinuar;
     private javax.swing.JCheckBox jCBEstado;
     private com.toedter.calendar.JDateChooser jDateChooser2;
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLBuscador;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -437,21 +456,21 @@ public static void main(String args[]) {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel4;
+    private javax.swing.JTextField jTCantidad;
     private javax.swing.JTextField jTDescripcion;
+    private javax.swing.JTextField jTId;
     private javax.swing.JTextField jTNombre;
-    private javax.swing.JTextField jTNombre1;
-    private javax.swing.JTextField jTPrecio;
-    private javax.swing.JTextField jTPrecio1;
-    private javax.swing.JTextField jTStock;
+    private javax.swing.JTextField jTPrecioCliente;
+    private javax.swing.JTextField jTPrecioCosto;
     private javax.swing.JComboBox<Proveedor> jcbProveedor;
     private javax.swing.JLabel txtAgregarProd;
     // End of variables declaration//GEN-END:variables
 
 public void limpiarCampos(){
-        jTNombre.setText("");
+        jTId.setText("");
         jTDescripcion.setText("");
-        jTPrecio.setText("");
-        jTStock.setText("");
+        jTPrecioCosto.setText("");
+        jTCantidad.setText("");
         jCBEstado.setEnabled(false);
         prod=null;
     }
