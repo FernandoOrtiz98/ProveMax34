@@ -17,20 +17,19 @@ import provemax34.AccesoData.ProveedorData;
 import provemax34.Entidades.Producto;
 import provemax34.Entidades.Proveedor;
 
-/**
- *
- * @author Fer
- */
+
 public class AgregarProducto extends javax.swing.JFrame {
     private ArrayList <Proveedor>listaProv;
     private Producto prod=null;
     private ProductoData prodData=new ProductoData();
     private ProveedorData provData= new ProveedorData();
-    private Proveedor prov=null;
+    private Proveedor prov;
+    private boolean disp=false;
     
     public AgregarProducto() {
         initComponents();
         this.setLocationRelativeTo(null);
+        prov=null;
         provData=new ProveedorData();
         prov = new Proveedor();
         cargarComboBox();
@@ -158,7 +157,7 @@ public class AgregarProducto extends javax.swing.JFrame {
                 .addGap(41, 41, 41))
         );
 
-        jPanel1.add(PanelInicio, new org.netbeans.lib.awtextra.AbsoluteConstraints(-400, 0, 400, 470));
+        jPanel1.add(PanelInicio, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 400, 470));
 
         PanelSecundario.setBackground(new java.awt.Color(0, 0, 0));
 
@@ -341,7 +340,7 @@ public class AgregarProducto extends javax.swing.JFrame {
                     .addGap(0, 0, Short.MAX_VALUE)))
         );
 
-        jPanel1.add(PanelSecundario, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 400, 470));
+        jPanel1.add(PanelSecundario, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 0, 400, 470));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 400, 470));
 
@@ -361,22 +360,36 @@ public class AgregarProducto extends javax.swing.JFrame {
         jPanelXDerecha(0, 400, 10, 5, PanelSecundario);
 
         try{
-        String nombre = jTId.getText();
+        String nombre = jTNombre.getText();
         String descr = jTDescripcion.getText();
         double precioCl = Double.parseDouble(jTPrecioCliente.getText());
-        int stock = Integer.parseInt(jTCantidad.getText());
-        
-         if(nombre.isEmpty()|| descr.isEmpty()){
-              JOptionPane.showMessageDialog(this, "No puedo haber campos vacios");
+        double precioCt = Double.parseDouble(jTPrecioCosto.getText());
+        int cantidad = Integer.parseInt(jTCantidad.getText());
+                
+         if(disp==true){
+              prod=prodData.buscarProducto(Integer.parseInt(jTId.getText()));
+              prod.setPrecioActual(precioCl);
+              prod.setStock(prod.getStock()+Integer.parseInt(jTCantidad.getText()));
+              prodData.modificarProducto(prod);
+              prod=null;
+               limpiarCampos();
+               disp=false;
                        return;
            }
-           if(prod==null){
-               prod= new Producto(nombre,descr,precioCl,stock, true);
+          if(nombre.isEmpty()|| descr.isEmpty()|| precioCl<=0||precioCt<precioCl || cantidad<=0 ){
+              JOptionPane.showMessageDialog(this, "Error al llenar el formulario, verificar campos...");
+                       return;
+           } else{
+               prod= new Producto(nombre,descr,precioCl,cantidad, true);
                prodData.guardarProducto(prod);
+               prod=null;
                limpiarCampos();
-           }
+               disp=false;
+               
+          }
       }catch (NumberFormatException e) {
             JOptionPane.showMessageDialog(this,"Datos incompatible" );
+            limpiarCampos();
         } catch (NullPointerException ex){
             JOptionPane.showMessageDialog(this,"Completar datos" );
         }
@@ -391,16 +404,24 @@ public class AgregarProducto extends javax.swing.JFrame {
     }//GEN-LAST:event_btnContinuarMouseClicked
 
     private void jLBuscadorMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLBuscadorMouseClicked
+        disp=false;
+        prod=null;
         try {
             prod=prodData.buscarProducto(Integer.parseInt(jTId.getText()));
         jTNombre.setText(prod.getNombreProducto());
         jTDescripcion.setText(prod.getDescripcion());
         jTPrecioCliente.setText(prod.getPrecioActual()+"");
         jCBEstado.setSelected(true);
+        if(prod!=null){
+            disp=true;
+        }
+
         } catch (NumberFormatException e) {
             JOptionPane.showMessageDialog(this, "Datos incompatibles");
+
         } catch (NullPointerException nu){
             JOptionPane.showMessageDialog(this, "No se encontro el Producto");
+
         }
     }//GEN-LAST:event_jLBuscadorMouseClicked
 
@@ -468,7 +489,9 @@ public static void main(String args[]) {
 
 public void limpiarCampos(){
         jTId.setText("");
+        jTNombre.setText("");
         jTDescripcion.setText("");
+        jTPrecioCliente.setText("");
         jTPrecioCosto.setText("");
         jTCantidad.setText("");
         jCBEstado.setEnabled(false);
