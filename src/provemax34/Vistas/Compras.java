@@ -5,10 +5,7 @@
  */
 package provemax34.Vistas;
 
-/**
- *
- * @author Fer
- */
+//Grupo34
 public class Compras extends javax.swing.JInternalFrame {
 
     /**
