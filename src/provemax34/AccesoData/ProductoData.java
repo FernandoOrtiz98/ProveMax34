@@ -15,10 +15,10 @@ import provemax34.Entidades.Producto;
  */
 public class ProductoData {
     private Connection con=null;
-    private Producto prod=null;
+    private Producto prod;
     public ProductoData() {
         this.con = Conexion.getConexion();
-        prod=null;
+        prod=new Producto();
     }
 
     public void guardarProducto(Producto prod){
@@ -86,7 +86,7 @@ public class ProductoData {
             ps.setInt(1, id);
             ResultSet rs=ps.executeQuery();
             if(rs.next()){
-                prod= new Producto();
+                //prod= new Producto();
                 prod.setIdProducto(id);
                 prod.setNombreProducto(rs.getString("nombreProducto"));
                 prod.setDescripcion(rs.getString("descripcion"));
@@ -113,7 +113,7 @@ public class ProductoData {
 
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
-                Producto prod=new Producto();
+                //Producto prod=new Producto();
                 prod.setIdProducto(rs.getInt("idProducto"));
                 prod.setNombreProducto(rs.getString("nombreProducto"));
                 prod.setDescripcion(rs.getString("descripcion"));
