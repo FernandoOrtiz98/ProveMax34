@@ -157,6 +157,13 @@ public class EditarProducto extends javax.swing.JFrame {
 
     private void txtModificarProdMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtModificarProdMouseClicked
       try{
+          prod.setNombreProducto(jTNombre.getText());
+          prod.setDescripcion(jTDescripcion.getText());
+          prod.setPrecioActual(Double.parseDouble(jTPrecio.getText()));
+          prod.setStock(Integer.parseInt(jTStock.getText()));
+          prod.setEstado(jCBEstado.isSelected());
+          prodData.modificarProducto(prod);
+          limpiarCampos();
         
       }catch (NumberFormatException e) {
             JOptionPane.showMessageDialog(this,"Datos incompatible" );
@@ -233,7 +240,7 @@ public void CargarCampos(){
         jTDescripcion.setText(prod.getDescripcion());
         jTPrecio.setText(prod.getPrecioActual()+"");
         jTStock.setText(prod.getStock()+"");
-        jCBEstado.isSelected();
+        jCBEstado.setSelected(prod.isEstado());
 //        System.out.println("id en editar :"+Productos.idProd);
 }
 }

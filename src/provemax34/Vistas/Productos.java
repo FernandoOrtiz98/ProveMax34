@@ -8,6 +8,7 @@ package provemax34.Vistas;
 import java.awt.Color;
 import java.util.ArrayList;
 import java.util.List;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import provemax34.AccesoData.ProductoData;
 import provemax34.Entidades.Producto;
@@ -17,28 +18,26 @@ import provemax34.Entidades.Producto;
  * @author Fer
  */
 public class Productos extends javax.swing.JInternalFrame {
-  private ArrayList<Producto>listaProd;
-  private Producto prod=null;
-  private ProductoData prodData;
-  public static int idProd;
-  private DefaultTableModel modelo= new DefaultTableModel(){
-    public boolean isCellEditable(int fila,int columna){
-//        if(columna==2){
-//            System.out.println("hla");
-//            return true;
-//            
-//        }else{
-        return false;}
-//    }
+
+    private ArrayList<Producto> listaProd;
+    private Producto prod = null;
+    private ProductoData prodData;
+    public static int idProd;
+    private DefaultTableModel modelo = new DefaultTableModel() {
+        public boolean isCellEditable(int fila, int columna) {
+            return false;
+        }
     };
+
     public Productos() {
-        prodData=new ProductoData();
+        prodData = new ProductoData();
         prod = new Producto();
-        idProd=0;
+        idProd = 0;
+        listaProd=prodData.listarProductos();
         initComponents();
         armarCabecera();
         cargaDatosInscriptas();
-        
+
     }
 
     @SuppressWarnings("unchecked")
@@ -66,15 +65,13 @@ public class Productos extends javax.swing.JInternalFrame {
         jTProd = new javax.swing.JTable();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        jTBuscador = new javax.swing.JTextField();
         PanelSalir = new javax.swing.JPanel();
         txtSalir = new javax.swing.JLabel();
         panelEliminar = new javax.swing.JPanel();
         txtEliminar = new javax.swing.JLabel();
         panelEditar = new javax.swing.JPanel();
         txtEditar = new javax.swing.JLabel();
-        panelAgregar = new javax.swing.JPanel();
-        txtAgregar = new javax.swing.JLabel();
 
         background1.setForeground(new java.awt.Color(255, 255, 255));
         background1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -295,13 +292,23 @@ public class Productos extends javax.swing.JInternalFrame {
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("PRODUCTOS");
 
-        jTextField1.setBackground(new java.awt.Color(60, 63, 65));
-        jTextField1.setForeground(new java.awt.Color(255, 255, 255));
-        jTextField1.setText("Buscar Productos...");
-        jTextField1.setBorder(null);
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+        jTBuscador.setBackground(new java.awt.Color(60, 63, 65));
+        jTBuscador.setForeground(new java.awt.Color(255, 255, 255));
+        jTBuscador.setText("Buscar Productos...");
+        jTBuscador.setBorder(null);
+        jTBuscador.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTBuscadorMouseClicked(evt);
+            }
+        });
+        jTBuscador.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
+                jTBuscadorActionPerformed(evt);
+            }
+        });
+        jTBuscador.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                jTBuscadorKeyReleased(evt);
             }
         });
 
@@ -312,7 +319,7 @@ public class Productos extends javax.swing.JInternalFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 235, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 236, Short.MAX_VALUE)
-                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 256, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jTBuscador, javax.swing.GroupLayout.PREFERRED_SIZE, 256, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(53, 53, 53))
         );
         jPanel1Layout.setVerticalGroup(
@@ -321,7 +328,7 @@ public class Productos extends javax.swing.JInternalFrame {
                 .addContainerGap(28, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jTBuscador, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(20, 20, 20))
         );
 
@@ -422,29 +429,6 @@ public class Productos extends javax.swing.JInternalFrame {
 
         background.add(panelEditar, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 300, -1, 40));
 
-        panelAgregar.setBackground(new java.awt.Color(0, 0, 0));
-        panelAgregar.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        txtAgregar.setFont(new java.awt.Font("Roboto Light", 1, 14)); // NOI18N
-        txtAgregar.setForeground(new java.awt.Color(255, 255, 255));
-        txtAgregar.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        txtAgregar.setText("AGREGAR");
-        txtAgregar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        txtAgregar.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                txtAgregarMouseClicked(evt);
-            }
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                txtAgregarMouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                txtAgregarMouseExited(evt);
-            }
-        });
-        panelAgregar.add(txtAgregar, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 100, 40));
-
-        background.add(panelAgregar, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 300, -1, 40));
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -461,35 +445,18 @@ public class Productos extends javax.swing.JInternalFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1ActionPerformed
+    private void jTBuscadorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTBuscadorActionPerformed
 
-    private void txtAgregarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtAgregarMouseEntered
-        panelAgregar.setBackground(Color.gray);
-    }//GEN-LAST:event_txtAgregarMouseEntered
-
-    private void txtAgregarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtAgregarMouseExited
-        panelAgregar.setBackground(Color.black);
-    }//GEN-LAST:event_txtAgregarMouseExited
-
-    private void txtAgregarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtAgregarMouseClicked
-
-        AgregarProducto ap=new AgregarProducto();
-        ap.setVisible(true);
-
-        
-    }//GEN-LAST:event_txtAgregarMouseClicked
+    }//GEN-LAST:event_jTBuscadorActionPerformed
 
     private void txtEditarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtEditarMouseClicked
-        idProd=(Integer) jTProd.getValueAt(jTProd.getSelectedRow(),0);
-        EditarProducto ep=new EditarProducto(); 
-        ep.setVisible(true);
- 
-
-          
-          
-          
+        if(jTProd.getSelectedRow()>=0){
+            idProd = (Integer) jTProd.getValueAt(jTProd.getSelectedRow(), 0);
+            EditarProducto ep = new EditarProducto();
+            ep.setVisible(true);
+        }else{
+            JOptionPane.showMessageDialog(this,"Selecciona el producto a editar...");
+        }    
     }//GEN-LAST:event_txtEditarMouseClicked
 
     private void txtEditarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtEditarMouseEntered
@@ -501,7 +468,12 @@ public class Productos extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_txtEditarMouseExited
 
     private void txtEliminarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtEliminarMouseClicked
-        
+        if(jTProd.getSelectedRow()>=0){
+            idProd = (Integer) jTProd.getValueAt(jTProd.getSelectedRow(), 0);
+            prodData.eliminarProducto(idProd);
+        }else{
+            JOptionPane.showMessageDialog(this,"Selecciona el producto a eliminar...");
+        }  
     }//GEN-LAST:event_txtEliminarMouseClicked
 
     private void txtEliminarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtEliminarMouseEntered
@@ -524,6 +496,19 @@ public class Productos extends javax.swing.JInternalFrame {
         PanelSalir.setBackground(Color.black);
     }//GEN-LAST:event_txtSalirMouseExited
 
+    private void jTBuscadorKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTBuscadorKeyReleased
+        borrarFilas();
+        for(Producto prod:listaProd){
+            if(prod.getNombreProducto().toLowerCase().startsWith(jTBuscador.getText().toLowerCase())||prod.getDescripcion().toLowerCase().startsWith(jTBuscador.getText().toLowerCase())){
+                modelo.addRow(new Object[]{prod.getIdProducto(),prod.getNombreProducto(),prod.getDescripcion(),prod.getPrecioActual(),prod.getStock(),prod.isEstado()});
+            }
+        }
+    }//GEN-LAST:event_jTBuscadorKeyReleased
+
+    private void jTBuscadorMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTBuscadorMouseClicked
+        jTBuscador.setText("");
+    }//GEN-LAST:event_jTBuscadorMouseClicked
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel PanelSalir;
@@ -545,14 +530,12 @@ public class Productos extends javax.swing.JInternalFrame {
     private javax.swing.JPanel jPanel9;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JTextField jTBuscador;
     private javax.swing.JTable jTProd;
     private javax.swing.JTable jTable2;
-    private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
-    private javax.swing.JPanel panelAgregar;
     private javax.swing.JPanel panelEditar;
     private javax.swing.JPanel panelEliminar;
-    private javax.swing.JLabel txtAgregar;
     private javax.swing.JLabel txtEditar;
     private javax.swing.JLabel txtEliminar;
     private javax.swing.JLabel txtSalir;
@@ -570,13 +553,19 @@ public class Productos extends javax.swing.JInternalFrame {
             modelo.addColumn(it);
         }
         jTProd.setModel(modelo);
-        
+
     }
 
-    private void cargaDatosInscriptas(){
+    private void cargaDatosInscriptas() {
         listaProd = prodData.listarProductos();
-        for(Producto i: listaProd){
-            modelo.addRow(new Object[]{i.getIdProducto(), i.getNombreProducto(), i.getDescripcion(),i.getPrecioActual(),i.getStock(),true});
-        }        
+        for (Producto i : listaProd) {
+            modelo.addRow(new Object[]{i.getIdProducto(), i.getNombreProducto(), i.getDescripcion(), i.getPrecioActual(), i.getStock(), true});
+        }
+    }
+    private void borrarFilas(){
+        int f = jTProd.getRowCount()-1;
+        for(;f>=0;f--){
+            modelo.removeRow(f);
+        }
     }
 }

@@ -113,16 +113,16 @@ public class AgregarProveedor extends javax.swing.JFrame {
             btnAgregarProdLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, btnAgregarProdLayout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(txtAgregarProv))
+                .addComponent(txtAgregarProv, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         btnAgregarProdLayout.setVerticalGroup(
             btnAgregarProdLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, btnAgregarProdLayout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(txtAgregarProv))
+                .addComponent(txtAgregarProv, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
-        jPanel1.add(btnAgregarProd, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 280, -1, -1));
+        jPanel1.add(btnAgregarProd, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 270, 90, 30));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 400, 410));
 
@@ -139,7 +139,7 @@ public class AgregarProveedor extends javax.swing.JFrame {
 
     private void txtAgregarProvMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtAgregarProvMouseClicked
         try {
-            int id = 9;
+//            int id = 9;
             String razonSocial = jTRazonSocial.getText();
             String domicilio = jTDomicilio.getText();
             String telefono = jTTelefono.getText();
