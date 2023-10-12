@@ -21,7 +21,7 @@ import provemax34.Entidades.Proveedor;
 public class ProveedorData {
 
     private Connection con = null;
-    private Proveedor prov = null;
+    private Proveedor prov = new Proveedor();
     public ProveedorData() {
         this.con = Conexion.getConexion();
     }
