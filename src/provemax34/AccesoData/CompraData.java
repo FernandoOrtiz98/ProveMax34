@@ -68,33 +68,33 @@ public class CompraData {
         }
     }
 
-    public List<Compra> listarComprasPorProveedor(int idProveedor) {
-
-        List<Compra> compras = new ArrayList<>();                 //int idCompra   Proveedor proveedor   LocalDate fecha
-        String sql = "SELECT * FROM compra WHERE idProveedor = ?";
-        try {
-            PreparedStatement ps = con.prepareStatement(sql);
-            ps.setInt(1, idProveedor);
-            ResultSet rs = ps.executeQuery();
-            //System.out.println(" dsadsa"+idAlumno);
-            while (rs.next()) {
-                //Compra compra = new Compra();
-                compra.setIdCompra(rs.getInt("idCompra"));
-                Proveedor proveedor = proveedorD.buscarProveedor(rs.getInt("idProveedor"));
-                compra.setFecha(rs.getDate("fecha").toLocalDate());
-                
-                compras.add(compra);
-                //System.out.println("esto se va guardar en la lista inscripciones"+insc);
-
-            }
-            ps.close();
-        } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null, "Error de conexion..." + ex.getMessage());
-        }
-
-        return compras;
-
-    }
+//    public List<Compra> listarComprasPorProveedor(int idProveedor) {
+//
+//        List<Compra> compras = new ArrayList<>();                 //int idCompra   Proveedor proveedor   LocalDate fecha
+//        String sql = "SELECT * FROM compra WHERE idProveedor = ?";
+//        try {
+//            PreparedStatement ps = con.prepareStatement(sql);
+//            ps.setInt(1, idProveedor);
+//            ResultSet rs = ps.executeQuery();
+//            //System.out.println(" dsadsa"+idAlumno);
+//            while (rs.next()) {
+//                //Compra compra = new Compra();
+//                compra.setIdCompra(rs.getInt("idCompra"));
+//                Proveedor proveedor = proveedorD.buscarProveedor(rs.getInt("idProveedor"));
+//                compra.setFecha(rs.getDate("fecha").toLocalDate());
+//                
+//                compras.add(compra);
+//                //System.out.println("esto se va guardar en la lista inscripciones"+insc);
+//
+//            }
+//            ps.close();
+//        } catch (SQLException ex) {
+//            JOptionPane.showMessageDialog(null, "Error de conexion..." + ex.getMessage());
+//        }
+//
+//        return compras;
+//
+//    }
     
     
     /*public void guardarCompra (int idProveedor, LocalDate fecha){                
