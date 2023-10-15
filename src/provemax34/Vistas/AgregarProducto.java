@@ -356,8 +356,8 @@ public class AgregarProducto extends javax.swing.JFrame {
     }//GEN-LAST:event_txtAgregarProdMouseExited
 
     private void txtAgregarProdMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtAgregarProdMouseClicked
-        jPanelXDerecha(-400, 0, 10, 5, PanelInicio);
-        jPanelXDerecha(0, 400, 10, 5, PanelSecundario);
+        jPanelXDerecha(-400, 0, 10, 10, PanelInicio);
+        jPanelXDerecha(0, 400, 10, 10, PanelSecundario);
 
         try{
         String nombre = jTNombre.getText();
@@ -398,8 +398,8 @@ public class AgregarProducto extends javax.swing.JFrame {
 
     private void btnContinuarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnContinuarMouseClicked
         
-        jPanelXIzquierda(0, -400, 10, 5, PanelInicio);
-        jPanelXIzquierda(400, 0, 10, 5, PanelSecundario);
+        jPanelXIzquierda(0, -400, 10, 10, PanelInicio);
+        jPanelXIzquierda(400, 0, 10, 10, PanelSecundario);
         
     }//GEN-LAST:event_btnContinuarMouseClicked
 
