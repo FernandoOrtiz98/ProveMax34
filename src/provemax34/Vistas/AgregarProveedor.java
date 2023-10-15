@@ -124,7 +124,7 @@ public class AgregarProveedor extends javax.swing.JFrame {
 
         jPanel1.add(btnAgregarProd, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 270, 90, 30));
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 400, 410));
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 380, 330));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
