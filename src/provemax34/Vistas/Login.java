@@ -459,8 +459,8 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_txtPassMousePressed
 
     private void txtRegistrarseMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtRegistrarseMouseClicked
-        jPanelXIzquierda(0, -400, 10, 5, jpRegistro);
-        jPanelXDerecha(-400, 0, 10, 5, jpRegistrar);
+        jPanelXIzquierda(0, -400, 10, 10, jpRegistro);
+        jPanelXDerecha(-400, 0, 10, 10, jpRegistrar);
     }//GEN-LAST:event_txtRegistrarseMouseClicked
 
     private void txtRegistrarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtRegistrarMouseEntered
@@ -472,8 +472,8 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_txtRegistrarMouseExited
 
     private void txtRegistrarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtRegistrarMouseClicked
-        jPanelXDerecha(-400, 0, 10, 5, jpRegistro);
-        jPanelXIzquierda(0, -400, 10, 5, jpRegistrar);
+        jPanelXDerecha(-400, 0, 10, 10, jpRegistro);
+        jPanelXIzquierda(0, -400, 10, 10, jpRegistrar);
     }//GEN-LAST:event_txtRegistrarMouseClicked
 
     private void txtIniciarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtIniciarMouseClicked
