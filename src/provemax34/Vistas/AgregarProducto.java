@@ -25,11 +25,12 @@ public class AgregarProducto extends javax.swing.JFrame {
     private ProductoData prodData=new ProductoData();
     private ProveedorData provData= new ProveedorData();
     private Proveedor prov;
-    private boolean disp=false;
+    private boolean disp;
     
     public AgregarProducto() {
         initComponents();
         this.setLocationRelativeTo(null);
+        disp=false;
         prov=null;
         provData=new ProveedorData();
         prov = new Proveedor();
@@ -323,7 +324,6 @@ public class AgregarProducto extends javax.swing.JFrame {
            }
           if(nombre.isEmpty()|| descr.isEmpty()|| precioCl<=0||precioCt>precioCl || cantidad<=0 ){
               JOptionPane.showMessageDialog(this, "Error al llenar el formulario, verificar campos...");
-                       return;
            } else{
                prod= new Producto(nombre,descr,precioCl,cantidad, true);
                prodData.guardarProducto(prod);
@@ -376,8 +376,6 @@ public class AgregarProducto extends javax.swing.JFrame {
         jTNombre.setText(prod.getNombreProducto());
         jTDescripcion.setText(prod.getDescripcion());
         jTPrecioCliente.setText(prod.getPrecioActual()+"");
-        
-        disp=true;
         jcbIdProductos.setSelectedIndex(-1);
     }//GEN-LAST:event_jcbIdProductosActionPerformed
 
