@@ -162,7 +162,7 @@ public class AgregarProducto extends javax.swing.JFrame {
                 .addGap(41, 41, 41))
         );
 
-        jPanel1.add(PanelInicio, new org.netbeans.lib.awtextra.AbsoluteConstraints(-400, 0, 400, 470));
+        jPanel1.add(PanelInicio, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 400, 470));
 
         PanelSecundario.setBackground(new java.awt.Color(0, 0, 0));
         PanelSecundario.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -286,7 +286,7 @@ public class AgregarProducto extends javax.swing.JFrame {
         });
         PanelSecundario.add(jcbIdProductos, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 40, 250, -1));
 
-        jPanel1.add(PanelSecundario, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 400, 470));
+        jPanel1.add(PanelSecundario, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 0, 400, 470));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 400, 470));
 
