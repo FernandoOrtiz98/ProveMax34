@@ -113,7 +113,7 @@ public class ProductoData {
 
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
-                //Producto prod=new Producto();
+                Producto prod=new Producto();
                 prod.setIdProducto(rs.getInt("idProducto"));
                 prod.setNombreProducto(rs.getString("nombreProducto"));
                 prod.setDescripcion(rs.getString("descripcion"));
