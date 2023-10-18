@@ -52,22 +52,38 @@ public class DetalleCompraData {
     }
 
     public void modificarDetalleCompra(DetalleCompra dc) {
-        String query = "UPDATE detalleCompra SET idDetalle=? ,cantidad=? ,precioCosto=? ,compra=? ,producto=? "
-                + " where idDetalleCompra=?";
+        String query = "UPDATE detalleCompra SET cantidad=? ,precioCosto=? ,compra=? ,producto=? "
+                + " where idDetalle=?";
         try {
             PreparedStatement ps = con.prepareStatement(query);
-            ps.setInt(1, dc.getIdDetalle());
-            ps.setInt(2, dc.getCantidad());
-            ps.setDouble(3, dc.getPrecioCosto());
-            ps.setInt(4, dc.getCompra().getIdCompra());
-            ps.setInt(5, dc.getProducto().getIdProducto());
+            
+            ps.setInt(1, dc.getCantidad());
+            ps.setDouble(2, dc.getPrecioCosto());
+            ps.setInt(3, dc.getCompra().getIdCompra());
+            ps.setInt(4, dc.getProducto().getIdProducto());
+            ps.setInt(5, dc.getIdDetalle());
             int exito = ps.executeUpdate();
             if (exito == 1) {
-                JOptionPane.showMessageDialog(null, "Proveedor Modificado");
+                JOptionPane.showMessageDialog(null, "Detalle Modificado");
             }
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "Error de conexion... " + ex.getMessage());
         }
     }
-    
+            public void borrarDetalleCompra(int idDetalle){
+        String query = "DELETE FROM detalleCompra WHERE idDetalle = ?";
+
+        try {
+            PreparedStatement ps = con.prepareStatement(query);
+            ps.setInt(1, idDetalle);
+            int filas = ps.executeUpdate();
+            if (filas > 0) {
+                JOptionPane.showMessageDialog(null, "Detalle borrado");
+            }
+            ps.close();
+
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Error al acceder a la tabla Detalle " + ex.getMessage());
+        }
+    }
 }
