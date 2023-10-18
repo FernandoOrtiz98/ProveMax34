@@ -21,9 +21,10 @@ import provemax34.Entidades.Proveedor;
 public class ProveedorData {
 
     private Connection con = null;
-    private Proveedor prov = new Proveedor();
+    private Proveedor prov;
     public ProveedorData() {
         this.con = Conexion.getConexion();
+        prov= new Proveedor();
     }
 
     public void guardarProveedor(Proveedor prov) {
@@ -49,11 +50,11 @@ public class ProveedorData {
         }
     }
 
-    public void eliminarProveedor(int idProveedor) {
-        String query = "UPDATE proveedor SET estado=0 where idProveedor = ?";
+    public void eliminarProveedor(String RazonSocial) {
+        String query = "UPDATE proveedor SET estado=0 where RazonSocial = ?";
         try {
             PreparedStatement ps = con.prepareStatement(query);
-            ps.setInt(1, idProveedor);
+            ps.setString(1, RazonSocial);
             int exito = ps.executeUpdate();
             if (exito == 1) {
                 JOptionPane.showMessageDialog(null, "Proveedor eliminado");
