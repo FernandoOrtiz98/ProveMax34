@@ -67,6 +67,32 @@ public class CompraData {
             JOptionPane.showMessageDialog(null, "Error al acceder a la tabla Compra " + ex.getMessage());
         }
     }
+    
+    public static void modificarCompra(Compra compra) {
+       String query ="UPDATE compra SET idProveedor = ?, fecha = ? WHERE idCompra = ?";
+                       
+        try {       
+            
+            PreparedStatement ps = con.prepareStatement(query);
+            ps.setInt(1, compra.getProveedor().getIdProveedor());
+            ps.setDate(2, Date.valueOf(compra.getFecha())); 
+            ps.setInt(3, compra.getIdCompra());
+
+             int exito= ps.executeUpdate();
+                if(exito==1){
+                    JOptionPane.showMessageDialog(null, "Compra modificada");
+                }
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null,"Error de conexion... "+ex.getMessage());
+            
+        }
+    }
+    
+    
+    
+    
+    
+    
 
 //    public List<Compra> listarComprasPorProveedor(int idProveedor) {
 //
