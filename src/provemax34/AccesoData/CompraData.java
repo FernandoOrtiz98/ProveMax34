@@ -17,20 +17,22 @@ import provemax34.Entidades.Proveedor;
 public class CompraData {
 
     private Connection con = null;
-    private Proveedor proveedor = new Proveedor();
+    private Proveedor proveedor;
     private Compra compra = null;
-    private ProveedorData proveedorD = new ProveedorData();
+    private ProveedorData proveedorD;
 
     public CompraData() {
         this.con = Conexion.getConexion();
         Compra compra = new Compra();
-        CompraData compraD = new CompraData();
+        //CompraData compraD = new CompraData();
+        Proveedor provedor=new Proveedor();
+        ProveedorData proveedorD=new ProveedorData();
 
     }
 
     public void guardarCompra(Compra compra) {
 
-        String query = "INSERT INTO compra(idProveedor,fecha) VALUES (?,?)";
+        String query = "INSERT INTO compra (idProveedor,fecha) VALUES (?,?)";
         try {
             PreparedStatement ps = con.prepareStatement(query, Statement.RETURN_GENERATED_KEYS);
             ps.setInt(1, compra.getProveedor().getIdProveedor());
