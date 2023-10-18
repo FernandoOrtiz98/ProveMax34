@@ -68,7 +68,7 @@ public class CompraData {
         }
     }
     
-    public static void modificarCompra(Compra compra) {
+    public void modificarCompra(Compra compra) {
        String query ="UPDATE compra SET idProveedor = ?, fecha = ? WHERE idCompra = ?";
                        
         try {       
