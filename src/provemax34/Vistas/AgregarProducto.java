@@ -25,11 +25,12 @@ public class AgregarProducto extends javax.swing.JFrame {
     private ProductoData prodData=new ProductoData();
     private ProveedorData provData= new ProveedorData();
     private Proveedor prov;
-    private boolean disp=false;
+    private boolean disp;
     
     public AgregarProducto() {
         initComponents();
         this.setLocationRelativeTo(null);
+        disp=false;
         prov=null;
         provData=new ProveedorData();
         prov = new Proveedor();
@@ -37,7 +38,8 @@ public class AgregarProducto extends javax.swing.JFrame {
         prodData = new ProductoData();
         cargarComboBox();
         cargarComboBoxProducto();
-        jcbIdProductos.setSelectedIndex(-1);
+        limpiarCampos();
+        
     }
 
     
@@ -56,12 +58,10 @@ public class AgregarProducto extends javax.swing.JFrame {
         PanelSecundario = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jTDescripcion = new javax.swing.JTextField();
         jTPrecioCosto = new javax.swing.JTextField();
         jTCantidad = new javax.swing.JTextField();
-        jCBEstado = new javax.swing.JCheckBox();
         btnAgregarProd = new javax.swing.JPanel();
         txtAgregarProd = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
@@ -162,7 +162,7 @@ public class AgregarProducto extends javax.swing.JFrame {
                 .addGap(41, 41, 41))
         );
 
-        jPanel1.add(PanelInicio, new org.netbeans.lib.awtextra.AbsoluteConstraints(-400, 0, 400, 470));
+        jPanel1.add(PanelInicio, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 400, 470));
 
         PanelSecundario.setBackground(new java.awt.Color(0, 0, 0));
         PanelSecundario.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -179,12 +179,6 @@ public class AgregarProducto extends javax.swing.JFrame {
         jLabel3.setText("Precio Costo");
         PanelSecundario.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(252, 229, -1, -1));
 
-        jLabel4.setFont(new java.awt.Font("Roboto Light", 1, 14)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel4.setText("Estado");
-        PanelSecundario.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(22, 409, -1, -1));
-
         jLabel5.setFont(new java.awt.Font("Roboto Light", 1, 14)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -199,7 +193,6 @@ public class AgregarProducto extends javax.swing.JFrame {
 
         jTCantidad.setForeground(new java.awt.Color(0, 0, 0));
         PanelSecundario.add(jTCantidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(22, 359, 100, -1));
-        PanelSecundario.add(jCBEstado, new org.netbeans.lib.awtextra.AbsoluteConstraints(92, 409, -1, -1));
 
         btnAgregarProd.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -261,7 +254,7 @@ public class AgregarProducto extends javax.swing.JFrame {
 
         jLBuscador.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLBuscador.setIcon(new javax.swing.ImageIcon(getClass().getResource("/provemax34/Imagenes/8666693_search_icon.png"))); // NOI18N
-        jLBuscador.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jLBuscador.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jLBuscador.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLBuscadorMouseClicked(evt);
@@ -281,6 +274,11 @@ public class AgregarProducto extends javax.swing.JFrame {
 
         PanelSecundario.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(302, 29, -1, -1));
 
+        jcbIdProductos.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jcbIdProductosMouseClicked(evt);
+            }
+        });
         jcbIdProductos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jcbIdProductosActionPerformed(evt);
@@ -288,7 +286,7 @@ public class AgregarProducto extends javax.swing.JFrame {
         });
         PanelSecundario.add(jcbIdProductos, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 40, 250, -1));
 
-        jPanel1.add(PanelSecundario, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 400, 470));
+        jPanel1.add(PanelSecundario, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 0, 400, 470));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 400, 470));
 
@@ -326,7 +324,6 @@ public class AgregarProducto extends javax.swing.JFrame {
            }
           if(nombre.isEmpty()|| descr.isEmpty()|| precioCl<=0||precioCt>precioCl || cantidad<=0 ){
               JOptionPane.showMessageDialog(this, "Error al llenar el formulario, verificar campos...");
-                       return;
            } else{
                prod= new Producto(nombre,descr,precioCl,cantidad, true);
                prodData.guardarProducto(prod);
@@ -341,7 +338,7 @@ public class AgregarProducto extends javax.swing.JFrame {
         } catch (NullPointerException ex){
             JOptionPane.showMessageDialog(this,"Completar datos" );
         }
-
+//        jcbIdProductos.setSelectedIndex(-1);
     }//GEN-LAST:event_txtAgregarProdMouseClicked
 
     private void btnContinuarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnContinuarMouseClicked
@@ -374,14 +371,17 @@ public class AgregarProducto extends javax.swing.JFrame {
     }//GEN-LAST:event_jLBuscadorMouseClicked
 
     private void jcbIdProductosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jcbIdProductosActionPerformed
-//        jcbIdProductos.setSelectedIndex(-1);
+
         prod=(Producto) jcbIdProductos.getSelectedItem();
         jTNombre.setText(prod.getNombreProducto());
         jTDescripcion.setText(prod.getDescripcion());
         jTPrecioCliente.setText(prod.getPrecioActual()+"");
-        jCBEstado.setSelected(true);
-        disp=true;
+        jcbIdProductos.setSelectedIndex(-1);
     }//GEN-LAST:event_jcbIdProductosActionPerformed
+
+    private void jcbIdProductosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jcbIdProductosMouseClicked
+        
+    }//GEN-LAST:event_jcbIdProductosMouseClicked
 
 
 public static void main(String args[]) {
@@ -421,13 +421,11 @@ public static void main(String args[]) {
     private javax.swing.JPanel PanelSecundario;
     private javax.swing.JPanel btnAgregarProd;
     private javax.swing.JLabel btnContinuar;
-    private javax.swing.JCheckBox jCBEstado;
     private com.toedter.calendar.JDateChooser jDateChooser2;
     private javax.swing.JLabel jLBuscador;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
@@ -452,8 +450,9 @@ public void limpiarCampos(){
         jTPrecioCliente.setText("");
         jTPrecioCosto.setText("");
         jTCantidad.setText("");
-        jCBEstado.setEnabled(false);
+        
         prod=null;
+        
     }
 public void jPanelXIzquierda(final int start, final int stop, final int delay, final int increment, final JPanel JPanel) {
         if (JPanel.getX() == start) {
