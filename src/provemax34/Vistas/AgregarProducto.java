@@ -51,8 +51,8 @@ public class AgregarProducto extends javax.swing.JFrame {
         PanelInicio = new javax.swing.JPanel();
         jLabel8 = new javax.swing.JLabel();
         jcbProveedor = new javax.swing.JComboBox<>();
-        jPanel4 = new javax.swing.JPanel();
-        btnContinuar = new javax.swing.JLabel();
+        btnContinuar = new javax.swing.JPanel();
+        txtContinuar = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
         jDateChooser2 = new com.toedter.calendar.JDateChooser();
         PanelSecundario = new javax.swing.JPanel();
@@ -80,47 +80,53 @@ public class AgregarProducto extends javax.swing.JFrame {
         jPanel1.setForeground(new java.awt.Color(0, 0, 0));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        PanelInicio.setBackground(new java.awt.Color(255, 255, 255));
+        PanelInicio.setBackground(new java.awt.Color(0, 0, 0));
 
         jLabel8.setFont(new java.awt.Font("Roboto Medium", 1, 18)); // NOI18N
-        jLabel8.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel8.setForeground(new java.awt.Color(255, 255, 255));
         jLabel8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel8.setText("Seleccionar Proveedor");
 
-        jcbProveedor.setBackground(new java.awt.Color(0, 0, 0));
-        jcbProveedor.setForeground(new java.awt.Color(255, 255, 255));
+        jcbProveedor.setBackground(new java.awt.Color(255, 255, 255));
+        jcbProveedor.setForeground(new java.awt.Color(0, 0, 0));
 
-        jPanel4.setBackground(new java.awt.Color(0, 0, 0));
+        btnContinuar.setBackground(new java.awt.Color(255, 255, 255));
 
-        btnContinuar.setFont(new java.awt.Font("Roboto Black", 1, 18)); // NOI18N
-        btnContinuar.setForeground(new java.awt.Color(255, 255, 255));
-        btnContinuar.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        btnContinuar.setText("Continuar");
-        btnContinuar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btnContinuar.addMouseListener(new java.awt.event.MouseAdapter() {
+        txtContinuar.setFont(new java.awt.Font("Roboto Black", 1, 18)); // NOI18N
+        txtContinuar.setForeground(new java.awt.Color(0, 0, 0));
+        txtContinuar.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        txtContinuar.setText("Continuar");
+        txtContinuar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        txtContinuar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btnContinuarMouseClicked(evt);
+                txtContinuarMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                txtContinuarMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                txtContinuarMouseExited(evt);
             }
         });
 
-        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
-        jPanel4.setLayout(jPanel4Layout);
-        jPanel4Layout.setHorizontalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(btnContinuar, javax.swing.GroupLayout.DEFAULT_SIZE, 133, Short.MAX_VALUE)
+        javax.swing.GroupLayout btnContinuarLayout = new javax.swing.GroupLayout(btnContinuar);
+        btnContinuar.setLayout(btnContinuarLayout);
+        btnContinuarLayout.setHorizontalGroup(
+            btnContinuarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(txtContinuar, javax.swing.GroupLayout.DEFAULT_SIZE, 133, Short.MAX_VALUE)
         );
-        jPanel4Layout.setVerticalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(btnContinuar, javax.swing.GroupLayout.DEFAULT_SIZE, 50, Short.MAX_VALUE)
+        btnContinuarLayout.setVerticalGroup(
+            btnContinuarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(txtContinuar, javax.swing.GroupLayout.DEFAULT_SIZE, 50, Short.MAX_VALUE)
         );
 
         jLabel10.setFont(new java.awt.Font("Roboto Medium", 1, 18)); // NOI18N
-        jLabel10.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel10.setForeground(new java.awt.Color(255, 255, 255));
         jLabel10.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel10.setText("Seleccionar Fecha");
 
-        jDateChooser2.setBackground(new java.awt.Color(0, 0, 0));
-        jDateChooser2.setForeground(new java.awt.Color(255, 255, 255));
+        jDateChooser2.setBackground(new java.awt.Color(255, 255, 255));
+        jDateChooser2.setForeground(new java.awt.Color(0, 0, 0));
 
         javax.swing.GroupLayout PanelInicioLayout = new javax.swing.GroupLayout(PanelInicio);
         PanelInicio.setLayout(PanelInicioLayout);
@@ -128,7 +134,7 @@ public class AgregarProducto extends javax.swing.JFrame {
             PanelInicioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(PanelInicioLayout.createSequentialGroup()
                 .addGap(128, 128, 128)
-                .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnContinuar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PanelInicioLayout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
@@ -158,7 +164,7 @@ public class AgregarProducto extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(jDateChooser2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 134, Short.MAX_VALUE)
-                .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnContinuar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(41, 41, 41))
         );
 
@@ -341,12 +347,12 @@ public class AgregarProducto extends javax.swing.JFrame {
 //        jcbIdProductos.setSelectedIndex(-1);
     }//GEN-LAST:event_txtAgregarProdMouseClicked
 
-    private void btnContinuarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnContinuarMouseClicked
+    private void txtContinuarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtContinuarMouseClicked
         
         jPanelXIzquierda(0, -400, 10, 10, PanelInicio);
         jPanelXIzquierda(400, 0, 10, 10, PanelSecundario);
         
-    }//GEN-LAST:event_btnContinuarMouseClicked
+    }//GEN-LAST:event_txtContinuarMouseClicked
 
     private void jLBuscadorMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLBuscadorMouseClicked
 //        disp=false;
@@ -382,6 +388,14 @@ public class AgregarProducto extends javax.swing.JFrame {
     private void jcbIdProductosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jcbIdProductosMouseClicked
         
     }//GEN-LAST:event_jcbIdProductosMouseClicked
+
+    private void txtContinuarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtContinuarMouseEntered
+        btnContinuar.setBackground(Color.gray);
+    }//GEN-LAST:event_txtContinuarMouseEntered
+
+    private void txtContinuarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtContinuarMouseExited
+        btnContinuar.setBackground(Color.white);
+    }//GEN-LAST:event_txtContinuarMouseExited
 
 
 public static void main(String args[]) {
@@ -420,7 +434,7 @@ public static void main(String args[]) {
     private javax.swing.JPanel PanelInicio;
     private javax.swing.JPanel PanelSecundario;
     private javax.swing.JPanel btnAgregarProd;
-    private javax.swing.JLabel btnContinuar;
+    private javax.swing.JPanel btnContinuar;
     private com.toedter.calendar.JDateChooser jDateChooser2;
     private javax.swing.JLabel jLBuscador;
     private javax.swing.JLabel jLabel10;
@@ -432,7 +446,6 @@ public static void main(String args[]) {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel4;
     private javax.swing.JTextField jTCantidad;
     private javax.swing.JTextField jTDescripcion;
     private javax.swing.JTextField jTNombre;
@@ -441,6 +454,7 @@ public static void main(String args[]) {
     private javax.swing.JComboBox<Producto> jcbIdProductos;
     private javax.swing.JComboBox<Proveedor> jcbProveedor;
     private javax.swing.JLabel txtAgregarProd;
+    private javax.swing.JLabel txtContinuar;
     // End of variables declaration//GEN-END:variables
 
 public void limpiarCampos(){
