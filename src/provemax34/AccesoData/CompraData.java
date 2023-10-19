@@ -12,6 +12,7 @@ import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JOptionPane;
 import provemax34.Entidades.Compra;
+import provemax34.Entidades.Producto;
 import provemax34.Entidades.Proveedor;
 
 public class CompraData {
@@ -117,6 +118,30 @@ public class CompraData {
         return compras;
 
     }
-    
+    public List<Producto> listarProductoPorFecha(LocalDate fecha) {
+
+        List<Producto> productos = new ArrayList<>();                 
+        String sql = "SELECT Producto.* FROM Compra JOIN DetalleCompra ON Compra.idCompra = DetalleCompra.compra JOIN Producto ON DetalleCompra.producto = Producto.idProducto WHERE Compra.fecha = ?;";
+        try {
+            PreparedStatement ps = con.prepareStatement(sql);
+            ps.setDate(1,Date.valueOf(fecha));
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                Producto prod=new Producto();
+                prod.setIdProducto(rs.getInt("idProducto"));
+                prod.setNombreProducto(rs.getString("nombreProducto"));
+                prod.setDescripcion(rs.getString("descripcion"));
+                prod.setPrecioActual(rs.getDouble("precioActual"));
+                prod.setStock(rs.getInt("stock"));
+                prod.setEstado(true);
+                
+                productos.add(prod);
+            }
+            ps.close();
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Error de conexion..." + ex.getMessage());
+        }
+        return productos;
+    }
     
 }
