@@ -38,7 +38,7 @@ public class ProveMax34 {
           //compD.guardarCompra(comp);
           //compD.modificarCompra(comp);
           //compD.borrarCompra(1);
-          compD.listarProductoPorFecha(LocalDate.MIN);
+          compD.listarProductoPorFecha(LocalDate.of(2023,10,5));
           DetalleCompra dc= new DetalleCompra(1,5, 15000, comp, prod);
           DetalleCompraData dcd= new DetalleCompraData();
           //dcd.guardarDetalleCompra(dc);
