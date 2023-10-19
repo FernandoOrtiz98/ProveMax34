@@ -128,4 +128,28 @@ public class ProductoData {
         }
         return productos;
     }
+     public ArrayList<Producto> listarProductosPorStockMin() {
+
+        String sql = "SELECT * FROM Producto WHERE stock < 1;";
+        ArrayList<Producto> productos = new ArrayList<>();
+        try {
+            PreparedStatement ps = con.prepareStatement(sql);
+
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                Producto prod=new Producto();
+                prod.setIdProducto(rs.getInt("idProducto"));
+                prod.setNombreProducto(rs.getString("nombreProducto"));
+                prod.setDescripcion(rs.getString("descripcion"));
+                prod.setPrecioActual(rs.getDouble("precioActual"));
+                prod.setStock(rs.getInt("stock"));
+                prod.setEstado(rs.getBoolean("estado"));
+                productos.add(prod); 
+            }
+            ps.close();
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Error al acceder a la tabla Producto");
+        }
+        return productos;
+    }
 }
