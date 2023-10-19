@@ -9,11 +9,14 @@ import java.awt.Color;
 import java.sql.Date;
 import java.time.LocalDate;
 import java.time.ZoneId;
+import java.time.format.DateTimeParseException;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import provemax34.AccesoData.CompraData;
 import provemax34.AccesoData.ProductoData;
 import provemax34.AccesoData.ProveedorData;
+import provemax34.Entidades.Compra;
 import provemax34.Entidades.Producto;
 import provemax34.Entidades.Proveedor;
 
@@ -25,17 +28,20 @@ public class AgregarProducto extends javax.swing.JFrame {
     private ProductoData prodData=new ProductoData();
     private ProveedorData provData= new ProveedorData();
     private Proveedor prov;
+    private Compra comp;
+    private CompraData compD;
     private boolean disp;
     
     public AgregarProducto() {
         initComponents();
         this.setLocationRelativeTo(null);
         disp=false;
-        prov=null;
         provData=new ProveedorData();
         prov = new Proveedor();
         prod = new Producto();
         prodData = new ProductoData();
+        comp=new Compra();
+        compD=new CompraData();
         cargarComboBox();
         cargarComboBoxProducto();
         limpiarCampos();
@@ -54,7 +60,7 @@ public class AgregarProducto extends javax.swing.JFrame {
         btnContinuar = new javax.swing.JPanel();
         txtContinuar = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
-        jDateChooser2 = new com.toedter.calendar.JDateChooser();
+        jDCFecha = new com.toedter.calendar.JDateChooser();
         PanelSecundario = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
@@ -125,8 +131,8 @@ public class AgregarProducto extends javax.swing.JFrame {
         jLabel10.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel10.setText("Seleccionar Fecha");
 
-        jDateChooser2.setBackground(new java.awt.Color(255, 255, 255));
-        jDateChooser2.setForeground(new java.awt.Color(0, 0, 0));
+        jDCFecha.setBackground(new java.awt.Color(255, 255, 255));
+        jDCFecha.setForeground(new java.awt.Color(0, 0, 0));
 
         javax.swing.GroupLayout PanelInicioLayout = new javax.swing.GroupLayout(PanelInicio);
         PanelInicio.setLayout(PanelInicioLayout);
@@ -149,7 +155,7 @@ public class AgregarProducto extends javax.swing.JFrame {
                         .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 213, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(84, 84, 84))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PanelInicioLayout.createSequentialGroup()
-                        .addComponent(jDateChooser2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jDCFecha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(129, 129, 129))))
         );
         PanelInicioLayout.setVerticalGroup(
@@ -162,7 +168,7 @@ public class AgregarProducto extends javax.swing.JFrame {
                 .addGap(86, 86, 86)
                 .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jDateChooser2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jDCFecha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 134, Short.MAX_VALUE)
                 .addComponent(btnContinuar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(41, 41, 41))
@@ -348,10 +354,22 @@ public class AgregarProducto extends javax.swing.JFrame {
     }//GEN-LAST:event_txtAgregarProdMouseClicked
 
     private void txtContinuarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtContinuarMouseClicked
-        
+       System.out.println("fech "+jDCFecha.getDate().toInstant().atZone(ZoneId.systemDefault()).toLocalDate());
+        try{
+        prov=(Proveedor) jcbProveedor.getSelectedItem();
+        LocalDate fecha=jDCFecha.getDate().toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+           
+        comp=new Compra(prov,fecha);
+        compD.guardarCompra(comp);
+        if(fecha!=null){
         jPanelXIzquierda(0, -400, 10, 10, PanelInicio);
         jPanelXIzquierda(400, 0, 10, 10, PanelSecundario);
-        
+        }
+       }catch(NullPointerException ex){
+            JOptionPane.showMessageDialog(this,"Selecciona Proveedor y fecha para continuar..." );
+       }catch (DateTimeParseException ex){
+            JOptionPane.showMessageDialog(this,"Completar datos" );
+        }
     }//GEN-LAST:event_txtContinuarMouseClicked
 
     private void jLBuscadorMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLBuscadorMouseClicked
@@ -435,7 +453,7 @@ public static void main(String args[]) {
     private javax.swing.JPanel PanelSecundario;
     private javax.swing.JPanel btnAgregarProd;
     private javax.swing.JPanel btnContinuar;
-    private com.toedter.calendar.JDateChooser jDateChooser2;
+    private com.toedter.calendar.JDateChooser jDCFecha;
     private javax.swing.JLabel jLBuscador;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
@@ -521,5 +539,5 @@ private void cargarComboBoxProducto() {
         }
 
     }
-  
+
 }
