@@ -174,7 +174,7 @@ public class AgregarProducto extends javax.swing.JFrame {
                 .addGap(41, 41, 41))
         );
 
-        jPanel1.add(PanelInicio, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 400, 470));
+        jPanel1.add(PanelInicio, new org.netbeans.lib.awtextra.AbsoluteConstraints(-400, 0, 400, 470));
 
         PanelSecundario.setBackground(new java.awt.Color(0, 0, 0));
         PanelSecundario.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -298,7 +298,7 @@ public class AgregarProducto extends javax.swing.JFrame {
         });
         PanelSecundario.add(jcbIdProductos, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 40, 250, -1));
 
-        jPanel1.add(PanelSecundario, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 0, 400, 470));
+        jPanel1.add(PanelSecundario, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 400, 470));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 400, 470));
 
@@ -373,25 +373,7 @@ public class AgregarProducto extends javax.swing.JFrame {
     }//GEN-LAST:event_txtContinuarMouseClicked
 
     private void jLBuscadorMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLBuscadorMouseClicked
-//        disp=false;
-//        prod=null;
-//        try {
-//            prod=prodData.buscarProducto();
-//        jTNombre.setText(prod.getNombreProducto());
-//        jTDescripcion.setText(prod.getDescripcion());
-//        jTPrecioCliente.setText(prod.getPrecioActual()+"");
-//        jCBEstado.setSelected(true);
-//        if(prod!=null){
-//            disp=true;
-//        }
-//
-//        } catch (NumberFormatException e) {
-//            JOptionPane.showMessageDialog(this, "Datos incompatibles");
-//
-//        } catch (NullPointerException nu){
-//            JOptionPane.showMessageDialog(this, "No se encontro el Producto");
-//
-//        }
+
     }//GEN-LAST:event_jLBuscadorMouseClicked
 
     private void jcbIdProductosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jcbIdProductosActionPerformed
