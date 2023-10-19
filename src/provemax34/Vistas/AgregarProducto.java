@@ -350,7 +350,7 @@ public class AgregarProducto extends javax.swing.JFrame {
         } catch (NullPointerException ex){
             JOptionPane.showMessageDialog(this,"Completar datos" );
         }
-//        jcbIdProductos.setSelectedIndex(-1);
+
     }//GEN-LAST:event_txtAgregarProdMouseClicked
 
     private void txtContinuarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtContinuarMouseClicked
