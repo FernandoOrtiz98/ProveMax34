@@ -2,10 +2,14 @@
 package provemax34.AccesoData;
 
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 import javax.swing.JOptionPane;
 import provemax34.Entidades.Compra;
 import provemax34.Entidades.DetalleCompra;
@@ -85,5 +89,58 @@ public class DetalleCompraData {
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "Error al acceder a la tabla Detalle " + ex.getMessage());
         }
+    }
+    public ArrayList<Producto> listarProductosPorFecha(LocalDate fecha) {
+        
+        String sql = "SELECT idProducto,nombreProducto,descripcion,precioActual,stock,estado FROM producto WHERE estado = 1";
+        ArrayList<Producto> productos = new ArrayList<>();
+        //if()
+        try {
+            PreparedStatement ps = con.prepareStatement(sql);
+
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                Producto prod=new Producto();
+                prod.setIdProducto(rs.getInt("idProducto"));
+                prod.setNombreProducto(rs.getString("nombreProducto"));
+                prod.setDescripcion(rs.getString("descripcion"));
+                prod.setPrecioActual(rs.getDouble("precioActual"));
+                prod.setStock(rs.getInt("stock"));
+                prod.setEstado(rs.getBoolean("estado"));
+                productos.add(prod); //Por cada vuelta del while, agregamos un alumno al ArrayList productos.
+            }
+            ps.close();
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Error al acceder a la tabla Producto");
+        }
+        return productos;
+    }
+    public List<Producto> listarProductoPorCompra(int idCompra) {
+
+        List<Producto> productos = new ArrayList<>();                 
+        String sql = "SELECT Producto.* " +
+        " FROM DetalleCompra " +
+        " JOIN Producto ON DetalleCompra.producto = Producto.idProducto " +
+        " WHERE DetalleCompra.compra = ?; ";
+        try {
+            PreparedStatement ps = con.prepareStatement(sql);
+            ps.setInt(1,idCompra);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                Producto prod=new Producto();
+                prod.setIdProducto(rs.getInt("idProducto"));
+                prod.setNombreProducto(rs.getString("nombreProducto"));
+                prod.setDescripcion(rs.getString("descripcion"));
+                prod.setPrecioActual(rs.getDouble("precioActual"));
+                prod.setStock(rs.getInt("stock"));
+                prod.setEstado(true);
+                
+                productos.add(prod);
+            }
+            ps.close();
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Error de conexion..." + ex.getMessage());
+        }
+        return productos;
     }
 }
