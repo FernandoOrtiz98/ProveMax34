@@ -14,41 +14,46 @@ import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import provemax34.AccesoData.CompraData;
+import provemax34.AccesoData.DetalleCompraData;
 import provemax34.AccesoData.ProductoData;
 import provemax34.AccesoData.ProveedorData;
 import provemax34.Entidades.Compra;
+import provemax34.Entidades.DetalleCompra;
 import provemax34.Entidades.Producto;
 import provemax34.Entidades.Proveedor;
 
-
 public class AgregarProducto extends javax.swing.JFrame {
-    private ArrayList <Proveedor>listaProv;
-    private ArrayList <Producto>listaProd;
-    private Producto prod=null;
-    private ProductoData prodData=new ProductoData();
-    private ProveedorData provData= new ProveedorData();
+
+    private ArrayList<Proveedor> listaProv;
+    private ArrayList<Producto> listaProd;
+    private Producto prod = null;
+    private ProductoData prodData = new ProductoData();
+    private ProveedorData provData = new ProveedorData();
     private Proveedor prov;
     private Compra comp;
     private CompraData compD;
+    private DetalleCompra dc;
+    private DetalleCompraData dcd;
     private boolean disp;
-    
+
     public AgregarProducto() {
         initComponents();
         this.setLocationRelativeTo(null);
-        disp=false;
-        provData=new ProveedorData();
+        disp = false;
+        provData = new ProveedorData();
         prov = new Proveedor();
         prod = new Producto();
         prodData = new ProductoData();
-        comp=new Compra();
-        compD=new CompraData();
+        comp = new Compra();
+        compD = new CompraData();
+        dc= new DetalleCompra();
+        dcd= new DetalleCompraData();
         cargarComboBox();
         cargarComboBoxProducto();
         limpiarCampos();
-        
+
     }
 
-    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -317,58 +322,59 @@ public class AgregarProducto extends javax.swing.JFrame {
         jPanelXDerecha(-400, 0, 10, 10, PanelInicio);
         jPanelXDerecha(0, 400, 10, 10, PanelSecundario);
 
-        try{
-        String nombre = jTNombre.getText();
-        String descr = jTDescripcion.getText();
-        double precioCl = Double.parseDouble(jTPrecioCliente.getText());
-        double precioCt = Double.parseDouble(jTPrecioCosto.getText());
-        int cantidad = Integer.parseInt(jTCantidad.getText());
-              
-         if(disp==true){
-              prod=(Producto) jcbIdProductos.getSelectedItem();
-              prod.setPrecioActual(precioCl);
-              prod.setStock(prod.getStock()+Integer.parseInt(jTCantidad.getText()));
-              prodData.modificarProducto(prod);
-              prod=null;
-               limpiarCampos();
-               disp=false;
-                       return;
-           }
-          if(nombre.isEmpty()|| descr.isEmpty()|| precioCl<=0||precioCt>precioCl || cantidad<=0 ){
-              JOptionPane.showMessageDialog(this, "Error al llenar el formulario, verificar campos...");
-           } else{
-               prod= new Producto(nombre,descr,precioCl,cantidad, true);
-               prodData.guardarProducto(prod);
-               prod=null;
-               limpiarCampos();
-               disp=false;
-               
-          }
-      }catch (NumberFormatException e) {
-            JOptionPane.showMessageDialog(this,"Datos incompatible" );
+        try {
+            String nombre = jTNombre.getText();
+            String descr = jTDescripcion.getText();
+            double precioCl = Double.parseDouble(jTPrecioCliente.getText());
+            double precioCt = Double.parseDouble(jTPrecioCosto.getText());
+            int cantidad = Integer.parseInt(jTCantidad.getText());
+
+            if (disp == true) {
+                prod = (Producto) jcbIdProductos.getSelectedItem();
+                prod.setPrecioActual(precioCl);
+                prod.setStock(prod.getStock() + Integer.parseInt(jTCantidad.getText()));
+                prodData.modificarProducto(prod);
+                prod = null;
+
+                limpiarCampos();
+                disp = false;
+                return;
+            }
+            if (nombre.isEmpty() || descr.isEmpty() || precioCl <= 0 || precioCt > precioCl || cantidad <= 0) {
+                JOptionPane.showMessageDialog(this, "Error al llenar el formulario, verificar campos...");
+            } else {
+                prod = new Producto(nombre, descr, precioCl, cantidad, true);
+                prodData.guardarProducto(prod);
+                prod = null;
+                limpiarCampos();
+                disp = false;
+
+            }
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(this, "Datos incompatible");
             limpiarCampos();
-        } catch (NullPointerException ex){
-            JOptionPane.showMessageDialog(this,"Completar datos" );
+        } catch (NullPointerException ex) {
+            JOptionPane.showMessageDialog(this, "Completar datos");
         }
 
     }//GEN-LAST:event_txtAgregarProdMouseClicked
 
     private void txtContinuarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtContinuarMouseClicked
-       System.out.println("fech "+jDCFecha.getDate().toInstant().atZone(ZoneId.systemDefault()).toLocalDate());
-        try{
-        prov=(Proveedor) jcbProveedor.getSelectedItem();
-        LocalDate fecha=jDCFecha.getDate().toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
-           
-        comp=new Compra(prov,fecha);
-        compD.guardarCompra(comp);
-        if(fecha!=null){
-        jPanelXIzquierda(0, -400, 10, 10, PanelInicio);
-        jPanelXIzquierda(400, 0, 10, 10, PanelSecundario);
-        }
-       }catch(NullPointerException ex){
-            JOptionPane.showMessageDialog(this,"Selecciona Proveedor y fecha para continuar..." );
-       }catch (DateTimeParseException ex){
-            JOptionPane.showMessageDialog(this,"Completar datos" );
+        System.out.println("fech " + jDCFecha.getDate().toInstant().atZone(ZoneId.systemDefault()).toLocalDate());
+        try {
+            prov = (Proveedor) jcbProveedor.getSelectedItem();
+            LocalDate fecha = jDCFecha.getDate().toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+
+            comp = new Compra(prov, fecha);
+            compD.guardarCompra(comp);
+            if (fecha != null) {
+                jPanelXIzquierda(0, -400, 10, 10, PanelInicio);
+                jPanelXIzquierda(400, 0, 10, 10, PanelSecundario);
+            }
+        } catch (NullPointerException ex) {
+            JOptionPane.showMessageDialog(this, "Selecciona Proveedor y fecha para continuar...");
+        } catch (DateTimeParseException ex) {
+            JOptionPane.showMessageDialog(this, "Completar datos");
         }
     }//GEN-LAST:event_txtContinuarMouseClicked
 
@@ -378,15 +384,15 @@ public class AgregarProducto extends javax.swing.JFrame {
 
     private void jcbIdProductosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jcbIdProductosActionPerformed
 
-        prod=(Producto) jcbIdProductos.getSelectedItem();
+        prod = (Producto) jcbIdProductos.getSelectedItem();
         jTNombre.setText(prod.getNombreProducto());
         jTDescripcion.setText(prod.getDescripcion());
-        jTPrecioCliente.setText(prod.getPrecioActual()+"");
+        jTPrecioCliente.setText(prod.getPrecioActual() + "");
         jcbIdProductos.setSelectedIndex(-1);
     }//GEN-LAST:event_jcbIdProductosActionPerformed
 
     private void jcbIdProductosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jcbIdProductosMouseClicked
-        
+
     }//GEN-LAST:event_jcbIdProductosMouseClicked
 
     private void txtContinuarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtContinuarMouseEntered
@@ -397,8 +403,7 @@ public class AgregarProducto extends javax.swing.JFrame {
         btnContinuar.setBackground(Color.white);
     }//GEN-LAST:event_txtContinuarMouseExited
 
-
-public static void main(String args[]) {
+    public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
@@ -457,18 +462,19 @@ public static void main(String args[]) {
     private javax.swing.JLabel txtContinuar;
     // End of variables declaration//GEN-END:variables
 
-public void limpiarCampos(){
-       
+    public void limpiarCampos() {
+
         jTNombre.setText("");
         jTDescripcion.setText("");
         jTPrecioCliente.setText("");
         jTPrecioCosto.setText("");
         jTCantidad.setText("");
-        
-        prod=null;
-        
+
+        prod = null;
+
     }
-public void jPanelXIzquierda(final int start, final int stop, final int delay, final int increment, final JPanel JPanel) {
+
+    public void jPanelXIzquierda(final int start, final int stop, final int delay, final int increment, final JPanel JPanel) {
         if (JPanel.getX() == start) {
             new Thread() {
                 public void run() {
@@ -487,7 +493,8 @@ public void jPanelXIzquierda(final int start, final int stop, final int delay, f
             }.start();
         }
     }
-public void jPanelXDerecha(final int start, final int stop, final int delay, final int increment, final JPanel JPanel) {
+
+    public void jPanelXDerecha(final int start, final int stop, final int delay, final int increment, final JPanel JPanel) {
         if (JPanel.getX() == start) {
             new Thread() {
                 public void run() {
@@ -507,15 +514,17 @@ public void jPanelXDerecha(final int start, final int stop, final int delay, fin
             }.start();
         }
     }
-private void cargarComboBox() {
-    listaProv = provData.listarProveedores();
+
+    private void cargarComboBox() {
+        listaProv = provData.listarProveedores();
         for (Proveedor item : listaProv) {
             jcbProveedor.addItem(item);
         }
 
     }
-private void cargarComboBoxProducto() {
-    listaProd = prodData.listarProductos();
+
+    private void cargarComboBoxProducto() {
+        listaProd = prodData.listarProductos();
         for (Producto item : listaProd) {
             jcbIdProductos.addItem(item);
         }
