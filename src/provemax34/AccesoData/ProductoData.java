@@ -79,12 +79,36 @@ public class ProductoData {
         }
     }
      
-     public  Producto buscarProducto(String nombre,String descripcion){
-        String sql="SELECT nombreProducto,descripcion,precioActual,stock,estado FROM producto WHERE nombreProducto =? AND descripcion = ?";
+//     public  Producto buscarProducto(String nombre,String descripcion){
+//        String sql="SELECT nombreProducto,descripcion,precioActual,stock,estado FROM producto WHERE nombreProducto =? AND descripcion = ?";
+//        try {
+//            PreparedStatement ps= con.prepareStatement(sql);
+//            ps.setString(1, nombre);
+//            ps.setString(2, descripcion);
+//            ResultSet rs=ps.executeQuery();
+//            if(rs.next()){
+//                //prod= new Producto();
+//                prod.setIdProducto(rs.getInt("idProducto"));
+//                prod.setNombreProducto(rs.getString("nombreProducto"));
+//                prod.setDescripcion(rs.getString("descripcion"));
+//                prod.setPrecioActual(rs.getDouble("precioActual"));
+//                prod.setStock(rs.getInt("stock"));
+//                prod.setEstado(true);
+//            
+//            }else{
+//                JOptionPane.showMessageDialog(null, "no existe el Producto");
+//            }
+//            ps.close();
+//        } catch (SQLException ex) {
+//            JOptionPane.showMessageDialog(null,"Error al acceder a la tabla Producto");
+//        }
+//        return prod;      
+//    }
+     public  Producto buscarProducto(int id){
+        String sql="SELECT nombreProducto,descripcion,precioActual,stock,estado FROM producto WHERE idProducto=? ";
         try {
             PreparedStatement ps= con.prepareStatement(sql);
-            ps.setString(1, nombre);
-            ps.setString(2, descripcion);
+            ps.setInt(1, id);
             ResultSet rs=ps.executeQuery();
             if(rs.next()){
                 //prod= new Producto();
@@ -104,7 +128,6 @@ public class ProductoData {
         }
         return prod;      
     }
-     
      public ArrayList<Producto> listarProductos() {
 
         String sql = "SELECT idProducto,nombreProducto,descripcion,precioActual,stock,estado FROM producto WHERE estado = 1";
