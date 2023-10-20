@@ -46,6 +46,9 @@ public class Menu extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         txtProductos1 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
+        panelDetalleCompra = new javax.swing.JPanel();
+        txtDetalleCompra = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
         escritorio = new javax.swing.JPanel();
 
@@ -176,6 +179,31 @@ public class Menu extends javax.swing.JFrame {
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/provemax34/Imagenes/logo_empresa_pequeño.png"))); // NOI18N
         jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 200, 140));
 
+        panelDetalleCompra.setBackground(new java.awt.Color(51, 51, 51));
+        panelDetalleCompra.setForeground(new java.awt.Color(51, 51, 51));
+        panelDetalleCompra.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        txtDetalleCompra.setFont(new java.awt.Font("Roboto Light", 1, 14)); // NOI18N
+        txtDetalleCompra.setForeground(new java.awt.Color(255, 255, 255));
+        txtDetalleCompra.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        txtDetalleCompra.setText("DETALLE COMPRA");
+        txtDetalleCompra.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        txtDetalleCompra.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                txtDetalleCompraMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                txtDetalleCompraMouseExited(evt);
+            }
+        });
+        panelDetalleCompra.add(txtDetalleCompra, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 0, 150, 60));
+
+        jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/provemax34/Imagenes/8666689_file_text_icon.png"))); // NOI18N
+        panelDetalleCompra.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(1, 6, 53, 48));
+
+        jPanel2.add(panelDetalleCompra, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 380, 210, 60));
+
         background.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 210, 540));
 
         jPanel3.setBackground(new java.awt.Color(0, 0, 0));
@@ -270,16 +298,29 @@ public class Menu extends javax.swing.JFrame {
     }//GEN-LAST:event_txtComprasMouseClicked
 
     private void txtProductos1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtProductos1MouseClicked
-        // TODO add your handling code here:
+        escritorio.removeAll();
+        escritorio.repaint();
+        Productos prod = new Productos();
+        
+        escritorio.add(prod);
+        prod.setVisible(true);
     }//GEN-LAST:event_txtProductos1MouseClicked
 
     private void txtProductos1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtProductos1MouseEntered
-        // TODO add your handling code here:
+        panelProductos.setBackground(Color.gray);
     }//GEN-LAST:event_txtProductos1MouseEntered
 
     private void txtProductos1MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtProductos1MouseExited
-        // TODO add your handling code here:
+        panelProductos.setBackground(new Color(51,51,51));
     }//GEN-LAST:event_txtProductos1MouseExited
+
+    private void txtDetalleCompraMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtDetalleCompraMouseEntered
+        panelDetalleCompra.setBackground(Color.gray);
+    }//GEN-LAST:event_txtDetalleCompraMouseEntered
+
+    private void txtDetalleCompraMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtDetalleCompraMouseExited
+        panelDetalleCompra.setBackground(new Color(51,51,51));
+    }//GEN-LAST:event_txtDetalleCompraMouseExited
 
     /**
      * @param args the command line arguments
@@ -320,6 +361,7 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JPanel background;
     private javax.swing.JPanel escritorio;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
@@ -327,10 +369,12 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel panelCompras;
+    private javax.swing.JPanel panelDetalleCompra;
     private javax.swing.JPanel panelHome;
     private javax.swing.JPanel panelProductos;
     private javax.swing.JPanel panelProveedores;
     private javax.swing.JLabel txtCompras;
+    private javax.swing.JLabel txtDetalleCompra;
     private javax.swing.JLabel txtHome;
     private javax.swing.JLabel txtProductos1;
     private javax.swing.JLabel txtProveedores;
