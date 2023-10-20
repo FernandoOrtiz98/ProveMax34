@@ -143,5 +143,26 @@ public class CompraData {
         }
         return productos;
     }
-    
+//    public  Compra buscarCompra(Proveedor prov,LocalDate fecha){
+//        String sql="SELECT idCompra,idProveedor,fecha FROM compra WHERE idCompra =? AND idProveedor = ?";
+//        try {
+//            PreparedStatement ps= con.prepareStatement(sql);
+//            ps.setString(1, prov.getIdProveedor());
+//            ps.setString(2, fecha);
+//            ResultSet rs=ps.executeQuery();
+//            if(rs.next()){
+//                
+//                compra.setIdCompra(rs.getInt("idCompra"));
+//                compra.setProveedor(prov);
+//                compra.setFecha(fecha);
+//                
+//            
+//            }else{
+//                JOptionPane.showMessageDialog(null, "no existe el Producto");
+//            }
+//            ps.close();
+//        } catch (SQLException ex) {
+//            JOptionPane.showMessageDialog(null,"Error al acceder a la tabla Producto");
+//        }
+//        return compra; 
 }
