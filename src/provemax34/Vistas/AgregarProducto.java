@@ -345,7 +345,7 @@ public class AgregarProducto extends javax.swing.JFrame {
             } else {
                 prod = new Producto(nombre, descr, precioCl, cantidad, true);
                 prodData.guardarProducto(prod);
-                prod=prodData.buscarProducto(prod.getNombreProducto(),prod.getDescripcion());
+//                prod=prodData.buscarProducto(prod.getNombreProducto(),prod.getDescripcion());
                 dc=new DetalleCompra(cantidad,precioCt,comp,prod);
                 dcd.guardarDetalleCompra(dc);
                 prod = null;
