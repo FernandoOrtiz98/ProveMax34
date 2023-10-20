@@ -79,15 +79,16 @@ public class ProductoData {
         }
     }
      
-     public  Producto buscarProducto(int id){
-        String sql="SELECT nombreProducto,descripcion,precioActual,stock,estado FROM producto WHERE idProducto =? AND estado = 1";
+     public  Producto buscarProducto(String nombre,String descripcion){
+        String sql="SELECT nombreProducto,descripcion,precioActual,stock,estado FROM producto WHERE nombreProducto =? AND descripcion = ?";
         try {
             PreparedStatement ps= con.prepareStatement(sql);
-            ps.setInt(1, id);
+            ps.setString(1, nombre);
+            ps.setString(2, descripcion);
             ResultSet rs=ps.executeQuery();
             if(rs.next()){
                 //prod= new Producto();
-                prod.setIdProducto(id);
+                prod.setIdProducto(rs.getInt("idProducto"));
                 prod.setNombreProducto(rs.getString("nombreProducto"));
                 prod.setDescripcion(rs.getString("descripcion"));
                 prod.setPrecioActual(rs.getDouble("precioActual"));
