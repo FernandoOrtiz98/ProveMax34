@@ -43,8 +43,8 @@ public class Menu extends javax.swing.JFrame {
         txtCompras = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         panelProductos = new javax.swing.JPanel();
-        txtProductos = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
+        txtProductos1 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
         escritorio = new javax.swing.JPanel();
@@ -148,27 +148,27 @@ public class Menu extends javax.swing.JFrame {
         panelProductos.setForeground(new java.awt.Color(51, 51, 51));
         panelProductos.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        txtProductos.setFont(new java.awt.Font("Roboto Light", 1, 14)); // NOI18N
-        txtProductos.setForeground(new java.awt.Color(255, 255, 255));
-        txtProductos.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        txtProductos.setText("PRODUCTOS");
-        txtProductos.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        txtProductos.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                txtProductosMouseClicked(evt);
-            }
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                txtProductosMouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                txtProductosMouseExited(evt);
-            }
-        });
-        panelProductos.add(txtProductos, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 0, 150, 60));
-
         jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/provemax34/Imagenes/8666822_package_delivery_icon (1).png"))); // NOI18N
         panelProductos.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 60, 60));
+
+        txtProductos1.setFont(new java.awt.Font("Roboto Light", 1, 14)); // NOI18N
+        txtProductos1.setForeground(new java.awt.Color(255, 255, 255));
+        txtProductos1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        txtProductos1.setText("PRODUCTOS");
+        txtProductos1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        txtProductos1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                txtProductos1MouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                txtProductos1MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                txtProductos1MouseExited(evt);
+            }
+        });
+        panelProductos.add(txtProductos1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 0, 150, 60));
 
         jPanel2.add(panelProductos, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 320, 210, 60));
 
@@ -247,23 +247,6 @@ public class Menu extends javax.swing.JFrame {
         panelCompras.setBackground(new Color(51,51,51));
     }//GEN-LAST:event_txtComprasMouseExited
 
-    private void txtProductosMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtProductosMouseEntered
-        panelProductos.setBackground(Color.gray);
-    }//GEN-LAST:event_txtProductosMouseEntered
-
-    private void txtProductosMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtProductosMouseExited
-        panelProductos.setBackground(new Color(51,51,51));
-    }//GEN-LAST:event_txtProductosMouseExited
-
-    private void txtProductosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtProductosMouseClicked
-        escritorio.removeAll();
-        escritorio.repaint();
-        Productos prod = new Productos();
-        
-        escritorio.add(prod);
-        prod.setVisible(true);
-    }//GEN-LAST:event_txtProductosMouseClicked
-
     private void txtHomeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtHomeMouseClicked
         escritorio.removeAll();
         escritorio.repaint();
@@ -285,6 +268,18 @@ public class Menu extends javax.swing.JFrame {
         escritorio.add(comp);
         comp.setVisible(true);
     }//GEN-LAST:event_txtComprasMouseClicked
+
+    private void txtProductos1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtProductos1MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtProductos1MouseClicked
+
+    private void txtProductos1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtProductos1MouseEntered
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtProductos1MouseEntered
+
+    private void txtProductos1MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtProductos1MouseExited
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtProductos1MouseExited
 
     /**
      * @param args the command line arguments
@@ -337,7 +332,7 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JPanel panelProveedores;
     private javax.swing.JLabel txtCompras;
     private javax.swing.JLabel txtHome;
-    private javax.swing.JLabel txtProductos;
+    private javax.swing.JLabel txtProductos1;
     private javax.swing.JLabel txtProveedores;
     // End of variables declaration//GEN-END:variables
 }
