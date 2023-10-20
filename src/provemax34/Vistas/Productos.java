@@ -20,7 +20,7 @@ import provemax34.Entidades.Producto;
 public class Productos extends javax.swing.JInternalFrame {
 
     private ArrayList<Producto> listaProd;
-    private Producto prod = null;
+    private Producto prod;
     private ProductoData prodData;
     public static int idProd;
     private DefaultTableModel modelo = new DefaultTableModel() {
