@@ -321,14 +321,14 @@ public class AgregarProducto extends javax.swing.JFrame {
     private void txtAgregarProdMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtAgregarProdMouseClicked
         jPanelXDerecha(-400, 0, 10, 10, PanelInicio);
         jPanelXDerecha(0, 400, 10, 10, PanelSecundario);
-
+        
         try {
             String nombre = jTNombre.getText();
             String descr = jTDescripcion.getText();
             double precioCl = Double.parseDouble(jTPrecioCliente.getText());
             double precioCt = Double.parseDouble(jTPrecioCosto.getText());
             int cantidad = Integer.parseInt(jTCantidad.getText());
-
+            
             if (disp == true) {
                 prod = (Producto) jcbIdProductos.getSelectedItem();
                 prod.setPrecioActual(precioCl);
@@ -345,7 +345,11 @@ public class AgregarProducto extends javax.swing.JFrame {
             } else {
                 prod = new Producto(nombre, descr, precioCl, cantidad, true);
                 prodData.guardarProducto(prod);
+                prod=prodData.buscarProducto(prod.getNombreProducto(),prod.getDescripcion());
+                dc=new DetalleCompra(cantidad,precioCt,comp,prod);
+                dcd.guardarDetalleCompra(dc);
                 prod = null;
+                
                 limpiarCampos();
                 disp = false;
 
