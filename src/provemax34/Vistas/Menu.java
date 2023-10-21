@@ -189,6 +189,9 @@ public class Menu extends javax.swing.JFrame {
         txtDetalleCompra.setText("DETALLE COMPRA");
         txtDetalleCompra.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         txtDetalleCompra.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                txtDetalleCompraMouseClicked(evt);
+            }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 txtDetalleCompraMouseEntered(evt);
             }
@@ -321,6 +324,14 @@ public class Menu extends javax.swing.JFrame {
     private void txtDetalleCompraMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtDetalleCompraMouseExited
         panelDetalleCompra.setBackground(new Color(51,51,51));
     }//GEN-LAST:event_txtDetalleCompraMouseExited
+
+    private void txtDetalleCompraMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtDetalleCompraMouseClicked
+        escritorio.removeAll();
+        escritorio.repaint();
+        DetallesDeCompras ddc=new DetallesDeCompras();
+        escritorio.add(ddc);
+        ddc.setVisible(true);
+    }//GEN-LAST:event_txtDetalleCompraMouseClicked
 
     /**
      * @param args the command line arguments
