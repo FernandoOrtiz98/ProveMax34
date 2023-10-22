@@ -17,6 +17,7 @@ import provemax34.Entidades.Proveedor;
 public class AgregarProveedor extends javax.swing.JFrame {
     private Proveedor prov=null;
     private ProveedorData provData=new ProveedorData();
+    private Proveedores proveedores=new Proveedores();
     
     public AgregarProveedor() {
         initComponents();
@@ -139,7 +140,6 @@ public class AgregarProveedor extends javax.swing.JFrame {
 
     private void txtAgregarProvMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtAgregarProvMouseClicked
         try {
-//            int id = 9;
             String razonSocial = jTRazonSocial.getText();
             String domicilio = jTDomicilio.getText();
             String telefono = jTTelefono.getText();
@@ -158,6 +158,7 @@ public class AgregarProveedor extends javax.swing.JFrame {
         } catch (NullPointerException ex) {
             JOptionPane.showMessageDialog(this, "Completar datos");
         }
+        
     }//GEN-LAST:event_txtAgregarProvMouseClicked
 
 public static void main(String args[]) {
