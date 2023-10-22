@@ -6,13 +6,14 @@
 package provemax34.Vistas;
 
 import java.awt.Color;
-import java.awt.Point;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
+import provemax34.AccesoData.DetalleCompraData;
 import provemax34.AccesoData.ProductoData;
+import provemax34.Entidades.DetalleCompra;
 import provemax34.Entidades.Producto;
 
 /**
@@ -21,9 +22,11 @@ import provemax34.Entidades.Producto;
  */
 public class DetallesDeCompras extends javax.swing.JInternalFrame {
 
-    private ArrayList<Producto> listaProd;
+    private ArrayList<DetalleCompra> listaDetalle;
     private Producto prod = null;
     private ProductoData prodData;
+    private DetalleCompra dc = new DetalleCompra();
+    private DetalleCompraData dcd = new DetalleCompraData();
     public static int idProd;
     private DefaultTableModel modelo = new DefaultTableModel() {
         public boolean isCellEditable(int fila, int columna) {
@@ -35,10 +38,10 @@ public class DetallesDeCompras extends javax.swing.JInternalFrame {
         prodData = new ProductoData();
         prod = new Producto();
         idProd = 0;
-        listaProd=prodData.listarProductos();
+        listaDetalle=dcd.listarDetalles();
         initComponents();
         armarCabecera();
-        cargaDatosInscriptas();
+        cargaDatosDetalles();
 
     }
 
@@ -67,7 +70,6 @@ public class DetallesDeCompras extends javax.swing.JInternalFrame {
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jTBuscador = new javax.swing.JTextField();
-        panelFiltrar = new javax.swing.JPanel();
         txtFiltrar = new javax.swing.JLabel();
         panelFiltros = new javax.swing.JPanel();
         jComboBox1 = new javax.swing.JComboBox<>();
@@ -276,7 +278,7 @@ public class DetallesDeCompras extends javax.swing.JInternalFrame {
         jLabel1.setFont(new java.awt.Font("Roboto Black", 1, 18)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("PRODUCTOS");
+        jLabel1.setText("DETALLES");
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 28, 150, -1));
 
         jTBuscador.setBackground(new java.awt.Color(60, 63, 65));
@@ -298,15 +300,13 @@ public class DetallesDeCompras extends javax.swing.JInternalFrame {
                 jTBuscadorKeyReleased(evt);
             }
         });
-        jPanel1.add(jTBuscador, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 30, 150, -1));
-
-        panelFiltrar.setBackground(new java.awt.Color(0, 0, 0));
+        jPanel1.add(jTBuscador, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 30, 250, -1));
 
         txtFiltrar.setFont(new java.awt.Font("Roboto Light", 1, 14)); // NOI18N
         txtFiltrar.setForeground(new java.awt.Color(255, 255, 255));
         txtFiltrar.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        txtFiltrar.setText("Filtrar por..");
-        txtFiltrar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        txtFiltrar.setText("Filtrar por...");
+        txtFiltrar.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         txtFiltrar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 txtFiltrarMouseClicked(evt);
@@ -318,19 +318,7 @@ public class DetallesDeCompras extends javax.swing.JInternalFrame {
                 txtFiltrarMouseExited(evt);
             }
         });
-
-        javax.swing.GroupLayout panelFiltrarLayout = new javax.swing.GroupLayout(panelFiltrar);
-        panelFiltrar.setLayout(panelFiltrarLayout);
-        panelFiltrarLayout.setHorizontalGroup(
-            panelFiltrarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(txtFiltrar, javax.swing.GroupLayout.DEFAULT_SIZE, 140, Short.MAX_VALUE)
-        );
-        panelFiltrarLayout.setVerticalGroup(
-            panelFiltrarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(txtFiltrar, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)
-        );
-
-        jPanel1.add(panelFiltrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 20, 140, 30));
+        jPanel1.add(txtFiltrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 20, 140, 30));
 
         background.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 780, 70));
 
@@ -415,7 +403,7 @@ public class DetallesDeCompras extends javax.swing.JInternalFrame {
                 .addContainerGap(25, Short.MAX_VALUE))
         );
 
-        background.add(panelFiltros, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, -300, 240, 300));
+        background.add(panelFiltros, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 70, 240, 300));
 
         jtCompras.setBackground(new java.awt.Color(255, 255, 255));
         jtCompras.setFont(new java.awt.Font("Roboto Light", 0, 12)); // NOI18N
@@ -445,11 +433,10 @@ public class DetallesDeCompras extends javax.swing.JInternalFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jtCompras.setUpdateSelectionOnSort(false);
-        jtCompras.setVerifyInputWhenFocusTarget(false);
+        jtCompras.setOpaque(false);
         jScrollPane1.setViewportView(jtCompras);
 
-        background.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 70, 780, 200));
+        background.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 70, 540, 200));
 
         PanelSalir.setBackground(new java.awt.Color(0, 0, 0));
         PanelSalir.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -556,7 +543,7 @@ public class DetallesDeCompras extends javax.swing.JInternalFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(background, javax.swing.GroupLayout.DEFAULT_SIZE, 356, Short.MAX_VALUE))
+                .addComponent(background, javax.swing.GroupLayout.PREFERRED_SIZE, 356, Short.MAX_VALUE))
         );
 
         pack();
@@ -614,12 +601,12 @@ public class DetallesDeCompras extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_txtSalirMouseExited
 
     private void jTBuscadorKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTBuscadorKeyReleased
-        borrarFilas();
-        for(Producto prod:listaProd){
-            if(prod.getNombreProducto().toLowerCase().startsWith(jTBuscador.getText().toLowerCase())||prod.getDescripcion().toLowerCase().startsWith(jTBuscador.getText().toLowerCase())){
-                modelo.addRow(new Object[]{prod.getIdProducto(),prod.getNombreProducto(),prod.getDescripcion(),prod.getPrecioActual(),prod.getStock(),prod.isEstado()});
-            }
-        }
+//        borrarFilas();
+//        for(Producto prod:listaProd){
+//            if(prod.getNombreProducto().toLowerCase().startsWith(jTBuscador.getText().toLowerCase())||prod.getDescripcion().toLowerCase().startsWith(jTBuscador.getText().toLowerCase())){
+//                modelo.addRow(new Object[]{prod.getIdProducto(),prod.getNombreProducto(),prod.getDescripcion(),prod.getPrecioActual(),prod.getStock(),prod.isEstado()});
+//            }
+//        }
     }//GEN-LAST:event_jTBuscadorKeyReleased
 
     private void jTBuscadorMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTBuscadorMouseClicked
@@ -627,23 +614,15 @@ public class DetallesDeCompras extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jTBuscadorMouseClicked
 
     private void txtFiltrarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtFiltrarMouseEntered
-        panelFiltrar.setBackground(Color.gray);
+        
     }//GEN-LAST:event_txtFiltrarMouseEntered
 
     private void txtFiltrarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtFiltrarMouseExited
-        panelFiltrar.setBackground(Color.black);
+        
     }//GEN-LAST:event_txtFiltrarMouseExited
 
     private void txtFiltrarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtFiltrarMouseClicked
-       
-        Point inicio= panelFiltros.getLocation();
-        jPanelYAbajo(-300, 70, 10, 10, panelFiltros);
-        jtCompras.setEnabled(false);
-        
-        if(panelFiltros.getLocation()!= inicio){
-            jPanelYArriba(70, -300, 10, 10, panelFiltros);
-            jtCompras.setEnabled(true);
-        }
+    
     }//GEN-LAST:event_txtFiltrarMouseClicked
 
 
@@ -685,7 +664,6 @@ public class DetallesDeCompras extends javax.swing.JInternalFrame {
     private javax.swing.JTable jtCompras;
     private javax.swing.JPanel panelEditar;
     private javax.swing.JPanel panelEliminar;
-    private javax.swing.JPanel panelFiltrar;
     private javax.swing.JPanel panelFiltros;
     private javax.swing.JLabel txtEditar;
     private javax.swing.JLabel txtEliminar;
@@ -696,11 +674,10 @@ public class DetallesDeCompras extends javax.swing.JInternalFrame {
     private void armarCabecera() {
         ArrayList<Object> filaCabecera = new ArrayList<>();
         filaCabecera.add("Codigo");
-        filaCabecera.add("Nombre");
-        filaCabecera.add("Descripcion");
-        filaCabecera.add("Precio Actual");
-        filaCabecera.add("Stock");
-        filaCabecera.add("Estado");
+        filaCabecera.add("Cantidad");
+        filaCabecera.add("Precio Costo");
+        filaCabecera.add("Compra");
+        filaCabecera.add("Producto");
         for (Object it : filaCabecera) {
             modelo.addColumn(it);
         }
@@ -708,10 +685,10 @@ public class DetallesDeCompras extends javax.swing.JInternalFrame {
 
     }
 
-    private void cargaDatosInscriptas() {
-        listaProd = prodData.listarProductos();
-        for (Producto i : listaProd) {
-            modelo.addRow(new Object[]{i.getIdProducto(), i.getNombreProducto(), i.getDescripcion(), i.getPrecioActual(), i.getStock(), true});
+    private void cargaDatosDetalles() {
+        listaDetalle = dcd.listarDetalles();
+        for (DetalleCompra i : listaDetalle) {
+            modelo.addRow(new Object[]{i.getIdDetalle(),i.getCantidad(),i.getPrecioCosto(),i.getCompra(),i.getProducto()});
         }
     }
     private void borrarFilas(){
