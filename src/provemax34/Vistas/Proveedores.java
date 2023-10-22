@@ -6,6 +6,7 @@
 package provemax34.Vistas;
 import java.awt.Color;
 import java.util.ArrayList;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import provemax34.Entidades.Proveedor;
 import provemax34.AccesoData.ProveedorData;
@@ -15,7 +16,7 @@ public class Proveedores extends javax.swing.JInternalFrame {
     private ArrayList<Proveedor>listaProv;
     private Proveedor prov = null;
     private ProveedorData provData;
-    public static int idProd;
+    public static int idProv;
     private DefaultTableModel modelo = new DefaultTableModel() {
         public boolean isCellEditable(int fila, int columna) {
             return false;
@@ -28,10 +29,11 @@ public class Proveedores extends javax.swing.JInternalFrame {
     public Proveedores() {
         provData=new ProveedorData();
         prov = new Proveedor();
-        idProd=0;
+        idProv=0;
         initComponents();
         armarCabecera();
         cargarDatosProveedores();
+        
     }
 
     /**
@@ -60,7 +62,7 @@ public class Proveedores extends javax.swing.JInternalFrame {
         jLabel10 = new javax.swing.JLabel();
         background = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTProveedores = new javax.swing.JTable();
+        jtProv = new javax.swing.JTable();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jtBuscar = new javax.swing.JTextField();
@@ -242,10 +244,10 @@ public class Proveedores extends javax.swing.JInternalFrame {
         background.setForeground(new java.awt.Color(255, 255, 255));
         background.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jTProveedores.setBackground(new java.awt.Color(255, 255, 255));
-        jTProveedores.setFont(new java.awt.Font("Roboto Light", 0, 12)); // NOI18N
-        jTProveedores.setForeground(new java.awt.Color(0, 0, 0));
-        jTProveedores.setModel(new javax.swing.table.DefaultTableModel(
+        jtProv.setBackground(new java.awt.Color(255, 255, 255));
+        jtProv.setFont(new java.awt.Font("Roboto Light", 0, 12)); // NOI18N
+        jtProv.setForeground(new java.awt.Color(0, 0, 0));
+        jtProv.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -270,7 +272,7 @@ public class Proveedores extends javax.swing.JInternalFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jScrollPane1.setViewportView(jTProveedores);
+        jScrollPane1.setViewportView(jtProv);
 
         background.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 70, 780, 200));
 
@@ -388,6 +390,9 @@ public class Proveedores extends javax.swing.JInternalFrame {
         txtEditar.setText("EDITAR");
         txtEditar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         txtEditar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                txtEditarMouseClicked(evt);
+            }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 txtEditarMouseEntered(evt);
             }
@@ -421,6 +426,9 @@ public class Proveedores extends javax.swing.JInternalFrame {
         txtAgregar.setText("AGREGAR");
         txtAgregar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         txtAgregar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                txtAgregarMouseClicked(evt);
+            }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 txtAgregarMouseEntered(evt);
             }
@@ -498,6 +506,21 @@ public class Proveedores extends javax.swing.JInternalFrame {
         btnAgregar.setBackground(Color.black);
     }//GEN-LAST:event_txtAgregarMouseExited
 
+    private void txtAgregarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtAgregarMouseClicked
+        AgregarProveedor ap=new AgregarProveedor();
+        ap.setVisible(true);
+    }//GEN-LAST:event_txtAgregarMouseClicked
+
+    private void txtEditarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtEditarMouseClicked
+        if(jtProv.getSelectedRow()>=0){
+            idProv = (Integer) jtProv.getValueAt(jtProv.getSelectedRow(), 0);
+            EditarProveedor ep = new EditarProveedor();
+            ep.setVisible(true);
+        }else{
+            JOptionPane.showMessageDialog(this,"Selecciona el producto a editar...");
+        } 
+    }//GEN-LAST:event_txtEditarMouseClicked
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel background;
@@ -521,10 +544,10 @@ public class Proveedores extends javax.swing.JInternalFrame {
     private javax.swing.JPanel jPanel9;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JTable jTProveedores;
     private javax.swing.JTable jTable2;
     private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jtBuscar;
+    private javax.swing.JTable jtProv;
     private javax.swing.JLabel txtAgregar;
     private javax.swing.JLabel txtEditar;
     private javax.swing.JLabel txtEliminar;
@@ -541,7 +564,7 @@ public class Proveedores extends javax.swing.JInternalFrame {
         for (Object i : filaCabecera) {
             modelo.addColumn(i);
         }
-        jTProveedores.setModel(modelo);
+        jtProv.setModel(modelo);
         
     }
 
@@ -549,7 +572,14 @@ public class Proveedores extends javax.swing.JInternalFrame {
         listaProv = provData.listarProveedores();
         for(Proveedor i: listaProv){
             modelo.addRow(new Object[]{i.getIdProveedor(), i.getRazonSocial(), i.getDomicilio(),i.getTelefono(),i.getEstado()});
-        }        
+        }
+        jtProv.repaint();
     }
-
+    private void actualizarTabla(){
+        int nroF= jtProv.getRowCount();
+        if(jtProv.getRowCount()!=nroF){
+            
+        }
+    }
+    
 }
