@@ -76,8 +76,8 @@ public class ProveedorData {
             ps.setBoolean(4, prov.getEstado());
             ps.setInt(5, prov.getIdProveedor());
             int exito = ps.executeUpdate();
-            if (exito == 1) {
-                JOptionPane.showMessageDialog(null, "Proveedor Modificado");
+                if (exito == 1) {
+                    JOptionPane.showMessageDialog(null, "Proveedor Modificado");
             }
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "Error de conexion... " + ex.getMessage());
@@ -105,16 +105,16 @@ public class ProveedorData {
         }
         return proveedores;
     }
-    public  Proveedor buscarProveedor(int id){
+    public  Proveedor buscarProveedor(String razonSocial){
         String sql="SELECT razonSocial,domicilio,telefono FROM proveedor WHERE idProveedor = ? AND estado = 1";
 
         try {
             PreparedStatement ps= con.prepareStatement(sql);
-            ps.setInt(1, id);
+            ps.setString(1, razonSocial);
             ResultSet rs=ps.executeQuery();
             if(rs.next()){
                 
-                prov.setIdProveedor(id);
+                prov.setIdProveedor(rs.getInt("idProveedor"));
                 prov.setRazonSocial(rs.getString("razonSocial"));
                 prov.setDomicilio(rs.getString("domicilio"));
                 prov.setTelefono(rs.getString("telefono"));

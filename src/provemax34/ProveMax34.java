@@ -29,9 +29,10 @@ public class ProveMax34 {
          // ProveedorData provD= new ProveedorData();
 //          String result= provD.buscarProveedor(1)+"";
 //          System.out.println(result);
-          Proveedor prov=new Proveedor(2,"Samsung","domicilio1","123123" ,true);
+          Proveedor prov=new Proveedor("Marolio","domicilio1","123123" ,true);
+          ProveedorData provD=new ProveedorData();
 //          provD.guardarProveedor(prov);
-//          provD.modificarProveedor(prov);
+          provD.modificarProveedor(prov);
 //          provD.eliminarProveedor(2);
           Compra comp=new Compra(2,prov,(LocalDate.of(2023, 10, 5)));
           CompraData compD=new CompraData();

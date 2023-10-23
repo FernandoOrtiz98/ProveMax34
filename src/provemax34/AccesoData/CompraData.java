@@ -103,7 +103,7 @@ public class CompraData {
             while (rs.next()) {
                 //Compra compra = new Compra();
                 compra.setIdCompra(rs.getInt("idCompra"));
-                Proveedor proveedor = proveedorD.buscarProveedor(rs.getInt("idProveedor"));
+                Proveedor proveedor = proveedorD.buscarProveedor(rs.getString("RazonSocial"));
                 compra.setFecha(rs.getDate("fecha").toLocalDate());
                 
                 compras.add(compra);
