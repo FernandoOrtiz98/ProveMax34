@@ -6,7 +6,6 @@
 package provemax34.Vistas;
 
 import java.awt.Color;
-import static javafx.scene.paint.Color.color;
 
 /**
  *
