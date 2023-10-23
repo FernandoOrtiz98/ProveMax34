@@ -22,13 +22,19 @@ import provemax34.Entidades.Proveedor;
 
 public class DetalleCompraData {
     private Connection con = null;
-    private Compra comp = new Compra();
+    private Compra comp;
+    private CompraData compD;
     private Producto prod;
-    private DetalleCompra dComp= new DetalleCompra();;
+    private ProductoData prodD;
+    private DetalleCompra dComp;
 
     public DetalleCompraData() {
         this.con= Conexion.getConexion();
         prod= new Producto();
+        comp=new Compra();
+        compD=new CompraData();
+        dComp=new DetalleCompra();
+        prodD=new ProductoData();
     }
     
     public void guardarDetalleCompra(DetalleCompra dc) {
@@ -153,11 +159,12 @@ public class DetalleCompraData {
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
                 DetalleCompra dc= new DetalleCompra();
+                prodD=new ProductoData();
                 dc.setIdDetalle(rs.getInt("idDetalle"));
                 dc.setCantidad(rs.getInt("cantidad"));
                 dc.setPrecioCosto(rs.getDouble("precioCosto"));
-                dc.setCompra(comp);
-                dc.setProducto(prod);
+                dc.setCompra(compD.buscarCompra(rs.getInt("idCompra")));
+                dc.setProducto(prodD.buscarProducto(rs.getInt("idProducto")));
                 Detalles.add(dc); //Por cada vuelta del while, agregamos un alumno al ArrayList productos.
             }
             ps.close();
