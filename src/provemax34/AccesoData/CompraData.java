@@ -174,7 +174,7 @@ public class CompraData {
             ps.setDate(1,Date.valueOf(fecha));
             ResultSet rs=ps.executeQuery();
             if(rs.next()){
-//                compra=new Compra();
+                compra=new Compra();
                 proveedorD=new ProveedorData();
                 compra.setIdCompra(rs.getInt("idCompra"));
                 compra.setProveedor(proveedorD.buscarProveedor(rs.getString("RazonSocial")));
