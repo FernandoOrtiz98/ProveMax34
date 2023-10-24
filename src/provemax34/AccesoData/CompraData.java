@@ -103,7 +103,7 @@ public class CompraData {
             while (rs.next()) {
                 //Compra compra = new Compra();
                 compra.setIdCompra(rs.getInt("idCompra"));
-                Proveedor proveedor = proveedorD.buscarProveedor(rs.getInt("idProveedor"));
+//                Proveedor proveedor = proveedorD.buscarProveedor(rs.getInt("idProveedor"));
                 compra.setFecha(rs.getDate("fecha").toLocalDate());
                 
                 compras.add(compra);
@@ -154,7 +154,7 @@ public class CompraData {
                 compra=new Compra();
                 proveedorD=new ProveedorData();
                 compra.setIdCompra(id);
-                compra.setProveedor(proveedorD.buscarProveedor(rs.getInt("idProveedor")));
+//                compra.setProveedor(proveedorD.buscarProveedor(rs.getInt("idProveedor")));
                 compra.setFecha(rs.getDate("fecha").toLocalDate());
             }else{
                 JOptionPane.showMessageDialog(null, "no existe la Compra");
@@ -177,7 +177,7 @@ public class CompraData {
                 Compra comp=new Compra();
                 ProveedorData provD=new ProveedorData();
                 comp.setIdCompra(rs.getInt("idCompra"));
-                comp.setProveedor(provD.buscarProveedor(rs.getInt("idProveedor")));
+//                comp.setProveedor(provD.buscarProveedor(rs.getInt("idProveedor")));
                 comp.setFecha(rs.getDate("fecha").toLocalDate());
                 
                 
