@@ -38,14 +38,13 @@ public class DetalleCompraData {
     }
     
     public void guardarDetalleCompra(DetalleCompra dc) {
-        String query = "INSERT INTO detalleCompra(idDetalle,cantidad,precioCosto,idCompra,idProducto) VALUES (?,?,?,?,?)";
+        String query = "INSERT INTO detalleCompra(cantidad,precioCosto,idCompra,idProducto) VALUES (?,?,?,?)";
         try {
             PreparedStatement ps = con.prepareStatement(query, Statement.RETURN_GENERATED_KEYS);
-            ps.setInt(1, dc.getIdDetalle());
-            ps.setInt(2, dc.getCantidad());
-            ps.setDouble(3, dc.getPrecioCosto());
-            ps.setInt(4, dc.getCompra().getIdCompra());
-            ps.setInt(5, dc.getProducto().getIdProducto());
+            ps.setInt(1, dc.getCantidad());
+            ps.setDouble(2, dc.getPrecioCosto());
+            ps.setInt(3, dc.getCompra().getIdCompra());
+            ps.setInt(4, dc.getProducto().getIdProducto());
             ps.executeUpdate();
 
             ResultSet rs = ps.getGeneratedKeys();
