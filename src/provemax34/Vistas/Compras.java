@@ -31,9 +31,11 @@ public class Compras extends javax.swing.JInternalFrame {
     private ProveedorData provData = new ProveedorData();
     private Proveedor prov;
     private Compra comp;
+    private Compra compF;
     private CompraData compD;
     private DetalleCompra dc;
     private DetalleCompraData dcd;
+    private boolean compraR;
      private DefaultTableModel modelo = new DefaultTableModel() {
         public boolean isCellEditable(int fila, int columna) {
             return false;
@@ -47,9 +49,11 @@ public class Compras extends javax.swing.JInternalFrame {
         prod = new Producto();
         prodData = new ProductoData();
         comp = new Compra();
+        compF = new Compra();
         compD = new CompraData();
         dc= new DetalleCompra();
         dcd= new DetalleCompraData();
+        compraR=false;
         cargarComboBox();
         cargarComboBoxProducto();
         armarCabecera();
@@ -342,6 +346,11 @@ public class Compras extends javax.swing.JInternalFrame {
                 jCBprovMouseClicked(evt);
             }
         });
+        jCBprov.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jCBprovActionPerformed(evt);
+            }
+        });
         jPanel1.add(jCBprov, new org.netbeans.lib.awtextra.AbsoluteConstraints(206, 37, 158, -1));
 
         jLabel5.setFont(new java.awt.Font("Roboto Black", 1, 14)); // NOI18N
@@ -542,8 +551,18 @@ public class Compras extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void txtAgregarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtAgregarMouseClicked
-        AgregarProducto ap=new AgregarProducto();
-        ap.setVisible(true);
+        for (int i = 0; i < jTComprasDet.getRowCount(); i++) {
+               compF=compD.buscarCompra(comp.getFecha());
+               dc=new DetalleCompra();
+               prod = prodData.buscarProducto((int) jTComprasDet.getValueAt(i,0));
+               double precioCt = (double) jTComprasDet.getValueAt(i, 1);
+               int cantidad = (int) jTComprasDet.getValueAt(i, 2);
+                System.out.println("idcom "+compF.getIdCompra());
+               dc= new DetalleCompra(cantidad,precioCt,compF,prod);
+               dcd.guardarDetalleCompra(dc);
+
+        }
+        
     }//GEN-LAST:event_txtAgregarMouseClicked
 
     private void txtSalirMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtSalirMouseEntered
@@ -598,13 +617,24 @@ public class Compras extends javax.swing.JInternalFrame {
         LocalDate fecha = jDCFecha.getDate().toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
         double precioCt = Double.parseDouble(jTPrecioCosto.getText());
         int cantidad = jSCant.getComponentCount();  
-        modelo.addRow(new Object[]{prod.getNombreProducto(),prov.getIdProveedor(),fecha,precioCt,cantidad});
+        if(compraR==false){
+        comp=new Compra(prov,fecha);
+        compD.guardarCompra(comp);
+        jCBprov.setEnabled(false);
+        jDCFecha.setEnabled(false);
+        }
+        modelo.addRow(new Object[]{prod.getIdProducto(),precioCt,cantidad});
+        compraR=true;
         } catch (NumberFormatException e) {
             JOptionPane.showMessageDialog(this, "Datos incompatible");
         } catch (NullPointerException ex) {
             JOptionPane.showMessageDialog(this, "Completar datos");
         }
     }//GEN-LAST:event_txtSumarArticuloMouseClicked
+
+    private void jCBprovActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCBprovActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jCBprovActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -669,8 +699,6 @@ private void cargarComboBox() {
      private void armarCabecera() {
         ArrayList<Object> filaCabecera = new ArrayList<>();
         filaCabecera.add("Articulo");
-        filaCabecera.add("Proveedor");
-        filaCabecera.add("Fecha");
         filaCabecera.add("Precio Costo");
         filaCabecera.add("Cantidad");
         for (Object it : filaCabecera) {
