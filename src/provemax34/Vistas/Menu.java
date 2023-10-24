@@ -13,9 +13,7 @@ import java.awt.Color;
  */
 public class Menu extends javax.swing.JFrame {
 
-    /**
-     * Creates new form Menu
-     */
+
     public Menu() {
         initComponents();
         this.setLocationRelativeTo(null);
