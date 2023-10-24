@@ -400,10 +400,9 @@ public class Proveedores extends javax.swing.JInternalFrame {
             modelo.addRow(new Object[]{i.getIdProveedor(), i.getRazonSocial(), i.getDomicilio(), i.getTelefono(), i.getEstado()});
         }
     }
-//    private void actualizarTabla(){
-//        int nroF= jtProv.getRowCount();
-//        if(jtProv.getRowCount()!=nroF){
-//        }
-//    }
+    public void actualizarTabla(){
+        modelo.setNumRows(0);
+        cargarDatosProveedores();
+    }
 
 }
