@@ -8,6 +8,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.time.LocalDate;
+import java.time.ZoneId;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JOptionPane;
@@ -156,6 +157,27 @@ public class CompraData {
                 compra.setIdCompra(id);
                 compra.setProveedor(proveedorD.buscarProveedor(rs.getString("RazonSocial")));
                 compra.setFecha(rs.getDate("fecha").toLocalDate());
+            }else{
+                JOptionPane.showMessageDialog(null, "no existe la Compra");
+            }
+            ps.close();
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null,"Error al acceder a la tabla Compra");
+        }
+        return compra; 
+    }
+    public  Compra buscarCompra(LocalDate fecha){
+        String sql="SELECT idCompra,idProveedor FROM compra WHERE fecha =?";
+        try {
+            PreparedStatement ps= con.prepareStatement(sql);
+            ps.setDate(1,Date.valueOf(fecha));
+            ResultSet rs=ps.executeQuery();
+            if(rs.next()){
+                compra=new Compra();
+                proveedorD=new ProveedorData();
+                compra.setIdCompra(rs.getInt("idCompra"));
+                compra.setProveedor(proveedorD.buscarProveedor(rs.getString("RazonSocial")));
+                compra.setFecha(fecha);
             }else{
                 JOptionPane.showMessageDialog(null, "no existe la Compra");
             }
