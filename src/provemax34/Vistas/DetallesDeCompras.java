@@ -37,7 +37,7 @@ public class DetallesDeCompras extends javax.swing.JInternalFrame {
     public DetallesDeCompras() {
         prodData = new ProductoData();
         prod = new Producto();
-        idProd = 0;
+        
         listaDetalle=dcd.listarDetalles();
         initComponents();
         armarCabecera();
@@ -688,7 +688,7 @@ public class DetallesDeCompras extends javax.swing.JInternalFrame {
     private void cargaDatosDetalles() {
         listaDetalle = dcd.listarDetalles();
         for (DetalleCompra i : listaDetalle) {
-            modelo.addRow(new Object[]{i.getIdDetalle(),i.getCantidad(),i.getPrecioCosto(),i.getCompra(),i.getProducto()});
+            modelo.addRow(new Object[]{i.getIdDetalle(),i.getCantidad(),i.getPrecioCosto(),i.getCompra().getIdCompra(),i.getProducto().getNombreProducto()});
         }
     }
     private void borrarFilas(){

@@ -8,9 +8,11 @@ package provemax34.Vistas;
 //Grupo34
 
 import java.awt.Color;
+import java.time.LocalDate;
+import java.time.ZoneId;
 import java.util.ArrayList;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableCellEditor;
 import provemax34.AccesoData.CompraData;
 import provemax34.AccesoData.DetalleCompraData;
 import provemax34.AccesoData.ProductoData;
@@ -23,6 +25,7 @@ import provemax34.Entidades.Proveedor;
 public class Compras extends javax.swing.JInternalFrame {
     private ArrayList<Proveedor> listaProv;
     private ArrayList<Producto> listaProd;
+    private ArrayList<DetalleCompra> listaDet;
     private Producto prod = null;
     private ProductoData prodData = new ProductoData();
     private ProveedorData provData = new ProveedorData();
@@ -88,9 +91,9 @@ public class Compras extends javax.swing.JInternalFrame {
         jLabel4 = new javax.swing.JLabel();
         jCBprov = new javax.swing.JComboBox<>();
         jLabel5 = new javax.swing.JLabel();
-        jSpinner1 = new javax.swing.JSpinner();
+        jSCant = new javax.swing.JSpinner();
         jLabel11 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        jTPrecioCosto = new javax.swing.JTextField();
         btnSumarArticulo = new javax.swing.JPanel();
         txtSumarArticulo = new javax.swing.JLabel();
         btnSalir = new javax.swing.JPanel();
@@ -346,14 +349,14 @@ public class Compras extends javax.swing.JInternalFrame {
         jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel5.setText("Cantidad");
         jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(413, 71, 72, -1));
-        jPanel1.add(jSpinner1, new org.netbeans.lib.awtextra.AbsoluteConstraints(407, 90, 78, -1));
+        jPanel1.add(jSCant, new org.netbeans.lib.awtextra.AbsoluteConstraints(407, 90, 78, -1));
 
         jLabel11.setFont(new java.awt.Font("Roboto Black", 1, 14)); // NOI18N
         jLabel11.setForeground(new java.awt.Color(255, 255, 255));
         jLabel11.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel11.setText("Precio Costo");
         jPanel1.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 71, 125, -1));
-        jPanel1.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(206, 91, 158, -1));
+        jPanel1.add(jTPrecioCosto, new org.netbeans.lib.awtextra.AbsoluteConstraints(206, 91, 158, -1));
 
         btnSumarArticulo.setBackground(new java.awt.Color(0, 0, 0));
 
@@ -363,6 +366,9 @@ public class Compras extends javax.swing.JInternalFrame {
         txtSumarArticulo.setText("Agregar");
         txtSumarArticulo.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         txtSumarArticulo.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                txtSumarArticuloMouseClicked(evt);
+            }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 txtSumarArticuloMouseEntered(evt);
             }
@@ -584,6 +590,22 @@ public class Compras extends javax.swing.JInternalFrame {
         btnSumarArticulo.setBackground(Color.black);
     }//GEN-LAST:event_txtSumarArticuloMouseExited
 
+    private void txtSumarArticuloMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtSumarArticuloMouseClicked
+        
+        try{
+        prod = (Producto) jCBprod.getSelectedItem();
+        prov = (Proveedor) jCBprov.getSelectedItem();
+        LocalDate fecha = jDCFecha.getDate().toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+        double precioCt = Double.parseDouble(jTPrecioCosto.getText());
+        int cantidad = jSCant.getComponentCount();  
+        modelo.addRow(new Object[]{prod.getNombreProducto(),prov.getIdProveedor(),fecha,precioCt,cantidad});
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(this, "Datos incompatible");
+        } catch (NullPointerException ex) {
+            JOptionPane.showMessageDialog(this, "Completar datos");
+        }
+    }//GEN-LAST:event_txtSumarArticuloMouseClicked
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel background;
@@ -614,12 +636,12 @@ public class Compras extends javax.swing.JInternalFrame {
     private javax.swing.JPanel jPanel7;
     private javax.swing.JPanel jPanel8;
     private javax.swing.JPanel jPanel9;
+    private javax.swing.JSpinner jSCant;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JSpinner jSpinner1;
     private javax.swing.JTable jTComprasDet;
+    private javax.swing.JTextField jTPrecioCosto;
     private javax.swing.JTable jTable2;
-    private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
     private javax.swing.JLabel txtAgregar;
     private javax.swing.JLabel txtEditar;

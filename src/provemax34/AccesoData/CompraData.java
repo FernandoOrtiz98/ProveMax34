@@ -19,13 +19,13 @@ public class CompraData {
 
     private Connection con = null;
     private Proveedor proveedor;
-    private Compra compra = null;
+    private Compra compra;
     private ProveedorData proveedorD;
 
     public CompraData() {
         this.con = Conexion.getConexion();
         Compra compra = new Compra();
-        //CompraData compraD = new CompraData();
+//        CompraData compraD = new CompraData();
         Proveedor provedor=new Proveedor();
         ProveedorData proveedorD=new ProveedorData();
 
@@ -143,26 +143,26 @@ public class CompraData {
         }
         return productos;
     }
-//    public  Compra buscarCompra(Proveedor prov,LocalDate fecha){
-//        String sql="SELECT idCompra,idProveedor,fecha FROM compra WHERE idCompra =? AND idProveedor = ?";
-//        try {
-//            PreparedStatement ps= con.prepareStatement(sql);
-//            ps.setString(1, prov.getIdProveedor());
-//            ps.setString(2, fecha);
-//            ResultSet rs=ps.executeQuery();
-//            if(rs.next()){
-//                
-//                compra.setIdCompra(rs.getInt("idCompra"));
-//                compra.setProveedor(prov);
-//                compra.setFecha(fecha);
-//                
-//            
-//            }else{
-//                JOptionPane.showMessageDialog(null, "no existe el Producto");
-//            }
-//            ps.close();
-//        } catch (SQLException ex) {
-//            JOptionPane.showMessageDialog(null,"Error al acceder a la tabla Producto");
-//        }
-//        return compra; 
+    public  Compra buscarCompra(int id){
+        String sql="SELECT idProveedor,fecha FROM compra WHERE idCompra =?";
+        try {
+            PreparedStatement ps= con.prepareStatement(sql);
+            ps.setInt(1, id);
+            
+            ResultSet rs=ps.executeQuery();
+            if(rs.next()){
+                compra=new Compra();
+                proveedorD=new ProveedorData();
+                compra.setIdCompra(id);
+                compra.setProveedor(proveedorD.buscarProveedor(rs.getInt("idProveedor")));
+                compra.setFecha(rs.getDate("fecha").toLocalDate());
+            }else{
+                JOptionPane.showMessageDialog(null, "no existe la Compra");
+            }
+            ps.close();
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null,"Error al acceder a la tabla Compra");
+        }
+        return compra; 
+    }
 }
