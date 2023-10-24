@@ -34,7 +34,6 @@ public class Proveedores extends javax.swing.JInternalFrame {
         initComponents();
         armarCabecera();
         cargarDatosProveedores();
-
     }
 
     /**
@@ -356,6 +355,8 @@ public class Proveedores extends javax.swing.JInternalFrame {
         if (jtProv.getSelectedRow() >= 0) {
             String razonSocial = (String)jtProv.getValueAt(jtProv.getSelectedRow(), 1);
             provData.eliminarProveedor(razonSocial);
+            modelo.setNumRows(0);
+            cargarDatosProveedores();
         }else{
             JOptionPane.showMessageDialog(this,"Debe seleccionar un proveedor");
         }
@@ -398,7 +399,6 @@ public class Proveedores extends javax.swing.JInternalFrame {
         for (Proveedor i : listaProv) {
             modelo.addRow(new Object[]{i.getIdProveedor(), i.getRazonSocial(), i.getDomicilio(), i.getTelefono(), i.getEstado()});
         }
-        jtProv.repaint();
     }
 //    private void actualizarTabla(){
 //        int nroF= jtProv.getRowCount();

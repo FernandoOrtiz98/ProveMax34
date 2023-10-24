@@ -154,7 +154,7 @@ public class CompraData {
                 compra=new Compra();
                 proveedorD=new ProveedorData();
                 compra.setIdCompra(id);
-                compra.setProveedor(proveedorD.buscarProveedor(rs.getInt("idProveedor")));
+                compra.setProveedor(proveedorD.buscarProveedor(rs.getString("RazonSocial")));
                 compra.setFecha(rs.getDate("fecha").toLocalDate());
             }else{
                 JOptionPane.showMessageDialog(null, "no existe la Compra");
