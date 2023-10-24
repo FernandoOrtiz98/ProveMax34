@@ -34,10 +34,10 @@ public class AgregarProveedor extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
+        jLRazonSocial = new javax.swing.JLabel();
+        jLDomicilio = new javax.swing.JLabel();
+        jLTelefono = new javax.swing.JLabel();
+        jLEstado = new javax.swing.JLabel();
         jTRazonSocial = new javax.swing.JTextField();
         jTDomicilio = new javax.swing.JTextField();
         jTTelefono = new javax.swing.JTextField();
@@ -53,29 +53,29 @@ public class AgregarProveedor extends javax.swing.JFrame {
         jPanel1.setForeground(new java.awt.Color(0, 0, 0));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setFont(new java.awt.Font("Roboto Light", 1, 14)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("Razon Social");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, -1, -1));
+        jLRazonSocial.setFont(new java.awt.Font("Roboto Light", 1, 14)); // NOI18N
+        jLRazonSocial.setForeground(new java.awt.Color(255, 255, 255));
+        jLRazonSocial.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLRazonSocial.setText("Razon Social");
+        jPanel1.add(jLRazonSocial, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, -1, -1));
 
-        jLabel2.setFont(new java.awt.Font("Roboto Light", 1, 14)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel2.setText("Domicilio");
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 90, -1, -1));
+        jLDomicilio.setFont(new java.awt.Font("Roboto Light", 1, 14)); // NOI18N
+        jLDomicilio.setForeground(new java.awt.Color(255, 255, 255));
+        jLDomicilio.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLDomicilio.setText("Domicilio");
+        jPanel1.add(jLDomicilio, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 90, -1, -1));
 
-        jLabel3.setFont(new java.awt.Font("Roboto Light", 1, 14)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel3.setText("Telefono");
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 160, -1, -1));
+        jLTelefono.setFont(new java.awt.Font("Roboto Light", 1, 14)); // NOI18N
+        jLTelefono.setForeground(new java.awt.Color(255, 255, 255));
+        jLTelefono.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLTelefono.setText("Telefono");
+        jPanel1.add(jLTelefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 160, -1, -1));
 
-        jLabel4.setFont(new java.awt.Font("Roboto Light", 1, 14)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel4.setText("Estado");
-        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 240, -1, -1));
+        jLEstado.setFont(new java.awt.Font("Roboto Light", 1, 14)); // NOI18N
+        jLEstado.setForeground(new java.awt.Color(255, 255, 255));
+        jLEstado.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLEstado.setText("Estado");
+        jPanel1.add(jLEstado, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 240, -1, -1));
 
         jTRazonSocial.setForeground(new java.awt.Color(0, 0, 0));
         jTRazonSocial.setSelectedTextColor(new java.awt.Color(0, 0, 0));
@@ -196,10 +196,10 @@ public static void main(String args[]) {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel btnAgregarProd;
     private javax.swing.JCheckBox jCBEstado;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLDomicilio;
+    private javax.swing.JLabel jLEstado;
+    private javax.swing.JLabel jLRazonSocial;
+    private javax.swing.JLabel jLTelefono;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JTextField jTDomicilio;
     private javax.swing.JTextField jTRazonSocial;
