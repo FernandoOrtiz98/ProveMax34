@@ -235,7 +235,7 @@ public void limpiarCampos(){
         prod=null;
     }
 public void CargarCampos(){
-        prod = prodData.buscarProducto(Productos.idProd);
+   //prod = prodData.buscarProducto(Productos.idProd);
         jTNombre.setText(prod.getNombreProducto());
         jTDescripcion.setText(prod.getDescripcion());
         jTPrecio.setText(prod.getPrecioActual()+"");
