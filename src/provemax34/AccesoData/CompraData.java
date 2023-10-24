@@ -13,6 +13,7 @@ import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JOptionPane;
 import provemax34.Entidades.Compra;
+import provemax34.Entidades.DetalleCompra;
 import provemax34.Entidades.Producto;
 import provemax34.Entidades.Proveedor;
 
@@ -173,7 +174,7 @@ public class CompraData {
             ps.setDate(1,Date.valueOf(fecha));
             ResultSet rs=ps.executeQuery();
             if(rs.next()){
-                compra=new Compra();
+//                compra=new Compra();
                 proveedorD=new ProveedorData();
                 compra.setIdCompra(rs.getInt("idCompra"));
                 compra.setProveedor(proveedorD.buscarProveedor(rs.getString("RazonSocial")));
@@ -186,5 +187,26 @@ public class CompraData {
             JOptionPane.showMessageDialog(null,"Error al acceder a la tabla Compra");
         }
         return compra; 
+    }
+    public ArrayList<Compra> listarCompras() {
+
+        String sql = "SELECT * FROM compra ";
+        ArrayList<Compra> compras = new ArrayList<>();
+        try {
+            PreparedStatement ps = con.prepareStatement(sql);
+
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                Compra comp= new Compra();
+                comp.setIdCompra(rs.getInt("idCompra"));
+                comp.setFecha(rs.getDate("fecha").toLocalDate());
+                comp.setProveedor(proveedorD.buscarProveedor(rs.getString("razonSocial")));
+                compras.add(comp);
+            }
+            ps.close();
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Error al acceder a la tabla Producto");
+        }
+        return compras;
     }
 }
