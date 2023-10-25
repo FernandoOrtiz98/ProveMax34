@@ -91,9 +91,9 @@ public class CompraData {
         }
     }
 
-    public List<Compra> listarComprasPorProveedor(int idProveedor) {
+    public ArrayList<Compra> listarComprasPorProveedor(int idProveedor) {
 
-        List<Compra> compras = new ArrayList<>();                 //int idCompra   Proveedor proveedor   LocalDate fecha
+        ArrayList<Compra> compras = new ArrayList<>();                 //int idCompra   Proveedor proveedor   LocalDate fecha
         String sql = "SELECT * FROM compra WHERE idProveedor = ?";
         try {
             PreparedStatement ps = con.prepareStatement(sql);
