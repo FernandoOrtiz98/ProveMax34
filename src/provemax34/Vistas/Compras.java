@@ -6,7 +6,6 @@
 package provemax34.Vistas;
 
 //Grupo34
-
 import java.awt.Color;
 import java.time.LocalDate;
 import java.time.ZoneId;
@@ -23,6 +22,7 @@ import provemax34.Entidades.Producto;
 import provemax34.Entidades.Proveedor;
 
 public class Compras extends javax.swing.JInternalFrame {
+
     private ArrayList<Proveedor> listaProv;
     private ArrayList<Producto> listaProd;
     private ArrayList<DetalleCompra> listaDet;
@@ -36,12 +36,12 @@ public class Compras extends javax.swing.JInternalFrame {
     private DetalleCompra dc;
     private DetalleCompraData dcd;
     private boolean compraR;
-     private DefaultTableModel modelo = new DefaultTableModel() {
+    private DefaultTableModel modelo = new DefaultTableModel() {
         public boolean isCellEditable(int fila, int columna) {
             return false;
         }
     };
-    
+
     public Compras() {
         initComponents();
         provData = new ProveedorData();
@@ -51,9 +51,9 @@ public class Compras extends javax.swing.JInternalFrame {
         comp = new Compra();
         compF = new Compra();
         compD = new CompraData();
-        dc= new DetalleCompra();
-        dcd= new DetalleCompraData();
-        compraR=false;
+        dc = new DetalleCompra();
+        dcd = new DetalleCompraData();
+        compraR = false;
         cargarComboBox();
         cargarComboBoxProducto();
         armarCabecera();
@@ -98,8 +98,6 @@ public class Compras extends javax.swing.JInternalFrame {
         jSCant = new javax.swing.JSpinner();
         jLabel11 = new javax.swing.JLabel();
         jTPrecioCosto = new javax.swing.JTextField();
-        btnSumarArticulo = new javax.swing.JPanel();
-        txtSumarArticulo = new javax.swing.JLabel();
         btnSalir = new javax.swing.JPanel();
         txtSalir = new javax.swing.JLabel();
         btnEliminar = new javax.swing.JPanel();
@@ -108,6 +106,8 @@ public class Compras extends javax.swing.JInternalFrame {
         txtEditar = new javax.swing.JLabel();
         btnAgregar = new javax.swing.JPanel();
         txtAgregar = new javax.swing.JLabel();
+        btnSumarArticulo = new javax.swing.JPanel();
+        txtSumarArticulo = new javax.swing.JLabel();
 
         background1.setForeground(new java.awt.Color(255, 255, 255));
         background1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -367,38 +367,6 @@ public class Compras extends javax.swing.JInternalFrame {
         jPanel1.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 71, 125, -1));
         jPanel1.add(jTPrecioCosto, new org.netbeans.lib.awtextra.AbsoluteConstraints(206, 91, 158, -1));
 
-        btnSumarArticulo.setBackground(new java.awt.Color(0, 0, 0));
-
-        txtSumarArticulo.setFont(new java.awt.Font("Roboto Medium", 1, 14)); // NOI18N
-        txtSumarArticulo.setForeground(new java.awt.Color(255, 255, 255));
-        txtSumarArticulo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        txtSumarArticulo.setText("Agregar");
-        txtSumarArticulo.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        txtSumarArticulo.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                txtSumarArticuloMouseClicked(evt);
-            }
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                txtSumarArticuloMouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                txtSumarArticuloMouseExited(evt);
-            }
-        });
-
-        javax.swing.GroupLayout btnSumarArticuloLayout = new javax.swing.GroupLayout(btnSumarArticulo);
-        btnSumarArticulo.setLayout(btnSumarArticuloLayout);
-        btnSumarArticuloLayout.setHorizontalGroup(
-            btnSumarArticuloLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(txtSumarArticulo, javax.swing.GroupLayout.DEFAULT_SIZE, 120, Short.MAX_VALUE)
-        );
-        btnSumarArticuloLayout.setVerticalGroup(
-            btnSumarArticuloLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(txtSumarArticulo, javax.swing.GroupLayout.DEFAULT_SIZE, 40, Short.MAX_VALUE)
-        );
-
-        jPanel1.add(btnSumarArticulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 80, 120, 40));
-
         background.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 780, 140));
 
         btnSalir.setBackground(new java.awt.Color(0, 0, 0));
@@ -502,10 +470,10 @@ public class Compras extends javax.swing.JInternalFrame {
 
         btnAgregar.setBackground(new java.awt.Color(0, 0, 0));
 
-        txtAgregar.setFont(new java.awt.Font("Roboto Light", 1, 36)); // NOI18N
+        txtAgregar.setFont(new java.awt.Font("Roboto Light", 1, 14)); // NOI18N
         txtAgregar.setForeground(new java.awt.Color(255, 255, 255));
         txtAgregar.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        txtAgregar.setText("+");
+        txtAgregar.setText("CREAR");
         txtAgregar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         txtAgregar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -523,7 +491,9 @@ public class Compras extends javax.swing.JInternalFrame {
         btnAgregar.setLayout(btnAgregarLayout);
         btnAgregarLayout.setHorizontalGroup(
             btnAgregarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(txtAgregar, javax.swing.GroupLayout.DEFAULT_SIZE, 110, Short.MAX_VALUE)
+            .addGroup(btnAgregarLayout.createSequentialGroup()
+                .addComponent(txtAgregar, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         btnAgregarLayout.setVerticalGroup(
             btnAgregarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -532,7 +502,43 @@ public class Compras extends javax.swing.JInternalFrame {
                 .addComponent(txtAgregar, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
-        background.add(btnAgregar, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 300, 110, 40));
+        background.add(btnAgregar, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 300, 110, 40));
+
+        btnSumarArticulo.setBackground(new java.awt.Color(0, 0, 0));
+
+        txtSumarArticulo.setFont(new java.awt.Font("Roboto Medium", 1, 36)); // NOI18N
+        txtSumarArticulo.setForeground(new java.awt.Color(255, 255, 255));
+        txtSumarArticulo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        txtSumarArticulo.setText("+");
+        txtSumarArticulo.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        txtSumarArticulo.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                txtSumarArticuloMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                txtSumarArticuloMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                txtSumarArticuloMouseExited(evt);
+            }
+        });
+
+        javax.swing.GroupLayout btnSumarArticuloLayout = new javax.swing.GroupLayout(btnSumarArticulo);
+        btnSumarArticulo.setLayout(btnSumarArticuloLayout);
+        btnSumarArticuloLayout.setHorizontalGroup(
+            btnSumarArticuloLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, btnSumarArticuloLayout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(txtSumarArticulo, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+        btnSumarArticuloLayout.setVerticalGroup(
+            btnSumarArticuloLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, btnSumarArticuloLayout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(txtSumarArticulo, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+
+        background.add(btnSumarArticulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 300, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -544,7 +550,7 @@ public class Compras extends javax.swing.JInternalFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(background, javax.swing.GroupLayout.DEFAULT_SIZE, 374, Short.MAX_VALUE))
+                .addComponent(background, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
@@ -552,17 +558,15 @@ public class Compras extends javax.swing.JInternalFrame {
 
     private void txtAgregarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtAgregarMouseClicked
         for (int i = 0; i < jTComprasDet.getRowCount(); i++) {
-//               compF=compD.buscarCompra(comp.getFecha());
-               dc=new DetalleCompra();
-               prod = prodData.buscarProducto((int) jTComprasDet.getValueAt(i,0));
-               double precioCt = (double) jTComprasDet.getValueAt(i, 1);
-               int cantidad = (int) jTComprasDet.getValueAt(i, 2);
-                System.out.println("idcom "+compF.getIdCompra());
-               dc= new DetalleCompra(cantidad,precioCt,compF,prod);
-               dcd.guardarDetalleCompra(dc);
+            dc = new DetalleCompra();
+            prod = prodData.buscarProducto((int) jTComprasDet.getValueAt(i, 0));
+            double precioCt = (double) jTComprasDet.getValueAt(i, 1);
+            int cantidad = (int) jTComprasDet.getValueAt(i, 2);
+            dc = new DetalleCompra(cantidad, precioCt, comp, prod);
+            dcd.guardarDetalleCompra(dc);
 
         }
-        
+
     }//GEN-LAST:event_txtAgregarMouseClicked
 
     private void txtSalirMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtSalirMouseEntered
@@ -598,7 +602,7 @@ public class Compras extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_txtAgregarMouseExited
 
     private void jCBprovMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jCBprovMouseClicked
-        cargaDatosProv();
+
     }//GEN-LAST:event_jCBprovMouseClicked
 
     private void txtSumarArticuloMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtSumarArticuloMouseEntered
@@ -610,21 +614,21 @@ public class Compras extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_txtSumarArticuloMouseExited
 
     private void txtSumarArticuloMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtSumarArticuloMouseClicked
-        
-        try{
-        prod = (Producto) jCBprod.getSelectedItem();
-        prov = (Proveedor) jCBprov.getSelectedItem();
-        LocalDate fecha = jDCFecha.getDate().toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
-        double precioCt = Double.parseDouble(jTPrecioCosto.getText());
-        int cantidad = jSCant.getComponentCount();  
-        if(compraR==false){
-        comp=new Compra(prov,fecha);
-        compD.guardarCompra(comp);
-        jCBprov.setEnabled(false);
-        jDCFecha.setEnabled(false);
-        }
-        modelo.addRow(new Object[]{prod.getIdProducto(),precioCt,cantidad});
-        compraR=true;
+
+        try {
+            prod = (Producto) jCBprod.getSelectedItem();
+            prov = (Proveedor) jCBprov.getSelectedItem();
+            LocalDate fecha = jDCFecha.getDate().toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+            double precioCt = Double.parseDouble(jTPrecioCosto.getText());
+            int cantidad = jSCant.getComponentCount();
+            if (compraR == false) {
+                comp = new Compra(prov, fecha);
+                compD.guardarCompra(comp);
+                jCBprov.setEnabled(false);
+                jDCFecha.setEnabled(false);
+            }
+            modelo.addRow(new Object[]{prod.getIdProducto(), precioCt, cantidad});
+            compraR = true;
         } catch (NumberFormatException e) {
             JOptionPane.showMessageDialog(this, "Datos incompatible");
         } catch (NullPointerException ex) {
@@ -680,7 +684,7 @@ public class Compras extends javax.swing.JInternalFrame {
     private javax.swing.JLabel txtSumarArticulo;
     // End of variables declaration//GEN-END:variables
 
-private void cargarComboBox() {
+    private void cargarComboBox() {
         listaProv = provData.listarProveedores();
         for (Proveedor item : listaProv) {
             jCBprov.addItem(item);
@@ -695,8 +699,8 @@ private void cargarComboBox() {
         }
 
     }
-    
-     private void armarCabecera() {
+
+    private void armarCabecera() {
         ArrayList<Object> filaCabecera = new ArrayList<>();
         filaCabecera.add("Articulo");
         filaCabecera.add("Precio Costo");
@@ -707,20 +711,21 @@ private void cargarComboBox() {
         jTComprasDet.setModel(modelo);
 
     }
-      private void borrarFilas(){
-        int f = jTComprasDet.getRowCount()-1;
-        for(;f>=0;f--){
+
+    private void borrarFilas() {
+        int f = jTComprasDet.getRowCount() - 1;
+        for (; f >= 0; f--) {
             modelo.removeRow(f);
         }
     }
-       private void cargaDatosProd() {
-        Producto art=(Producto) jCBprod.getSelectedItem();
-        modelo.setValueAt(new Object[]{art.getIdProducto()},0,0);
-
-    }
-       private void cargaDatosProv() {
-        Proveedor provS=(Proveedor) jCBprov.getSelectedItem();
-        modelo.addRow(new Object[]{provS.getIdProveedor()});
-//        modelo.setValueAt(new Object[]{provS.getIdProveedor()},0,0);
-    }
+//       private void cargaDatosProd() {
+//        Producto art=(Producto) jCBprod.getSelectedItem();
+//        modelo.setValueAt(new Object[]{art.getIdProducto()},0,0);
+//
+//    }
+//       private void cargaDatosProv() {
+//        Proveedor provS=(Proveedor) jCBprov.getSelectedItem();
+//        modelo.addRow(new Object[]{provS.getIdProveedor()});
+////        modelo.setValueAt(new Object[]{provS.getIdProveedor()},0,0);
+//    }
 }
