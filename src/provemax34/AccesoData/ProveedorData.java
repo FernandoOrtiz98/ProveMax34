@@ -50,11 +50,11 @@ public class ProveedorData {
         }
     }
 
-    public void eliminarProveedor(String RazonSocial) {
-        String query = "UPDATE proveedor SET estado=0 where RazonSocial = ?";
+    public void eliminarProveedor(int idProveedor) {
+        String query = "UPDATE proveedor SET estado=0 where idProveedor = ?";
         try {
             PreparedStatement ps = con.prepareStatement(query);
-            ps.setString(1, RazonSocial);
+            ps.setInt(1, idProveedor);
             int exito = ps.executeUpdate();
             if (exito == 1) {
                 JOptionPane.showMessageDialog(null, "Proveedor eliminado");
@@ -105,12 +105,12 @@ public class ProveedorData {
         }
         return proveedores;
     }
-    public  Proveedor buscarProveedor(String razonSocial){
+    public  Proveedor buscarProveedor(int idProveedor){
         String sql="SELECT razonSocial,domicilio,telefono FROM proveedor WHERE idProveedor = ? AND estado = 1";
 
         try {
             PreparedStatement ps= con.prepareStatement(sql);
-            ps.setString(1, razonSocial);
+            ps.setInt(1, idProveedor);
             ResultSet rs=ps.executeQuery();
             if(rs.next()){
                 
