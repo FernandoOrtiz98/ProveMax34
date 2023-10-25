@@ -91,7 +91,7 @@ public class ProveedorData {
             PreparedStatement ps = con.prepareStatement(sql);
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
-                prov=new Proveedor();
+                Proveedor prov=new Proveedor();
                 prov.setIdProveedor(rs.getInt("idProveedor"));
                 prov.setRazonSocial(rs.getString("razonSocial"));
                 prov.setDomicilio(rs.getString("domicilio"));
@@ -101,7 +101,7 @@ public class ProveedorData {
             }
             ps.close();
         } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null, "Error al acceder a la tabla Producto");
+            JOptionPane.showMessageDialog(null, "Error al acceder a la tabla Proveedor");
         }
         return proveedores;
     }
@@ -113,8 +113,8 @@ public class ProveedorData {
             ps.setInt(1, idProveedor);
             ResultSet rs=ps.executeQuery();
             if(rs.next()){
-                
-                prov.setIdProveedor(rs.getInt("idProveedor"));
+                Proveedor prov = new Proveedor();
+                prov.setIdProveedor(idProveedor);
                 prov.setRazonSocial(rs.getString("razonSocial"));
                 prov.setDomicilio(rs.getString("domicilio"));
                 prov.setTelefono(rs.getString("telefono"));
