@@ -461,7 +461,7 @@ public class DetallesDeCompras extends javax.swing.JInternalFrame {
         });
         PanelSalir.add(txtSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 100, 40));
 
-        background.add(PanelSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 300, 100, 40));
+        background.add(PanelSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 310, 100, 40));
 
         panelEliminar.setBackground(new java.awt.Color(0, 0, 0));
 
@@ -497,7 +497,7 @@ public class DetallesDeCompras extends javax.swing.JInternalFrame {
                 .addComponent(txtEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
-        background.add(panelEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 300, -1, -1));
+        background.add(panelEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 310, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
