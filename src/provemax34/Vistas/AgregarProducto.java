@@ -59,19 +59,10 @@ public class AgregarProducto extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        PanelInicio = new javax.swing.JPanel();
-        jLabel8 = new javax.swing.JLabel();
-        jcbProveedor = new javax.swing.JComboBox<>();
-        btnContinuar = new javax.swing.JPanel();
-        txtContinuar = new javax.swing.JLabel();
-        jLabel10 = new javax.swing.JLabel();
-        jDCFecha = new com.toedter.calendar.JDateChooser();
         PanelSecundario = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jTDescripcion = new javax.swing.JTextField();
-        jTPrecioCosto = new javax.swing.JTextField();
         jTCantidad = new javax.swing.JTextField();
         btnAgregarProd = new javax.swing.JPanel();
         txtAgregarProd = new javax.swing.JLabel();
@@ -79,9 +70,6 @@ public class AgregarProducto extends javax.swing.JFrame {
         jTPrecioCliente = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
         jTNombre = new javax.swing.JTextField();
-        jPanel2 = new javax.swing.JPanel();
-        jLBuscador = new javax.swing.JLabel();
-        jcbIdProductos = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setResizable(false);
@@ -91,96 +79,6 @@ public class AgregarProducto extends javax.swing.JFrame {
         jPanel1.setForeground(new java.awt.Color(0, 0, 0));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        PanelInicio.setBackground(new java.awt.Color(0, 0, 0));
-
-        jLabel8.setFont(new java.awt.Font("Roboto Medium", 1, 18)); // NOI18N
-        jLabel8.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel8.setText("Seleccionar Proveedor");
-
-        jcbProveedor.setBackground(new java.awt.Color(255, 255, 255));
-        jcbProveedor.setForeground(new java.awt.Color(0, 0, 0));
-
-        btnContinuar.setBackground(new java.awt.Color(255, 255, 255));
-
-        txtContinuar.setFont(new java.awt.Font("Roboto Black", 1, 18)); // NOI18N
-        txtContinuar.setForeground(new java.awt.Color(0, 0, 0));
-        txtContinuar.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        txtContinuar.setText("Continuar");
-        txtContinuar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        txtContinuar.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                txtContinuarMouseClicked(evt);
-            }
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                txtContinuarMouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                txtContinuarMouseExited(evt);
-            }
-        });
-
-        javax.swing.GroupLayout btnContinuarLayout = new javax.swing.GroupLayout(btnContinuar);
-        btnContinuar.setLayout(btnContinuarLayout);
-        btnContinuarLayout.setHorizontalGroup(
-            btnContinuarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(txtContinuar, javax.swing.GroupLayout.DEFAULT_SIZE, 133, Short.MAX_VALUE)
-        );
-        btnContinuarLayout.setVerticalGroup(
-            btnContinuarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(txtContinuar, javax.swing.GroupLayout.DEFAULT_SIZE, 50, Short.MAX_VALUE)
-        );
-
-        jLabel10.setFont(new java.awt.Font("Roboto Medium", 1, 18)); // NOI18N
-        jLabel10.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel10.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel10.setText("Seleccionar Fecha");
-
-        jDCFecha.setBackground(new java.awt.Color(255, 255, 255));
-        jDCFecha.setForeground(new java.awt.Color(0, 0, 0));
-
-        javax.swing.GroupLayout PanelInicioLayout = new javax.swing.GroupLayout(PanelInicio);
-        PanelInicio.setLayout(PanelInicioLayout);
-        PanelInicioLayout.setHorizontalGroup(
-            PanelInicioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(PanelInicioLayout.createSequentialGroup()
-                .addGap(128, 128, 128)
-                .addComponent(btnContinuar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PanelInicioLayout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addGroup(PanelInicioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jcbProveedor, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(97, 97, 97))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PanelInicioLayout.createSequentialGroup()
-                .addContainerGap(103, Short.MAX_VALUE)
-                .addGroup(PanelInicioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PanelInicioLayout.createSequentialGroup()
-                        .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 213, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(84, 84, 84))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PanelInicioLayout.createSequentialGroup()
-                        .addComponent(jDCFecha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(129, 129, 129))))
-        );
-        PanelInicioLayout.setVerticalGroup(
-            PanelInicioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(PanelInicioLayout.createSequentialGroup()
-                .addGap(20, 20, 20)
-                .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jcbProveedor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(86, 86, 86)
-                .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jDCFecha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 134, Short.MAX_VALUE)
-                .addComponent(btnContinuar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(41, 41, 41))
-        );
-
-        jPanel1.add(PanelInicio, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 400, 470));
-
         PanelSecundario.setBackground(new java.awt.Color(0, 0, 0));
         PanelSecundario.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -188,28 +86,19 @@ public class AgregarProducto extends javax.swing.JFrame {
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel2.setText("Descripcion");
-        PanelSecundario.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(22, 159, -1, -1));
-
-        jLabel3.setFont(new java.awt.Font("Roboto Light", 1, 14)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel3.setText("Precio Costo");
-        PanelSecundario.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(252, 229, -1, -1));
+        PanelSecundario.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 130, -1, -1));
 
         jLabel5.setFont(new java.awt.Font("Roboto Light", 1, 14)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel5.setText("Cantidad");
-        PanelSecundario.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(22, 329, -1, -1));
+        jLabel5.setText("Stock");
+        PanelSecundario.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 220, -1, -1));
 
         jTDescripcion.setForeground(new java.awt.Color(0, 0, 0));
-        PanelSecundario.add(jTDescripcion, new org.netbeans.lib.awtextra.AbsoluteConstraints(22, 189, 323, -1));
-
-        jTPrecioCosto.setForeground(new java.awt.Color(0, 0, 0));
-        PanelSecundario.add(jTPrecioCosto, new org.netbeans.lib.awtextra.AbsoluteConstraints(252, 269, 100, -1));
+        PanelSecundario.add(jTDescripcion, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 170, 323, -1));
 
         jTCantidad.setForeground(new java.awt.Color(0, 0, 0));
-        PanelSecundario.add(jTCantidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(22, 359, 100, -1));
+        PanelSecundario.add(jTCantidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 270, 100, -1));
 
         btnAgregarProd.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -246,13 +135,13 @@ public class AgregarProducto extends javax.swing.JFrame {
                 .addComponent(txtAgregarProd, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
-        PanelSecundario.add(btnAgregarProd, new org.netbeans.lib.awtextra.AbsoluteConstraints(242, 389, -1, -1));
+        PanelSecundario.add(btnAgregarProd, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 340, -1, -1));
 
         jLabel6.setFont(new java.awt.Font("Roboto Light", 1, 14)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
         jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel6.setText("Precio Actual");
-        PanelSecundario.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(22, 229, -1, -1));
+        PanelSecundario.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 220, -1, -1));
 
         jTPrecioCliente.setForeground(new java.awt.Color(0, 0, 0));
         PanelSecundario.add(jTPrecioCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(22, 269, 100, -1));
@@ -261,49 +150,13 @@ public class AgregarProducto extends javax.swing.JFrame {
         jLabel7.setForeground(new java.awt.Color(255, 255, 255));
         jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel7.setText("Nombre");
-        PanelSecundario.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(22, 89, -1, -1));
+        PanelSecundario.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, -1, -1));
 
         jTNombre.setForeground(new java.awt.Color(0, 0, 0));
         jTNombre.setSelectedTextColor(new java.awt.Color(0, 0, 0));
-        PanelSecundario.add(jTNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(22, 119, 324, -1));
+        PanelSecundario.add(jTNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 80, 324, -1));
 
-        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
-
-        jLBuscador.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLBuscador.setIcon(new javax.swing.ImageIcon(getClass().getResource("/provemax34/Imagenes/8666693_search_icon.png"))); // NOI18N
-        jLBuscador.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        jLBuscador.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLBuscadorMouseClicked(evt);
-            }
-        });
-
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLBuscador, javax.swing.GroupLayout.DEFAULT_SIZE, 60, Short.MAX_VALUE)
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLBuscador, javax.swing.GroupLayout.DEFAULT_SIZE, 50, Short.MAX_VALUE)
-        );
-
-        PanelSecundario.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(302, 29, -1, -1));
-
-        jcbIdProductos.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jcbIdProductosMouseClicked(evt);
-            }
-        });
-        jcbIdProductos.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jcbIdProductosActionPerformed(evt);
-            }
-        });
-        PanelSecundario.add(jcbIdProductos, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 40, 250, -1));
-
-        jPanel1.add(PanelSecundario, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 0, 400, 470));
+        jPanel1.add(PanelSecundario, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 400, 470));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 400, 470));
 
@@ -319,93 +172,48 @@ public class AgregarProducto extends javax.swing.JFrame {
     }//GEN-LAST:event_txtAgregarProdMouseExited
 
     private void txtAgregarProdMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtAgregarProdMouseClicked
-        jPanelXDerecha(-400, 0, 10, 10, PanelInicio);
-        jPanelXDerecha(0, 400, 10, 10, PanelSecundario);
-        
-        try {
-            String nombre = jTNombre.getText();
-            String descr = jTDescripcion.getText();
-            double precioCl = Double.parseDouble(jTPrecioCliente.getText());
-            double precioCt = Double.parseDouble(jTPrecioCosto.getText());
-            int cantidad = Integer.parseInt(jTCantidad.getText());
-            
-            if (disp == true) {
-                prod = (Producto) jcbIdProductos.getSelectedItem();
-                prod.setPrecioActual(precioCl);
-                prod.setStock(prod.getStock() + Integer.parseInt(jTCantidad.getText()));
-                prodData.modificarProducto(prod);
-                prod = null;
-
-                limpiarCampos();
-                disp = false;
-                return;
-            }
-            if (nombre.isEmpty() || descr.isEmpty() || precioCl <= 0 || precioCt > precioCl || cantidad <= 0) {
-                JOptionPane.showMessageDialog(this, "Error al llenar el formulario, verificar campos...");
-            } else {
-                prod = new Producto(nombre, descr, precioCl, cantidad, true);
-                prodData.guardarProducto(prod);
-//                prod=prodData.buscarProducto(prod.getNombreProducto(),prod.getDescripcion());
-                dc=new DetalleCompra(cantidad,precioCt,comp,prod);
-                dcd.guardarDetalleCompra(dc);
-                prod = null;
-                
-                limpiarCampos();
-                disp = false;
-
-            }
-        } catch (NumberFormatException e) {
-            JOptionPane.showMessageDialog(this, "Datos incompatible");
-            limpiarCampos();
-        } catch (NullPointerException ex) {
-            JOptionPane.showMessageDialog(this, "Completar datos");
-        }
+//
+//        
+//        try {
+//            String nombre = jTNombre.getText();
+//            String descr = jTDescripcion.getText();
+//            double precioCl = Double.parseDouble(jTPrecioCliente.getText());
+////            double precioCt = Double.parseDouble(jTPrecioCosto.getText());
+//            int cantidad = Integer.parseInt(jTCantidad.getText());
+//            
+//            if (disp == true) {
+////                prod = (Producto) jcbIdProductos.getSelectedItem();
+//                prod.setPrecioActual(precioCl);
+//                prod.setStock(prod.getStock() + Integer.parseInt(jTCantidad.getText()));
+//                prodData.modificarProducto(prod);
+//                prod = null;
+//
+//                limpiarCampos();
+//                disp = false;
+//                return;
+//            }
+//            if (nombre.isEmpty() || descr.isEmpty() || precioCl <= 0 || precioCt > precioCl || cantidad <= 0) {
+//                JOptionPane.showMessageDialog(this, "Error al llenar el formulario, verificar campos...");
+//            } else {
+//                prod = new Producto(nombre, descr, precioCl, cantidad, true);
+//                prodData.guardarProducto(prod);
+////                prod=prodData.buscarProducto(prod.getNombreProducto(),prod.getDescripcion());
+////                dc=new DetalleCompra(cantidad,precioCt,comp,prod);
+//                dcd.guardarDetalleCompra(dc);
+//                prod = null;
+//                
+//                limpiarCampos();
+//                disp = false;
+//
+//            }
+//        } catch (NumberFormatException e) {
+//            JOptionPane.showMessageDialog(this, "Datos incompatible");
+//            limpiarCampos();
+//        } catch (NullPointerException ex) {
+//            JOptionPane.showMessageDialog(this, "Completar datos");
+//        }
 
     }//GEN-LAST:event_txtAgregarProdMouseClicked
-
-    private void txtContinuarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtContinuarMouseClicked
-        System.out.println("fech " + jDCFecha.getDate().toInstant().atZone(ZoneId.systemDefault()).toLocalDate());
-        try {
-            prov = (Proveedor) jcbProveedor.getSelectedItem();
-            LocalDate fecha = jDCFecha.getDate().toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
-
-            comp = new Compra(prov, fecha);
-            compD.guardarCompra(comp);
-            if (fecha != null) {
-                jPanelXIzquierda(0, -400, 10, 10, PanelInicio);
-                jPanelXIzquierda(400, 0, 10, 10, PanelSecundario);
-            }
-        } catch (NullPointerException ex) {
-            JOptionPane.showMessageDialog(this, "Selecciona Proveedor y fecha para continuar...");
-        } catch (DateTimeParseException ex) {
-            JOptionPane.showMessageDialog(this, "Completar datos");
-        }
-    }//GEN-LAST:event_txtContinuarMouseClicked
-
-    private void jLBuscadorMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLBuscadorMouseClicked
-
-    }//GEN-LAST:event_jLBuscadorMouseClicked
-
-    private void jcbIdProductosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jcbIdProductosActionPerformed
-
-        prod = (Producto) jcbIdProductos.getSelectedItem();
-        jTNombre.setText(prod.getNombreProducto());
-        jTDescripcion.setText(prod.getDescripcion());
-        jTPrecioCliente.setText(prod.getPrecioActual() + "");
-        jcbIdProductos.setSelectedIndex(-1);
-    }//GEN-LAST:event_jcbIdProductosActionPerformed
-
-    private void jcbIdProductosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jcbIdProductosMouseClicked
-
-    }//GEN-LAST:event_jcbIdProductosMouseClicked
-
-    private void txtContinuarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtContinuarMouseEntered
-        btnContinuar.setBackground(Color.gray);
-    }//GEN-LAST:event_txtContinuarMouseEntered
-
-    private void txtContinuarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtContinuarMouseExited
-        btnContinuar.setBackground(Color.white);
-    }//GEN-LAST:event_txtContinuarMouseExited
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
@@ -440,30 +248,18 @@ public class AgregarProducto extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JPanel PanelInicio;
     private javax.swing.JPanel PanelSecundario;
     private javax.swing.JPanel btnAgregarProd;
-    private javax.swing.JPanel btnContinuar;
-    private com.toedter.calendar.JDateChooser jDCFecha;
-    private javax.swing.JLabel jLBuscador;
-    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
     private javax.swing.JTextField jTCantidad;
     private javax.swing.JTextField jTDescripcion;
     private javax.swing.JTextField jTNombre;
     private javax.swing.JTextField jTPrecioCliente;
-    private javax.swing.JTextField jTPrecioCosto;
-    private javax.swing.JComboBox<Producto> jcbIdProductos;
-    private javax.swing.JComboBox<Proveedor> jcbProveedor;
     private javax.swing.JLabel txtAgregarProd;
-    private javax.swing.JLabel txtContinuar;
     // End of variables declaration//GEN-END:variables
 
     public void limpiarCampos() {
@@ -471,7 +267,7 @@ public class AgregarProducto extends javax.swing.JFrame {
         jTNombre.setText("");
         jTDescripcion.setText("");
         jTPrecioCliente.setText("");
-        jTPrecioCosto.setText("");
+//        jTPrecioCosto.setText("");
         jTCantidad.setText("");
 
         prod = null;
@@ -522,7 +318,7 @@ public class AgregarProducto extends javax.swing.JFrame {
     private void cargarComboBox() {
         listaProv = provData.listarProveedores();
         for (Proveedor item : listaProv) {
-            jcbProveedor.addItem(item);
+//            jcbProveedor.addItem(item);
         }
 
     }
@@ -530,7 +326,7 @@ public class AgregarProducto extends javax.swing.JFrame {
     private void cargarComboBoxProducto() {
         listaProd = prodData.listarProductos();
         for (Producto item : listaProd) {
-            jcbIdProductos.addItem(item);
+//            jcbIdProductos.addItem(item);
         }
 
     }
