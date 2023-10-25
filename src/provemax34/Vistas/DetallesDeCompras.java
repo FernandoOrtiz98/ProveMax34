@@ -33,7 +33,7 @@ public class DetallesDeCompras extends javax.swing.JInternalFrame {
     private CompraData compData;
     private ProveedorData provData = new ProveedorData();
     private DetalleCompra dc = new DetalleCompra();
-    private DetalleCompraData dcd = new DetalleCompraData();
+    private DetalleCompraData dcd;
     public static int idProd;
     private DefaultTableModel modelo = new DefaultTableModel() {
         public boolean isCellEditable(int fila, int columna) {
@@ -45,6 +45,7 @@ public class DetallesDeCompras extends javax.swing.JInternalFrame {
         prodData = new ProductoData();
         prod = new Producto();
         compData=new CompraData();
+        dcd= new DetalleCompraData();
         listaDetalle=dcd.listarDetalles();
         initComponents();
         armarCabecera();
@@ -98,8 +99,6 @@ public class DetallesDeCompras extends javax.swing.JInternalFrame {
         txtSalir = new javax.swing.JLabel();
         panelEliminar = new javax.swing.JPanel();
         txtEliminar = new javax.swing.JLabel();
-        panelEditar = new javax.swing.JPanel();
-        txtEditar = new javax.swing.JLabel();
 
         background1.setForeground(new java.awt.Color(255, 255, 255));
         background1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -500,42 +499,6 @@ public class DetallesDeCompras extends javax.swing.JInternalFrame {
 
         background.add(panelEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 300, -1, -1));
 
-        panelEditar.setBackground(new java.awt.Color(0, 0, 0));
-
-        txtEditar.setFont(new java.awt.Font("Roboto Light", 1, 14)); // NOI18N
-        txtEditar.setForeground(new java.awt.Color(255, 255, 255));
-        txtEditar.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        txtEditar.setText("EDITAR");
-        txtEditar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        txtEditar.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                txtEditarMouseClicked(evt);
-            }
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                txtEditarMouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                txtEditarMouseExited(evt);
-            }
-        });
-
-        javax.swing.GroupLayout panelEditarLayout = new javax.swing.GroupLayout(panelEditar);
-        panelEditar.setLayout(panelEditarLayout);
-        panelEditarLayout.setHorizontalGroup(
-            panelEditarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelEditarLayout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(txtEditar, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
-        );
-        panelEditarLayout.setVerticalGroup(
-            panelEditarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelEditarLayout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(txtEditar, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
-        );
-
-        background.add(panelEditar, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 300, -1, 40));
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -555,24 +518,6 @@ public class DetallesDeCompras extends javax.swing.JInternalFrame {
     private void jTBuscadorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTBuscadorActionPerformed
 
     }//GEN-LAST:event_jTBuscadorActionPerformed
-
-    private void txtEditarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtEditarMouseClicked
-        if(jtCompras.getSelectedRow()>=0){
-            idProd = (Integer) jtCompras.getValueAt(jtCompras.getSelectedRow(), 0);
-            EditarProducto ep = new EditarProducto();
-            ep.setVisible(true);
-        }else{
-            JOptionPane.showMessageDialog(this,"Selecciona el producto a editar...");
-        }    
-    }//GEN-LAST:event_txtEditarMouseClicked
-
-    private void txtEditarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtEditarMouseEntered
-        panelEditar.setBackground(Color.gray);
-    }//GEN-LAST:event_txtEditarMouseEntered
-
-    private void txtEditarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtEditarMouseExited
-        panelEditar.setBackground(Color.black);
-    }//GEN-LAST:event_txtEditarMouseExited
 
     private void txtEliminarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtEliminarMouseClicked
         if(jtCompras.getSelectedRow()>=0){
@@ -604,12 +549,17 @@ public class DetallesDeCompras extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_txtSalirMouseExited
 
     private void jTBuscadorKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTBuscadorKeyReleased
-//        borrarFilas();
-//        for(Producto prod:listaProd){
-//            if(prod.getNombreProducto().toLowerCase().startsWith(jTBuscador.getText().toLowerCase())||prod.getDescripcion().toLowerCase().startsWith(jTBuscador.getText().toLowerCase())){
-//                modelo.addRow(new Object[]{prod.getIdProducto(),prod.getNombreProducto(),prod.getDescripcion(),prod.getPrecioActual(),prod.getStock(),prod.isEstado()});
-//            }
-//        }
+        borrarFilas();
+        try {
+            for(DetalleCompra i:listaDetalle){
+            if(i.getProducto().getNombreProducto().toLowerCase().startsWith(jTBuscador.getText().toLowerCase())){
+                modelo.addRow(new Object[]{i.getIdDetalle(),i.getCantidad(),i.getPrecioCosto(),i.getCompra().getIdCompra(),i.getProducto().getNombreProducto()});
+            }
+        }
+        }catch (NullPointerException ex){
+            JOptionPane.showMessageDialog(this, "No se encontro el Detalle "+ex.getMessage());
+        }
+        
     }//GEN-LAST:event_jTBuscadorKeyReleased
 
     private void jTBuscadorMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTBuscadorMouseClicked
@@ -665,10 +615,8 @@ public class DetallesDeCompras extends javax.swing.JInternalFrame {
     private com.toedter.calendar.JDateChooser jdFecha2;
     private com.toedter.calendar.JDateChooser jdFechaEspecifica;
     private javax.swing.JTable jtCompras;
-    private javax.swing.JPanel panelEditar;
     private javax.swing.JPanel panelEliminar;
     private javax.swing.JPanel panelFiltros;
-    private javax.swing.JLabel txtEditar;
     private javax.swing.JLabel txtEliminar;
     private javax.swing.JLabel txtFiltrar;
     private javax.swing.JLabel txtSalir;
@@ -681,6 +629,7 @@ public class DetallesDeCompras extends javax.swing.JInternalFrame {
         filaCabecera.add("Precio Costo");
         filaCabecera.add("Compra");
         filaCabecera.add("Producto");
+        filaCabecera.add("Fecha");
         for (Object it : filaCabecera) {
             modelo.addColumn(it);
         }
@@ -691,7 +640,7 @@ public class DetallesDeCompras extends javax.swing.JInternalFrame {
     private void cargaDatosDetalles() {
         listaDetalle = dcd.listarDetalles();
         for (DetalleCompra i : listaDetalle) {
-            modelo.addRow(new Object[]{i.getIdDetalle(),i.getCantidad(),i.getPrecioCosto(),i.getCompra().getIdCompra(),i.getProducto().getNombreProducto()});
+            modelo.addRow(new Object[]{i.getIdDetalle(),i.getCantidad(),i.getPrecioCosto(),i.getCompra().getIdCompra(),i.getProducto().getNombreProducto(),i.getCompra().getFecha()});
         }
     }
     private void borrarFilas(){
