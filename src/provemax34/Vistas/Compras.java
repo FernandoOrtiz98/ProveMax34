@@ -566,6 +566,7 @@ public class Compras extends javax.swing.JInternalFrame {
             dcd.guardarDetalleCompra(dc);
 
         }
+        JOptionPane.showMessageDialog(this, "Compra Realizada!");
 
     }//GEN-LAST:event_txtAgregarMouseClicked
 
@@ -626,6 +627,7 @@ public class Compras extends javax.swing.JInternalFrame {
                 compD.guardarCompra(comp);
                 jCBprov.setEnabled(false);
                 jDCFecha.setEnabled(false);
+                JOptionPane.showMessageDialog(this, "Realizando Compras a "+comp.getProveedor().getRazonSocial());
             }
             modelo.addRow(new Object[]{prod.getIdProducto(), precioCt, cantidad});
             compraR = true;
