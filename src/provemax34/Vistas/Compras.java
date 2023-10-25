@@ -552,7 +552,7 @@ public class Compras extends javax.swing.JInternalFrame {
 
     private void txtAgregarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtAgregarMouseClicked
         for (int i = 0; i < jTComprasDet.getRowCount(); i++) {
-               compF=compD.buscarCompra(comp.getFecha());
+//               compF=compD.buscarCompra(comp.getFecha());
                dc=new DetalleCompra();
                prod = prodData.buscarProducto((int) jTComprasDet.getValueAt(i,0));
                double precioCt = (double) jTComprasDet.getValueAt(i, 1);

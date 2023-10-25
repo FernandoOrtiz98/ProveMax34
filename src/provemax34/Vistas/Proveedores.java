@@ -98,6 +98,11 @@ public class Proveedores extends javax.swing.JInternalFrame {
 
         jPProveedores.setBackground(new java.awt.Color(0, 0, 0));
         jPProveedores.setForeground(new java.awt.Color(0, 0, 0));
+        jPProveedores.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseMoved(java.awt.event.MouseEvent evt) {
+                jPProveedoresMouseMoved(evt);
+            }
+        });
 
         jLProveedores.setFont(new java.awt.Font("Roboto Black", 1, 18)); // NOI18N
         jLProveedores.setForeground(new java.awt.Color(255, 255, 255));
@@ -353,14 +358,18 @@ public class Proveedores extends javax.swing.JInternalFrame {
 
     private void txtEliminarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtEliminarMouseClicked
         if (jtProv.getSelectedRow() >= 0) {
-            String razonSocial = (String)jtProv.getValueAt(jtProv.getSelectedRow(), 1);
-            provData.eliminarProveedor(razonSocial);
+            int idProveedor = (Integer)jtProv.getValueAt(jtProv.getSelectedRow(), 0);
+            provData.eliminarProveedor(idProveedor);
             modelo.setNumRows(0);
             cargarDatosProveedores();
         }else{
             JOptionPane.showMessageDialog(this,"Debe seleccionar un proveedor");
         }
     }//GEN-LAST:event_txtEliminarMouseClicked
+
+    private void jPProveedoresMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPProveedoresMouseMoved
+        actualizarTabla();
+    }//GEN-LAST:event_jPProveedoresMouseMoved
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
