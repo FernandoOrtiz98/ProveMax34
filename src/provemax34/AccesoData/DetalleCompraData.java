@@ -54,7 +54,7 @@ public class DetalleCompraData {
                 JOptionPane.showMessageDialog(null, "No se pudo tener el ID...");
             }
             ps.close();
-            JOptionPane.showMessageDialog(null, "Guardado!");
+//            JOptionPane.showMessageDialog(null, "");
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "Error de conexion... " + ex.getMessage());
         }
