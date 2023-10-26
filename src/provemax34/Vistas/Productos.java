@@ -72,6 +72,8 @@ public class Productos extends javax.swing.JInternalFrame {
         txtEliminar = new javax.swing.JLabel();
         panelEditar = new javax.swing.JPanel();
         txtEditar = new javax.swing.JLabel();
+        panelAgregar = new javax.swing.JPanel();
+        txtAgregar = new javax.swing.JLabel();
 
         background1.setForeground(new java.awt.Color(255, 255, 255));
         background1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -412,6 +414,35 @@ public class Productos extends javax.swing.JInternalFrame {
 
         background.add(panelEditar, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 300, -1, 40));
 
+        panelAgregar.setBackground(new java.awt.Color(0, 0, 0));
+
+        txtAgregar.setFont(new java.awt.Font("Roboto Light", 1, 14)); // NOI18N
+        txtAgregar.setForeground(new java.awt.Color(255, 255, 255));
+        txtAgregar.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        txtAgregar.setText("AGREGAR");
+        txtAgregar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        txtAgregar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                txtAgregarMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                txtAgregarMouseExited(evt);
+            }
+        });
+
+        javax.swing.GroupLayout panelAgregarLayout = new javax.swing.GroupLayout(panelAgregar);
+        panelAgregar.setLayout(panelAgregarLayout);
+        panelAgregarLayout.setHorizontalGroup(
+            panelAgregarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(txtAgregar, javax.swing.GroupLayout.DEFAULT_SIZE, 100, Short.MAX_VALUE)
+        );
+        panelAgregarLayout.setVerticalGroup(
+            panelAgregarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(txtAgregar, javax.swing.GroupLayout.DEFAULT_SIZE, 40, Short.MAX_VALUE)
+        );
+
+        background.add(panelAgregar, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 300, 100, 40));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -492,6 +523,14 @@ public class Productos extends javax.swing.JInternalFrame {
         jTBuscador.setText("");
     }//GEN-LAST:event_jTBuscadorMouseClicked
 
+    private void txtAgregarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtAgregarMouseEntered
+        panelAgregar.setBackground(Color.gray);
+    }//GEN-LAST:event_txtAgregarMouseEntered
+
+    private void txtAgregarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtAgregarMouseExited
+        panelAgregar.setBackground(Color.black);
+    }//GEN-LAST:event_txtAgregarMouseExited
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel PanelSalir;
@@ -517,8 +556,10 @@ public class Productos extends javax.swing.JInternalFrame {
     private javax.swing.JTable jTProd;
     private javax.swing.JTable jTable2;
     private javax.swing.JTextField jTextField2;
+    private javax.swing.JPanel panelAgregar;
     private javax.swing.JPanel panelEditar;
     private javax.swing.JPanel panelEliminar;
+    private javax.swing.JLabel txtAgregar;
     private javax.swing.JLabel txtEditar;
     private javax.swing.JLabel txtEliminar;
     private javax.swing.JLabel txtSalir;
