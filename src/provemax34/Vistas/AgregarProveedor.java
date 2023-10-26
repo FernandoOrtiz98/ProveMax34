@@ -42,7 +42,7 @@ public class AgregarProveedor extends javax.swing.JFrame {
         jTDomicilio = new javax.swing.JTextField();
         jTTelefono = new javax.swing.JTextField();
         jCBEstado = new javax.swing.JCheckBox();
-        btnAgregarProd = new javax.swing.JPanel();
+        btnAgregarProv = new javax.swing.JPanel();
         txtAgregarProv = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -88,7 +88,7 @@ public class AgregarProveedor extends javax.swing.JFrame {
         jPanel1.add(jTTelefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 190, 323, -1));
         jPanel1.add(jCBEstado, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 240, -1, -1));
 
-        btnAgregarProd.setBackground(new java.awt.Color(255, 255, 255));
+        btnAgregarProv.setBackground(new java.awt.Color(255, 255, 255));
 
         txtAgregarProv.setBackground(new java.awt.Color(255, 255, 255));
         txtAgregarProv.setFont(new java.awt.Font("Roboto Medium", 1, 18)); // NOI18N
@@ -108,22 +108,22 @@ public class AgregarProveedor extends javax.swing.JFrame {
             }
         });
 
-        javax.swing.GroupLayout btnAgregarProdLayout = new javax.swing.GroupLayout(btnAgregarProd);
-        btnAgregarProd.setLayout(btnAgregarProdLayout);
-        btnAgregarProdLayout.setHorizontalGroup(
-            btnAgregarProdLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, btnAgregarProdLayout.createSequentialGroup()
+        javax.swing.GroupLayout btnAgregarProvLayout = new javax.swing.GroupLayout(btnAgregarProv);
+        btnAgregarProv.setLayout(btnAgregarProvLayout);
+        btnAgregarProvLayout.setHorizontalGroup(
+            btnAgregarProvLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, btnAgregarProvLayout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(txtAgregarProv, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
-        btnAgregarProdLayout.setVerticalGroup(
-            btnAgregarProdLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, btnAgregarProdLayout.createSequentialGroup()
+        btnAgregarProvLayout.setVerticalGroup(
+            btnAgregarProvLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, btnAgregarProvLayout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(txtAgregarProv, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
-        jPanel1.add(btnAgregarProd, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 270, 90, 30));
+        jPanel1.add(btnAgregarProv, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 270, 90, 30));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 380, 330));
 
@@ -131,11 +131,11 @@ public class AgregarProveedor extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void txtAgregarProvMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtAgregarProvMouseEntered
-        btnAgregarProd.setBackground(Color.gray);
+        btnAgregarProv.setBackground(Color.gray);
     }//GEN-LAST:event_txtAgregarProvMouseEntered
 
     private void txtAgregarProvMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtAgregarProvMouseExited
-        btnAgregarProd.setBackground(Color.white);
+        btnAgregarProv.setBackground(Color.white);
     }//GEN-LAST:event_txtAgregarProvMouseExited
 
     private void txtAgregarProvMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtAgregarProvMouseClicked
@@ -194,7 +194,7 @@ public static void main(String args[]) {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JPanel btnAgregarProd;
+    private javax.swing.JPanel btnAgregarProv;
     private javax.swing.JCheckBox jCBEstado;
     private javax.swing.JLabel jLDomicilio;
     private javax.swing.JLabel jLEstado;

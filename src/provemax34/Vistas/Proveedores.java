@@ -376,7 +376,6 @@ public class Proveedores extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jPProveedoresMouseMoved
 
     private void jtBuscarKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtBuscarKeyReleased
-        // TODO add your handling code here:
         modelo.setNumRows(0);
         for(Proveedor prov:listaProv){
             if(prov.getRazonSocial().toLowerCase().startsWith(jtBuscar.getText().toLowerCase())||
