@@ -31,6 +31,7 @@ public class DetallesDeCompras extends javax.swing.JInternalFrame {
     private Producto prod = null;
     private ProductoData prodData;
     private CompraData compData;
+    private Proveedor prov;
     private ProveedorData provData = new ProveedorData();
     private DetalleCompra dc = new DetalleCompra();
     private DetalleCompraData dcd;
@@ -43,6 +44,7 @@ public class DetallesDeCompras extends javax.swing.JInternalFrame {
 
     public DetallesDeCompras() {
         prodData = new ProductoData();
+        prov= new Proveedor();
         prod = new Producto();
         compData=new CompraData();
         dcd= new DetalleCompraData();
@@ -50,8 +52,8 @@ public class DetallesDeCompras extends javax.swing.JInternalFrame {
         initComponents();
         armarCabecera();
         cargaDatosDetalles();
-        cargarComboBoxprov();
-        cargarComboBoxcomp();
+//        cargarComboBoxprov();
+//        cargarComboBoxcomp();
 
     }
 
@@ -332,6 +334,17 @@ public class DetallesDeCompras extends javax.swing.JInternalFrame {
 
         panelFiltros.setBackground(new java.awt.Color(0, 0, 0));
 
+        jcbProveedor.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jcbProveedorMouseClicked(evt);
+            }
+        });
+        jcbProveedor.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jcbProveedorActionPerformed(evt);
+            }
+        });
+
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Proveedor");
 
@@ -578,6 +591,23 @@ public class DetallesDeCompras extends javax.swing.JInternalFrame {
     
     }//GEN-LAST:event_txtFiltrarMouseClicked
 
+    private void jcbProveedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jcbProveedorActionPerformed
+        borrarFilas();
+        try {
+            prov=(Proveedor) jcbProveedor.getSelectedItem();
+            cargaDatosPorProveedor(prov);
+        }catch (NullPointerException ex){
+            JOptionPane.showMessageDialog(this, "No se encontro el Detalle "+ex.getMessage());
+        }
+        
+    }//GEN-LAST:event_jcbProveedorActionPerformed
+
+    private void jcbProveedorMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jcbProveedorMouseClicked
+        jcbProveedor.removeAllItems();
+        cargarComboBoxprov();
+        jcbProveedor.setSelectedIndex(-1);
+    }//GEN-LAST:event_jcbProveedorMouseClicked
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel PanelSalir;
@@ -639,6 +669,12 @@ public class DetallesDeCompras extends javax.swing.JInternalFrame {
 
     private void cargaDatosDetalles() {
         listaDetalle = dcd.listarDetalles();
+        for (DetalleCompra i : listaDetalle) {
+            modelo.addRow(new Object[]{i.getIdDetalle(),i.getCantidad(),i.getPrecioCosto(),i.getCompra().getIdCompra(),i.getProducto().getNombreProducto(),i.getCompra().getFecha()});
+        }
+    }
+    private void cargaDatosPorProveedor(Proveedor prov) {
+        listaCompra = compData.listarComprasPorProveedor(idProd);
         for (DetalleCompra i : listaDetalle) {
             modelo.addRow(new Object[]{i.getIdDetalle(),i.getCantidad(),i.getPrecioCosto(),i.getCompra().getIdCompra(),i.getProducto().getNombreProducto(),i.getCompra().getFecha()});
         }
