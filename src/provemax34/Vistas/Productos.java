@@ -422,6 +422,9 @@ public class Productos extends javax.swing.JInternalFrame {
         txtAgregar.setText("AGREGAR");
         txtAgregar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         txtAgregar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                txtAgregarMouseClicked(evt);
+            }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 txtAgregarMouseEntered(evt);
             }
@@ -530,6 +533,11 @@ public class Productos extends javax.swing.JInternalFrame {
     private void txtAgregarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtAgregarMouseExited
         panelAgregar.setBackground(Color.black);
     }//GEN-LAST:event_txtAgregarMouseExited
+
+    private void txtAgregarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtAgregarMouseClicked
+        AgregarProducto ap= new AgregarProducto();
+        ap.setVisible(true);
+    }//GEN-LAST:event_txtAgregarMouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
