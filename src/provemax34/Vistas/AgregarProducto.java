@@ -6,51 +6,20 @@
 package provemax34.Vistas;
 
 import java.awt.Color;
-import java.sql.Date;
-import java.time.LocalDate;
-import java.time.ZoneId;
-import java.time.format.DateTimeParseException;
-import java.util.ArrayList;
 import javax.swing.JOptionPane;
-import javax.swing.JPanel;
-import provemax34.AccesoData.CompraData;
-import provemax34.AccesoData.DetalleCompraData;
 import provemax34.AccesoData.ProductoData;
-import provemax34.AccesoData.ProveedorData;
-import provemax34.Entidades.Compra;
-import provemax34.Entidades.DetalleCompra;
 import provemax34.Entidades.Producto;
-import provemax34.Entidades.Proveedor;
 
 public class AgregarProducto extends javax.swing.JFrame {
-
-    private ArrayList<Proveedor> listaProv;
-    private ArrayList<Producto> listaProd;
+   
     private Producto prod = null;
     private ProductoData prodData = new ProductoData();
-    private ProveedorData provData = new ProveedorData();
-    private Proveedor prov;
-    private Compra comp;
-    private CompraData compD;
-    private DetalleCompra dc;
-    private DetalleCompraData dcd;
-    private boolean disp;
 
     public AgregarProducto() {
         initComponents();
         this.setLocationRelativeTo(null);
-        disp = false;
-        provData = new ProveedorData();
-        prov = new Proveedor();
         prod = new Producto();
         prodData = new ProductoData();
-        comp = new Compra();
-        compD = new CompraData();
-        dc= new DetalleCompra();
-        dcd= new DetalleCompraData();
-        cargarComboBox();
-        cargarComboBoxProducto();
-        limpiarCampos();
 
     }
 
@@ -67,7 +36,7 @@ public class AgregarProducto extends javax.swing.JFrame {
         btnAgregarProd = new javax.swing.JPanel();
         txtAgregarProd = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
-        jTPrecioCliente = new javax.swing.JTextField();
+        jTPrecio = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
         jTNombre = new javax.swing.JTextField();
 
@@ -143,8 +112,8 @@ public class AgregarProducto extends javax.swing.JFrame {
         jLabel6.setText("Precio Actual");
         PanelSecundario.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 220, -1, -1));
 
-        jTPrecioCliente.setForeground(new java.awt.Color(0, 0, 0));
-        PanelSecundario.add(jTPrecioCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(22, 269, 100, -1));
+        jTPrecio.setForeground(new java.awt.Color(0, 0, 0));
+        PanelSecundario.add(jTPrecio, new org.netbeans.lib.awtextra.AbsoluteConstraints(22, 269, 100, -1));
 
         jLabel7.setFont(new java.awt.Font("Roboto Light", 1, 14)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(255, 255, 255));
@@ -172,46 +141,29 @@ public class AgregarProducto extends javax.swing.JFrame {
     }//GEN-LAST:event_txtAgregarProdMouseExited
 
     private void txtAgregarProdMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtAgregarProdMouseClicked
-//
-//        
-//        try {
-//            String nombre = jTNombre.getText();
-//            String descr = jTDescripcion.getText();
-//            double precioCl = Double.parseDouble(jTPrecioCliente.getText());
-////            double precioCt = Double.parseDouble(jTPrecioCosto.getText());
-//            int cantidad = Integer.parseInt(jTCantidad.getText());
-//            
-//            if (disp == true) {
-////                prod = (Producto) jcbIdProductos.getSelectedItem();
-//                prod.setPrecioActual(precioCl);
-//                prod.setStock(prod.getStock() + Integer.parseInt(jTCantidad.getText()));
-//                prodData.modificarProducto(prod);
-//                prod = null;
-//
-//                limpiarCampos();
-//                disp = false;
-//                return;
-//            }
-//            if (nombre.isEmpty() || descr.isEmpty() || precioCl <= 0 || precioCt > precioCl || cantidad <= 0) {
-//                JOptionPane.showMessageDialog(this, "Error al llenar el formulario, verificar campos...");
-//            } else {
-//                prod = new Producto(nombre, descr, precioCl, cantidad, true);
-//                prodData.guardarProducto(prod);
-////                prod=prodData.buscarProducto(prod.getNombreProducto(),prod.getDescripcion());
-////                dc=new DetalleCompra(cantidad,precioCt,comp,prod);
-//                dcd.guardarDetalleCompra(dc);
-//                prod = null;
-//                
-//                limpiarCampos();
-//                disp = false;
-//
-//            }
-//        } catch (NumberFormatException e) {
-//            JOptionPane.showMessageDialog(this, "Datos incompatible");
-//            limpiarCampos();
-//        } catch (NullPointerException ex) {
-//            JOptionPane.showMessageDialog(this, "Completar datos");
-//        }
+
+        
+        try {
+            String nombre = jTNombre.getText();
+            String descr = jTDescripcion.getText();
+            double precio = Double.parseDouble(jTPrecio.getText());
+            int cantidad = Integer.parseInt(jTCantidad.getText());
+            
+            if (nombre.isEmpty() || descr.isEmpty() || precio <= 0 || cantidad <= 0) {
+                JOptionPane.showMessageDialog(this, "Error al llenar el formulario, verificar campos...");
+            } else {
+                prod = new Producto(nombre, descr, precio, cantidad, true);
+                prodData.guardarProducto(prod);
+                prod = null; 
+                limpiarCampos();
+
+            }
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(this, "Datos incompatible");
+            limpiarCampos();
+        } catch (NullPointerException ex) {
+            JOptionPane.showMessageDialog(this, "Completar datos");
+        }
 
     }//GEN-LAST:event_txtAgregarProdMouseClicked
 
@@ -258,7 +210,7 @@ public class AgregarProducto extends javax.swing.JFrame {
     private javax.swing.JTextField jTCantidad;
     private javax.swing.JTextField jTDescripcion;
     private javax.swing.JTextField jTNombre;
-    private javax.swing.JTextField jTPrecioCliente;
+    private javax.swing.JTextField jTPrecio;
     private javax.swing.JLabel txtAgregarProd;
     // End of variables declaration//GEN-END:variables
 
@@ -266,69 +218,10 @@ public class AgregarProducto extends javax.swing.JFrame {
 
         jTNombre.setText("");
         jTDescripcion.setText("");
-        jTPrecioCliente.setText("");
-//        jTPrecioCosto.setText("");
+        jTPrecio.setText("");
         jTCantidad.setText("");
-
         prod = null;
 
     }
-
-    public void jPanelXIzquierda(final int start, final int stop, final int delay, final int increment, final JPanel JPanel) {
-        if (JPanel.getX() == start) {
-            new Thread() {
-                public void run() {
-                    while (JPanel.getX() > stop) {
-                        for (int i = start; i >= stop; i -= increment) {
-                            try {
-                                Thread.sleep(delay);
-                                JPanel.setLocation(i, JPanel.getY());
-                            } catch (InterruptedException e) {
-                                System.out.println("Error Thread Interrupted: " + e);
-                            }
-                        }
-                    }
-                    JPanel.setLocation(stop, JPanel.getY());
-                }
-            }.start();
-        }
-    }
-
-    public void jPanelXDerecha(final int start, final int stop, final int delay, final int increment, final JPanel JPanel) {
-        if (JPanel.getX() == start) {
-            new Thread() {
-                public void run() {
-                    while (JPanel.getX() <= start) {
-                        for (int i = start; i <= stop; i += increment) {
-                            try {
-                                Thread.sleep(delay);
-
-                                JPanel.setLocation(i, JPanel.getY());
-                            } catch (InterruptedException e) {
-                                System.out.println("Error Thread Interrupted: " + e);
-                            }
-                        }
-                    }
-                    JPanel.setLocation(stop, JPanel.getY());
-                }
-            }.start();
-        }
-    }
-
-    private void cargarComboBox() {
-        listaProv = provData.listarProveedores();
-        for (Proveedor item : listaProv) {
-//            jcbProveedor.addItem(item);
-        }
-
-    }
-
-    private void cargarComboBoxProducto() {
-        listaProd = prodData.listarProductos();
-        for (Producto item : listaProd) {
-//            jcbIdProductos.addItem(item);
-        }
-
-    }
-
 }
+    
