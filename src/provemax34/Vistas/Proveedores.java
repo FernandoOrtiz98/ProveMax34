@@ -30,7 +30,7 @@ public class Proveedores extends javax.swing.JInternalFrame {
     public Proveedores() {
         provData = new ProveedorData();
         prov = new Proveedor();
-        idProv = 0;
+//        idProv= 0;
         initComponents();
         armarCabecera();
         cargarDatosProveedores();
@@ -348,7 +348,7 @@ public class Proveedores extends javax.swing.JInternalFrame {
             EditarProveedor ep = new EditarProveedor();
             ep.setVisible(true);
         } else {
-            JOptionPane.showMessageDialog(this, "Selecciona el producto a editar...");
+            JOptionPane.showMessageDialog(this, "Debe seleccionar un proveedor");
         }
     }//GEN-LAST:event_txtEditarMouseClicked
 

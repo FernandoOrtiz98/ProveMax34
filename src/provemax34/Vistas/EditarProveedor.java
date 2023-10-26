@@ -31,16 +31,16 @@ public class EditarProveedor extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
+        jLRazonSocial = new javax.swing.JLabel();
+        jLDomicilio = new javax.swing.JLabel();
+        jLTelefono = new javax.swing.JLabel();
+        jLEstado = new javax.swing.JLabel();
         jTRazonSocial = new javax.swing.JTextField();
         jTDomicilio = new javax.swing.JTextField();
         jTTelefono = new javax.swing.JTextField();
         jCBEstado = new javax.swing.JCheckBox();
-        btnAgregarProd = new javax.swing.JPanel();
-        txtAgregarProv = new javax.swing.JLabel();
+        btnModificarProv = new javax.swing.JPanel();
+        txtModificarProv = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setResizable(false);
@@ -50,29 +50,29 @@ public class EditarProveedor extends javax.swing.JFrame {
         jPanel1.setForeground(new java.awt.Color(0, 0, 0));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setFont(new java.awt.Font("Roboto Light", 1, 14)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("Razon Social");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, -1, -1));
+        jLRazonSocial.setFont(new java.awt.Font("Roboto Light", 1, 14)); // NOI18N
+        jLRazonSocial.setForeground(new java.awt.Color(255, 255, 255));
+        jLRazonSocial.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLRazonSocial.setText("Razon Social");
+        jPanel1.add(jLRazonSocial, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, -1, -1));
 
-        jLabel2.setFont(new java.awt.Font("Roboto Light", 1, 14)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel2.setText("Domicilio");
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 90, -1, -1));
+        jLDomicilio.setFont(new java.awt.Font("Roboto Light", 1, 14)); // NOI18N
+        jLDomicilio.setForeground(new java.awt.Color(255, 255, 255));
+        jLDomicilio.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLDomicilio.setText("Domicilio");
+        jPanel1.add(jLDomicilio, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 90, -1, -1));
 
-        jLabel3.setFont(new java.awt.Font("Roboto Light", 1, 14)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel3.setText("Telefono");
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 160, -1, -1));
+        jLTelefono.setFont(new java.awt.Font("Roboto Light", 1, 14)); // NOI18N
+        jLTelefono.setForeground(new java.awt.Color(255, 255, 255));
+        jLTelefono.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLTelefono.setText("Telefono");
+        jPanel1.add(jLTelefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 160, -1, -1));
 
-        jLabel4.setFont(new java.awt.Font("Roboto Light", 1, 14)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel4.setText("Estado");
-        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 240, -1, -1));
+        jLEstado.setFont(new java.awt.Font("Roboto Light", 1, 14)); // NOI18N
+        jLEstado.setForeground(new java.awt.Color(255, 255, 255));
+        jLEstado.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLEstado.setText("Estado");
+        jPanel1.add(jLEstado, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 240, -1, -1));
 
         jTRazonSocial.setForeground(new java.awt.Color(0, 0, 0));
         jTRazonSocial.setSelectedTextColor(new java.awt.Color(0, 0, 0));
@@ -85,57 +85,57 @@ public class EditarProveedor extends javax.swing.JFrame {
         jPanel1.add(jTTelefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 190, 323, -1));
         jPanel1.add(jCBEstado, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 240, -1, -1));
 
-        btnAgregarProd.setBackground(new java.awt.Color(255, 255, 255));
+        btnModificarProv.setBackground(new java.awt.Color(255, 255, 255));
 
-        txtAgregarProv.setBackground(new java.awt.Color(255, 255, 255));
-        txtAgregarProv.setFont(new java.awt.Font("Roboto Medium", 1, 18)); // NOI18N
-        txtAgregarProv.setForeground(new java.awt.Color(0, 0, 0));
-        txtAgregarProv.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        txtAgregarProv.setText("Modificar");
-        txtAgregarProv.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        txtAgregarProv.addMouseListener(new java.awt.event.MouseAdapter() {
+        txtModificarProv.setBackground(new java.awt.Color(255, 255, 255));
+        txtModificarProv.setFont(new java.awt.Font("Roboto Medium", 1, 18)); // NOI18N
+        txtModificarProv.setForeground(new java.awt.Color(0, 0, 0));
+        txtModificarProv.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        txtModificarProv.setText("Modificar");
+        txtModificarProv.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        txtModificarProv.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                txtAgregarProvMouseClicked(evt);
+                txtModificarProvMouseClicked(evt);
             }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                txtAgregarProvMouseEntered(evt);
+                txtModificarProvMouseEntered(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                txtAgregarProvMouseExited(evt);
+                txtModificarProvMouseExited(evt);
             }
         });
 
-        javax.swing.GroupLayout btnAgregarProdLayout = new javax.swing.GroupLayout(btnAgregarProd);
-        btnAgregarProd.setLayout(btnAgregarProdLayout);
-        btnAgregarProdLayout.setHorizontalGroup(
-            btnAgregarProdLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, btnAgregarProdLayout.createSequentialGroup()
+        javax.swing.GroupLayout btnModificarProvLayout = new javax.swing.GroupLayout(btnModificarProv);
+        btnModificarProv.setLayout(btnModificarProvLayout);
+        btnModificarProvLayout.setHorizontalGroup(
+            btnModificarProvLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, btnModificarProvLayout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(txtAgregarProv, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(txtModificarProv, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
-        btnAgregarProdLayout.setVerticalGroup(
-            btnAgregarProdLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, btnAgregarProdLayout.createSequentialGroup()
+        btnModificarProvLayout.setVerticalGroup(
+            btnModificarProvLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, btnModificarProvLayout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(txtAgregarProv, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(txtModificarProv, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
-        jPanel1.add(btnAgregarProd, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 270, 90, 30));
+        jPanel1.add(btnModificarProv, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 270, 90, 30));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 380, 330));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void txtAgregarProvMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtAgregarProvMouseEntered
-        btnAgregarProd.setBackground(Color.gray);
-    }//GEN-LAST:event_txtAgregarProvMouseEntered
+    private void txtModificarProvMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtModificarProvMouseEntered
+        btnModificarProv.setBackground(Color.gray);
+    }//GEN-LAST:event_txtModificarProvMouseEntered
 
-    private void txtAgregarProvMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtAgregarProvMouseExited
-        btnAgregarProd.setBackground(Color.white);
-    }//GEN-LAST:event_txtAgregarProvMouseExited
+    private void txtModificarProvMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtModificarProvMouseExited
+        btnModificarProv.setBackground(Color.white);
+    }//GEN-LAST:event_txtModificarProvMouseExited
 
-    private void txtAgregarProvMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtAgregarProvMouseClicked
+    private void txtModificarProvMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtModificarProvMouseClicked
 
         try {
             prov.setRazonSocial(jTRazonSocial.getText());
@@ -143,14 +143,14 @@ public class EditarProveedor extends javax.swing.JFrame {
             prov.setTelefono(jTTelefono.getText());
             prov.setEstado(true);
             provData.modificarProveedor(prov);
-            limpiarCampos();  
+            this.dispose();
         } catch (NumberFormatException e) {
             JOptionPane.showMessageDialog(this, "Datos incompatible");
         } catch (NullPointerException ex) {
             JOptionPane.showMessageDialog(this, "Completar datos");
         }
         
-    }//GEN-LAST:event_txtAgregarProvMouseClicked
+    }//GEN-LAST:event_txtModificarProvMouseClicked
 
 public static void main(String args[]) {
         /* Set the Nimbus look and feel */
@@ -185,17 +185,17 @@ public static void main(String args[]) {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JPanel btnAgregarProd;
+    private javax.swing.JPanel btnModificarProv;
     private javax.swing.JCheckBox jCBEstado;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLDomicilio;
+    private javax.swing.JLabel jLEstado;
+    private javax.swing.JLabel jLRazonSocial;
+    private javax.swing.JLabel jLTelefono;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JTextField jTDomicilio;
     private javax.swing.JTextField jTRazonSocial;
     private javax.swing.JTextField jTTelefono;
-    private javax.swing.JLabel txtAgregarProv;
+    private javax.swing.JLabel txtModificarProv;
     // End of variables declaration//GEN-END:variables
 
 public void limpiarCampos(){
@@ -206,6 +206,7 @@ public void limpiarCampos(){
         prov=null;
     }
 public void cargarDatosProv(){
+    prov = provData.buscarProveedor(Proveedores.idProv);
     jTRazonSocial.setText(prov.getRazonSocial());
     jTDomicilio.setText(prov.getDomicilio());
     jTTelefono.setText(prov.getTelefono());
