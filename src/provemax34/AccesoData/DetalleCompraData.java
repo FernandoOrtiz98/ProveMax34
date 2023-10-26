@@ -80,7 +80,7 @@ public class DetalleCompraData {
         }
     }
             public void borrarDetalleCompra(int idDetalle){
-        String query = "DELETE FROM detalleCompra WHERE idDetalle = ?";
+        String query = "DELETE FROM detalleCompra WHERE idCompra = ?";
 
         try {
             PreparedStatement ps = con.prepareStatement(query);
