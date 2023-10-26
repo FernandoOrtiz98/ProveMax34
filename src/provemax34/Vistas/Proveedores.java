@@ -30,7 +30,6 @@ public class Proveedores extends javax.swing.JInternalFrame {
     public Proveedores() {
         provData = new ProveedorData();
         prov = new Proveedor();
-//        idProv= 0;
         initComponents();
         armarCabecera();
         cargarDatosProveedores();
@@ -116,6 +115,11 @@ public class Proveedores extends javax.swing.JInternalFrame {
         jtBuscar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jtBuscarMouseClicked(evt);
+            }
+        });
+        jtBuscar.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                jtBuscarKeyReleased(evt);
             }
         });
 
@@ -370,6 +374,17 @@ public class Proveedores extends javax.swing.JInternalFrame {
     private void jPProveedoresMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPProveedoresMouseMoved
         actualizarTabla();
     }//GEN-LAST:event_jPProveedoresMouseMoved
+
+    private void jtBuscarKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtBuscarKeyReleased
+        // TODO add your handling code here:
+        modelo.setNumRows(0);
+        for(Proveedor prov:listaProv){
+            if(prov.getRazonSocial().toLowerCase().startsWith(jtBuscar.getText().toLowerCase())||
+                    prov.getDomicilio().toLowerCase().startsWith(jtBuscar.getText().toLowerCase())){
+                modelo.addRow(new Object[]{prov.getIdProveedor(),prov.getRazonSocial(),prov.getDomicilio(),prov.getTelefono(),prov.getEstado()});
+            }
+        }
+    }//GEN-LAST:event_jtBuscarKeyReleased
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
