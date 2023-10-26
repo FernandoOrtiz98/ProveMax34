@@ -31,7 +31,6 @@ public class Compras extends javax.swing.JInternalFrame {
     private ProveedorData provData = new ProveedorData();
     private Proveedor prov;
     private Compra comp;
-    private Compra compF;
     private CompraData compD;
     private DetalleCompra dc;
     private DetalleCompraData dcd;
@@ -49,7 +48,6 @@ public class Compras extends javax.swing.JInternalFrame {
         prod = new Producto();
         prodData = new ProductoData();
         comp = new Compra();
-        compF = new Compra();
         compD = new CompraData();
         dc = new DetalleCompra();
         dcd = new DetalleCompraData();
@@ -377,6 +375,9 @@ public class Compras extends javax.swing.JInternalFrame {
         txtSalir.setText("SALIR");
         txtSalir.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         txtSalir.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                txtSalirMouseClicked(evt);
+            }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 txtSalirMouseEntered(evt);
             }
@@ -410,6 +411,9 @@ public class Compras extends javax.swing.JInternalFrame {
         txtEliminar.setText("ELIMINAR");
         txtEliminar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         txtEliminar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                txtEliminarMouseClicked(evt);
+            }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 txtEliminarMouseEntered(evt);
             }
@@ -443,6 +447,9 @@ public class Compras extends javax.swing.JInternalFrame {
         txtEditar.setText("EDITAR");
         txtEditar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         txtEditar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                txtEditarMouseClicked(evt);
+            }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 txtEditarMouseEntered(evt);
             }
@@ -567,6 +574,9 @@ public class Compras extends javax.swing.JInternalFrame {
 
         }
         JOptionPane.showMessageDialog(this, "Compra Realizada!");
+        borrarFilas();
+        limpiarCampos();
+        
 
     }//GEN-LAST:event_txtAgregarMouseClicked
 
@@ -621,7 +631,7 @@ public class Compras extends javax.swing.JInternalFrame {
             prov = (Proveedor) jCBprov.getSelectedItem();
             LocalDate fecha = jDCFecha.getDate().toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
             double precioCt = Double.parseDouble(jTPrecioCosto.getText());
-            int cantidad = jSCant.getComponentCount();
+            int cantidad = (int) jSCant.getValue();
             if (compraR == false) {
                 comp = new Compra(prov, fecha);
                 compD.guardarCompra(comp);
@@ -641,6 +651,25 @@ public class Compras extends javax.swing.JInternalFrame {
     private void jCBprovActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCBprovActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jCBprovActionPerformed
+
+    private void txtEliminarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtEliminarMouseClicked
+       if(jTComprasDet.getSelectedRow()>=0){
+           modelo.removeRow(jTComprasDet.getSelectedRow());
+        }else{
+            JOptionPane.showMessageDialog(this,"Selecciona la compra a eliminar...");
+        }  
+        
+    }//GEN-LAST:event_txtEliminarMouseClicked
+
+    private void txtEditarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtEditarMouseClicked
+        compD.borrarCompra(comp.getIdCompra());
+        limpiarCampos();
+        borrarFilas();
+    }//GEN-LAST:event_txtEditarMouseClicked
+
+    private void txtSalirMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtSalirMouseClicked
+        dispose();
+    }//GEN-LAST:event_txtSalirMouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -720,14 +749,18 @@ public class Compras extends javax.swing.JInternalFrame {
             modelo.removeRow(f);
         }
     }
-//       private void cargaDatosProd() {
-//        Producto art=(Producto) jCBprod.getSelectedItem();
-//        modelo.setValueAt(new Object[]{art.getIdProducto()},0,0);
-//
-//    }
-//       private void cargaDatosProv() {
-//        Proveedor provS=(Proveedor) jCBprov.getSelectedItem();
-//        modelo.addRow(new Object[]{provS.getIdProveedor()});
-////        modelo.setValueAt(new Object[]{provS.getIdProveedor()},0,0);
-//    }
+    public void limpiarCampos() {
+
+        jCBprod.setSelectedIndex(-1);
+        jCBprov.setSelectedIndex(-1);
+        jCBprov.setEnabled(true);
+        jTPrecioCosto.setText("");
+        jDCFecha.setDate(null);
+        jDCFecha.setEnabled(true);
+        jSCant.setValue(0);
+        comp = null;
+        compraR=false;
+        
+
+    }
 }
