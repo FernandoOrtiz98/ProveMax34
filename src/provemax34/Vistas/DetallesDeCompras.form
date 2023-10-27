@@ -579,7 +579,7 @@
                 </Property>
               </Properties>
               <AuxValues>
-                <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;Compra&gt;"/>
+                <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;provemax34.Entidades.Compra&gt;"/>
               </AuxValues>
             </Component>
             <Component class="javax.swing.JComboBox" name="jcbStock">
