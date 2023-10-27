@@ -598,8 +598,8 @@ public class DetallesDeCompras extends javax.swing.JInternalFrame {
             prov=new Proveedor();
             prov=(Proveedor) jcbProveedor.getSelectedItem();
             JOptionPane.showMessageDialog(this, "idprov "+prov.getIdProveedor());
-            listaCompra = compData.listarComprasPorProveedor(prov.getIdProveedor());
-            for (Compra c : listaCompra) {
+            System.out.println("lista"+listaCompra);
+            for (Compra c : compData.listarComprasPorProveedor(prov.getIdProveedor())) {
                 JOptionPane.showMessageDialog(this, "id "+c.getIdCompra());
                 int idComp=c.getIdCompra();
                 System.out.println("id"+idComp);
