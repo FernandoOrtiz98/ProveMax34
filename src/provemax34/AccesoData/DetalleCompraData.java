@@ -54,7 +54,6 @@ public class DetalleCompraData {
                 JOptionPane.showMessageDialog(null, "No se pudo tener el ID...");
             }
             ps.close();
-//            JOptionPane.showMessageDialog(null, "");
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "Error de conexion... " + ex.getMessage());
         }
@@ -164,12 +163,37 @@ public class DetalleCompraData {
                 dc.setPrecioCosto(rs.getDouble("precioCosto"));
                 dc.setCompra(compD.buscarCompra(rs.getInt("idCompra")));
                 dc.setProducto(prodD.buscarProducto(rs.getInt("idProducto")));
-                Detalles.add(dc); //Por cada vuelta del while, agregamos un alumno al ArrayList productos.
+                Detalles.add(dc); 
             }
             ps.close();
         } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null, "Error al acceder a la tabla Producto");
+            JOptionPane.showMessageDialog(null, "Error al acceder a la tabla Detalles");
         }
+        return Detalles;
+    }
+    public ArrayList<DetalleCompra> listarDetallesPorCompra(int idCompra) {
+
+        String sql = "SELECT * FROM detalleCompra WHERE idCompra = ? ";
+        ArrayList<DetalleCompra> Detalles = new ArrayList<>();
+        try {
+            PreparedStatement ps = con.prepareStatement(sql);
+            ps.setInt(1,idCompra);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                DetalleCompra dc= new DetalleCompra();
+                prodD=new ProductoData();
+                dc.setIdDetalle(rs.getInt("idDetalle"));
+                dc.setCantidad(rs.getInt("cantidad"));
+                dc.setPrecioCosto(rs.getDouble("precioCosto"));
+                dc.setCompra(compD.buscarCompra(idCompra));
+                dc.setProducto(prodD.buscarProducto(rs.getInt("idProducto")));
+                Detalles.add(dc); 
+            }
+            ps.close();
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Error al acceder a la tabla Detalles");
+        }
+        System.out.println("");
         return Detalles;
     }
 }

@@ -48,7 +48,7 @@ public class DetallesDeCompras extends javax.swing.JInternalFrame {
         prod = new Producto();
         compData=new CompraData();
         dcd= new DetalleCompraData();
-        listaDetalle=dcd.listarDetalles();
+        
         initComponents();
         armarCabecera();
         cargaDatosDetalles();
@@ -594,8 +594,22 @@ public class DetallesDeCompras extends javax.swing.JInternalFrame {
     private void jcbProveedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jcbProveedorActionPerformed
         borrarFilas();
         try {
+            System.out.println("hola");
+            prov=new Proveedor();
             prov=(Proveedor) jcbProveedor.getSelectedItem();
-            cargaDatosPorProveedor(prov);
+            JOptionPane.showMessageDialog(this, "idprov "+prov.getIdProveedor());
+            listaCompra = compData.listarComprasPorProveedor(prov.getIdProveedor());
+            for (Compra c : listaCompra) {
+                JOptionPane.showMessageDialog(this, "id "+c.getIdCompra());
+                int idComp=c.getIdCompra();
+                System.out.println("id"+idComp);
+                listaDetalle=dcd.listarDetallesPorCompra(c.getIdCompra());
+                for (DetalleCompra i : listaDetalle) {
+            modelo.addRow(new Object[]{i.getIdDetalle(),i.getCantidad(),i.getPrecioCosto(),i.getCompra().getIdCompra(),i.getProducto().getNombreProducto(),i.getCompra().getFecha()});
+            }
+            
+        }
+        
         }catch (NullPointerException ex){
             JOptionPane.showMessageDialog(this, "No se encontro el Detalle "+ex.getMessage());
         }
@@ -605,7 +619,7 @@ public class DetallesDeCompras extends javax.swing.JInternalFrame {
     private void jcbProveedorMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jcbProveedorMouseClicked
         jcbProveedor.removeAllItems();
         cargarComboBoxprov();
-        jcbProveedor.setSelectedIndex(-1);
+//        jcbProveedor.setSelectedIndex(-1);
     }//GEN-LAST:event_jcbProveedorMouseClicked
 
 
@@ -674,7 +688,7 @@ public class DetallesDeCompras extends javax.swing.JInternalFrame {
         }
     }
     private void cargaDatosPorProveedor(Proveedor prov) {
-        listaCompra = compData.listarComprasPorProveedor(idProd);
+        listaCompra = compData.listarComprasPorProveedor(prov.getIdProveedor());
         for (DetalleCompra i : listaDetalle) {
             modelo.addRow(new Object[]{i.getIdDetalle(),i.getCantidad(),i.getPrecioCosto(),i.getCompra().getIdCompra(),i.getProducto().getNombreProducto(),i.getCompra().getFecha()});
         }
