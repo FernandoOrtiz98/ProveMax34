@@ -193,7 +193,7 @@ public class DetalleCompraData {
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "Error al acceder a la tabla Detalles");
         }
-        System.out.println("");
+        
         return Detalles;
     }
 }
