@@ -24,8 +24,7 @@ public class CompraData {
 
     public CompraData() {
         this.con = Conexion.getConexion();
-        Compra compra = new Compra();
-//        CompraData compraD = new CompraData();
+        compra = new Compra();
         Proveedor provedor=new Proveedor();
         ProveedorData proveedorD=new ProveedorData();
 
@@ -92,9 +91,8 @@ public class CompraData {
     }
 
     public ArrayList<Compra> listarComprasPorProveedor(int idProveedor) {
-
-        ArrayList<Compra> compras = new ArrayList<>();                 //int idCompra   Proveedor proveedor   LocalDate fecha
-        String sql = "SELECT idCompra,fecha FROM compra WHERE idProveedor = ?";
+        String sql = "SELECT idCompra,fecha FROM compra WHERE idProveedor = ?"; 
+        ArrayList<Compra> compras = new ArrayList<>();    
         try {
             PreparedStatement ps = con.prepareStatement(sql);
             ps.setInt(1, idProveedor);
@@ -102,8 +100,11 @@ public class CompraData {
             
             while (rs.next()) {
                 Compra compra = new Compra();
+                Proveedor prov = new Proveedor();
+                proveedorD=new ProveedorData();
+                prov=proveedorD.buscarProveedor(idProveedor);
                 compra.setIdCompra(rs.getInt("idCompra"));
-                compra.setProveedor(proveedorD.buscarProveedor(idProveedor));
+                compra.setProveedor(prov);
                 compra.setFecha(rs.getDate("fecha").toLocalDate());
                 compras.add(compra);
             }
