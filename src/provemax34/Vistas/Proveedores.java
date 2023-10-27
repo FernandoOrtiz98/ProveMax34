@@ -409,7 +409,6 @@ public class Proveedores extends javax.swing.JInternalFrame {
         filaCabecera.add("Razon Social");
         filaCabecera.add("Domicilio");
         filaCabecera.add("Telefono");
-        filaCabecera.add("Estado");
         for (Object i : filaCabecera) {
             modelo.addColumn(i);
         }
@@ -420,7 +419,7 @@ public class Proveedores extends javax.swing.JInternalFrame {
     private void cargarDatosProveedores() {
         listaProv = provData.listarProveedores();
         for (Proveedor i : listaProv) {
-            modelo.addRow(new Object[]{i.getIdProveedor(), i.getRazonSocial(), i.getDomicilio(), i.getTelefono(), i.getEstado()});
+            modelo.addRow(new Object[]{i.getIdProveedor(), i.getRazonSocial(), i.getDomicilio(), i.getTelefono()});
         }
     }
     public void actualizarTabla(){
