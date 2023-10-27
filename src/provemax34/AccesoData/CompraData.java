@@ -94,7 +94,7 @@ public class CompraData {
     public ArrayList<Compra> listarComprasPorProveedor(int idProveedor) {
 
         ArrayList<Compra> compras = new ArrayList<>();                 //int idCompra   Proveedor proveedor   LocalDate fecha
-        String sql = "SELECT * FROM compra WHERE idProveedor = ?";
+        String sql = "SELECT idCompra,fecha FROM compra WHERE idProveedor = ?";
         try {
             PreparedStatement ps = con.prepareStatement(sql);
             ps.setInt(1, idProveedor);
@@ -103,18 +103,15 @@ public class CompraData {
             while (rs.next()) {
                 Compra compra = new Compra();
                 compra.setIdCompra(rs.getInt("idCompra"));
-                Proveedor proveedor = proveedorD.buscarProveedor(idProveedor);
+                compra.setProveedor(proveedorD.buscarProveedor(idProveedor));
                 compra.setFecha(rs.getDate("fecha").toLocalDate());
-                
                 compras.add(compra);
-                
-
             }
             ps.close();
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "Error de conexion..." + ex.getMessage());
         }
-        System.out.println("dasdsadas");
+        
         return compras;
 
     }
