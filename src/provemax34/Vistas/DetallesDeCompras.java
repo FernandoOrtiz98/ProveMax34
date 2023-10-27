@@ -25,6 +25,7 @@ import provemax34.Entidades.Proveedor;
  * @author Fer
  */
 public class DetallesDeCompras extends javax.swing.JInternalFrame {
+
     private ArrayList<Proveedor> listaProv;
     private ArrayList<DetalleCompra> listaDetalle;
     private ArrayList<Compra> listaCompra;
@@ -44,11 +45,11 @@ public class DetallesDeCompras extends javax.swing.JInternalFrame {
 
     public DetallesDeCompras() {
         prodData = new ProductoData();
-        prov= new Proveedor();
+        prov = new Proveedor();
         prod = new Producto();
-        compData=new CompraData();
-        dcd= new DetalleCompraData();
-        
+        compData = new CompraData();
+        dcd = new DetalleCompraData();
+
         initComponents();
         armarCabecera();
         cargaDatosDetalles();
@@ -533,12 +534,12 @@ public class DetallesDeCompras extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jTBuscadorActionPerformed
 
     private void txtEliminarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtEliminarMouseClicked
-        if(jtCompras.getSelectedRow()>=0){
+        if (jtCompras.getSelectedRow() >= 0) {
             idProd = (Integer) jtCompras.getValueAt(jtCompras.getSelectedRow(), 0);
             prodData.eliminarProducto(idProd);
-        }else{
-            JOptionPane.showMessageDialog(this,"Selecciona el producto a eliminar...");
-        }  
+        } else {
+            JOptionPane.showMessageDialog(this, "Selecciona el producto a eliminar...");
+        }
     }//GEN-LAST:event_txtEliminarMouseClicked
 
     private void txtEliminarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtEliminarMouseEntered
@@ -564,15 +565,15 @@ public class DetallesDeCompras extends javax.swing.JInternalFrame {
     private void jTBuscadorKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTBuscadorKeyReleased
         borrarFilas();
         try {
-            for(DetalleCompra i:listaDetalle){
-            if(i.getProducto().getNombreProducto().toLowerCase().startsWith(jTBuscador.getText().toLowerCase())){
-                modelo.addRow(new Object[]{i.getIdDetalle(),i.getCantidad(),i.getPrecioCosto(),i.getCompra().getIdCompra(),i.getProducto().getNombreProducto()});
+            for (DetalleCompra i : listaDetalle) {
+                if (i.getProducto().getNombreProducto().toLowerCase().startsWith(jTBuscador.getText().toLowerCase())) {
+                    modelo.addRow(new Object[]{i.getIdDetalle(), i.getCantidad(), i.getPrecioCosto(), i.getCompra().getIdCompra(), i.getProducto().getNombreProducto()});
+                }
             }
+        } catch (NullPointerException ex) {
+            JOptionPane.showMessageDialog(this, "No se encontro el Detalle " + ex.getMessage());
         }
-        }catch (NullPointerException ex){
-            JOptionPane.showMessageDialog(this, "No se encontro el Detalle "+ex.getMessage());
-        }
-        
+
     }//GEN-LAST:event_jTBuscadorKeyReleased
 
     private void jTBuscadorMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTBuscadorMouseClicked
@@ -580,42 +581,38 @@ public class DetallesDeCompras extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jTBuscadorMouseClicked
 
     private void txtFiltrarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtFiltrarMouseEntered
-        
+
     }//GEN-LAST:event_txtFiltrarMouseEntered
 
     private void txtFiltrarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtFiltrarMouseExited
-        
+
     }//GEN-LAST:event_txtFiltrarMouseExited
 
     private void txtFiltrarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtFiltrarMouseClicked
-    
+
     }//GEN-LAST:event_txtFiltrarMouseClicked
 
     private void jcbProveedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jcbProveedorActionPerformed
         borrarFilas();
         try {
-            System.out.println("hola");
-            prov=new Proveedor();
-            prov=(Proveedor) jcbProveedor.getSelectedItem();
-            JOptionPane.showMessageDialog(this, "idprov "+prov.getIdProveedor());
-            System.out.println("lista"+listaCompra);
-            for (Compra c : compData.listarComprasPorProveedor(prov.getIdProveedor())) {
-                JOptionPane.showMessageDialog(this, "id "+c.getIdCompra());
-                int idComp=c.getIdCompra();
-                System.out.println("id"+idComp);
-                listaDetalle=dcd.listarDetallesPorCompra(c.getIdCompra());
-                for (DetalleCompra i : listaDetalle) {
-            modelo.addRow(new Object[]{i.getIdDetalle(),i.getCantidad(),i.getPrecioCosto(),i.getCompra().getIdCompra(),i.getProducto().getNombreProducto(),i.getCompra().getFecha()});
+            prov = new Proveedor();
+            prov = (Proveedor) jcbProveedor.getSelectedItem();
+            int id = prov.getIdProveedor();
+            listaCompra = compData.listarComprasPorProveedor(id);
+            if (listaCompra != null) {
+                for (Compra c : listaCompra) {
+                    listaDetalle = dcd.listarDetallesPorCompra(c.getIdCompra());
+                    for (DetalleCompra i : listaDetalle) {
+                        modelo.addRow(new Object[]{i.getIdDetalle(), i.getCantidad(), i.getPrecioCosto(), i.getCompra().getIdCompra(), i.getProducto().getNombreProducto(), i.getCompra().getFecha()});
+                    }
+                }
+            } else {
+                JOptionPane.showMessageDialog(this,"Todavia no hay compras registradas a este proveedor");
             }
-            
-        }
-        
         }catch (NullPointerException ex){
-            JOptionPane.showMessageDialog(this, "No se encontro el Detalle "+ex.getMessage());
-        }
-        
+            JOptionPane.showMessageDialog(this, "No se encontro el Detalle " + ex.getMessage());
     }//GEN-LAST:event_jcbProveedorActionPerformed
-
+    }
     private void jcbProveedorMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jcbProveedorMouseClicked
         jcbProveedor.removeAllItems();
         cargarComboBoxprov();
