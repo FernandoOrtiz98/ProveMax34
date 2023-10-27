@@ -6,6 +6,8 @@
 package provemax34.Vistas;
 
 import java.awt.Color;
+import javax.swing.JPanel;
+import provemax34.Entidades.Producto;
 
 /**
  *
@@ -47,7 +49,14 @@ public class Menu extends javax.swing.JFrame {
         txtDetalleCompra = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
+        panelNotificacion = new javax.swing.JPanel();
+        txtNotificacion = new javax.swing.JLabel();
         escritorio = new javax.swing.JPanel();
+        panelStock = new javax.swing.JPanel();
+        jLabel2 = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jList1 = new javax.swing.JList<>();
+        botonCerrar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -207,33 +216,61 @@ public class Menu extends javax.swing.JFrame {
         background.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 210, 540));
 
         jPanel3.setBackground(new java.awt.Color(0, 0, 0));
+        jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
-        jPanel3.setLayout(jPanel3Layout);
-        jPanel3Layout.setHorizontalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 780, Short.MAX_VALUE)
+        panelNotificacion.setBackground(new java.awt.Color(0, 0, 0));
+
+        txtNotificacion.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        txtNotificacion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/provemax34/Imagenes/8666714_bell_icon.png"))); // NOI18N
+        txtNotificacion.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                txtNotificacionMouseClicked(evt);
+            }
+        });
+
+        javax.swing.GroupLayout panelNotificacionLayout = new javax.swing.GroupLayout(panelNotificacion);
+        panelNotificacion.setLayout(panelNotificacionLayout);
+        panelNotificacionLayout.setHorizontalGroup(
+            panelNotificacionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(txtNotificacion, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
-        jPanel3Layout.setVerticalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 110, Short.MAX_VALUE)
+        panelNotificacionLayout.setVerticalGroup(
+            panelNotificacionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(txtNotificacion, javax.swing.GroupLayout.DEFAULT_SIZE, 40, Short.MAX_VALUE)
         );
+
+        jPanel3.add(panelNotificacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 50, 40, 40));
 
         background.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 30, 780, 110));
 
         escritorio.setBackground(new java.awt.Color(255, 255, 255));
         escritorio.setForeground(new java.awt.Color(255, 255, 255));
+        escritorio.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        javax.swing.GroupLayout escritorioLayout = new javax.swing.GroupLayout(escritorio);
-        escritorio.setLayout(escritorioLayout);
-        escritorioLayout.setHorizontalGroup(
-            escritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 780, Short.MAX_VALUE)
-        );
-        escritorioLayout.setVerticalGroup(
-            escritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
-        );
+        panelStock.setBackground(new java.awt.Color(51, 51, 51));
+        panelStock.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel2.setFont(new java.awt.Font("Roboto Light", 1, 12)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel2.setText("Productos con poco Stock");
+        panelStock.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(15, 15, 259, -1));
+
+        jList1.setBackground(new java.awt.Color(51, 51, 51));
+        jList1.setFont(new java.awt.Font("Roboto Light", 1, 12)); // NOI18N
+        jList1.setForeground(new java.awt.Color(255, 255, 255));
+        jScrollPane1.setViewportView(jList1);
+
+        panelStock.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(15, 42, 179, 299));
+
+        botonCerrar.setText("Cerrar");
+        botonCerrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonCerrarActionPerformed(evt);
+            }
+        });
+        panelStock.add(botonCerrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(41, 359, 128, 24));
+
+        escritorio.add(panelStock, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 0, 210, 400));
 
         background.add(escritorio, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 140, 780, 400));
 
@@ -330,6 +367,14 @@ public class Menu extends javax.swing.JFrame {
         ddc.setVisible(true);
     }//GEN-LAST:event_txtDetalleCompraMouseClicked
 
+    private void txtNotificacionMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtNotificacionMouseClicked
+        jPanelXIzquierda(785, 570, 10, 10, panelStock);
+    }//GEN-LAST:event_txtNotificacionMouseClicked
+
+    private void botonCerrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonCerrarActionPerformed
+        jPanelXDerecha(570, 785, 10, 10, panelStock);
+    }//GEN-LAST:event_botonCerrarActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -367,24 +412,70 @@ public class Menu extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel background;
+    private javax.swing.JButton botonCerrar;
     private javax.swing.JPanel escritorio;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
+    private javax.swing.JList<Producto> jList1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JPanel panelCompras;
     private javax.swing.JPanel panelDetalleCompra;
     private javax.swing.JPanel panelHome;
+    private javax.swing.JPanel panelNotificacion;
     private javax.swing.JPanel panelProductos;
     private javax.swing.JPanel panelProveedores;
+    private javax.swing.JPanel panelStock;
     private javax.swing.JLabel txtCompras;
     private javax.swing.JLabel txtDetalleCompra;
     private javax.swing.JLabel txtHome;
+    private javax.swing.JLabel txtNotificacion;
     private javax.swing.JLabel txtProductos1;
     private javax.swing.JLabel txtProveedores;
     // End of variables declaration//GEN-END:variables
+public void jPanelXIzquierda(final int start, final int stop, final int delay, final int increment, final JPanel JPanel) {
+        if (JPanel.getX() == start) {
+            new Thread() {
+                public void run() {
+                    while (JPanel.getX() > stop) {
+                        for (int i = start; i >= stop; i -= increment) {
+                            try {
+                                Thread.sleep(delay);
+                                JPanel.setLocation(i, JPanel.getY());
+                            } catch (InterruptedException e) {
+                                System.out.println("Error Thread Interrupted: " + e);
+                            }
+                        }
+                    }
+                    JPanel.setLocation(stop, JPanel.getY());
+                }
+            }.start();
+        }
+    }
+public void jPanelXDerecha(final int start, final int stop, final int delay, final int increment, final JPanel JPanel) {
+        if (JPanel.getX() == start) {
+            new Thread() {
+                public void run() {
+                    while (JPanel.getX() <= start) {
+                        for (int i = start; i <= stop; i += increment) {
+                            try {
+                                Thread.sleep(delay);
+
+                                JPanel.setLocation(i, JPanel.getY());
+                            } catch (InterruptedException e) {
+                                System.out.println("Error Thread Interrupted: " + e);
+                            }
+                        }
+                    }
+                    JPanel.setLocation(stop, JPanel.getY());
+                }
+            }.start();
+        }
+    }
 }
