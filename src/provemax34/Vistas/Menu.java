@@ -6,6 +6,7 @@
 package provemax34.Vistas;
 
 import java.awt.Color;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import provemax34.Entidades.Producto;
 
@@ -19,6 +20,7 @@ public class Menu extends javax.swing.JFrame {
     public Menu() {
         initComponents();
         this.setLocationRelativeTo(null);
+        
     }
 
     /**
@@ -227,6 +229,11 @@ public class Menu extends javax.swing.JFrame {
                 txtNotificacionMouseClicked(evt);
             }
         });
+        txtNotificacion.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
+            public void propertyChange(java.beans.PropertyChangeEvent evt) {
+                txtNotificacionPropertyChange(evt);
+            }
+        });
 
         javax.swing.GroupLayout panelNotificacionLayout = new javax.swing.GroupLayout(panelNotificacion);
         panelNotificacion.setLayout(panelNotificacionLayout);
@@ -270,7 +277,7 @@ public class Menu extends javax.swing.JFrame {
         });
         panelStock.add(botonCerrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(41, 359, 128, 24));
 
-        escritorio.add(panelStock, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 0, 210, 400));
+        escritorio.add(panelStock, new org.netbeans.lib.awtextra.AbsoluteConstraints(785, 0, 210, 400));
 
         background.add(escritorio, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 140, 780, 400));
 
@@ -374,6 +381,10 @@ public class Menu extends javax.swing.JFrame {
     private void botonCerrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonCerrarActionPerformed
         jPanelXDerecha(570, 785, 10, 10, panelStock);
     }//GEN-LAST:event_botonCerrarActionPerformed
+
+    private void txtNotificacionPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_txtNotificacionPropertyChange
+        JOptionPane.showMessageDialog(this, "Productos con stock bajo");
+    }//GEN-LAST:event_txtNotificacionPropertyChange
 
     /**
      * @param args the command line arguments
