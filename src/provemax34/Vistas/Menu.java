@@ -252,7 +252,6 @@ public class Menu extends javax.swing.JFrame {
 
         escritorio.setBackground(new java.awt.Color(255, 255, 255));
         escritorio.setForeground(new java.awt.Color(255, 255, 255));
-        escritorio.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         panelStock.setBackground(new java.awt.Color(51, 51, 51));
         panelStock.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -277,7 +276,18 @@ public class Menu extends javax.swing.JFrame {
         });
         panelStock.add(botonCerrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(41, 359, 128, 24));
 
-        escritorio.add(panelStock, new org.netbeans.lib.awtextra.AbsoluteConstraints(785, 0, 210, 400));
+        javax.swing.GroupLayout escritorioLayout = new javax.swing.GroupLayout(escritorio);
+        escritorio.setLayout(escritorioLayout);
+        escritorioLayout.setHorizontalGroup(
+            escritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(escritorioLayout.createSequentialGroup()
+                .addGap(785, 785, 785)
+                .addComponent(panelStock, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+        escritorioLayout.setVerticalGroup(
+            escritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(panelStock, javax.swing.GroupLayout.PREFERRED_SIZE, 400, javax.swing.GroupLayout.PREFERRED_SIZE)
+        );
 
         background.add(escritorio, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 140, 780, 400));
 
@@ -379,11 +389,11 @@ public class Menu extends javax.swing.JFrame {
     }//GEN-LAST:event_txtNotificacionMouseClicked
 
     private void botonCerrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonCerrarActionPerformed
-        jPanelXDerecha(570, 785, 10, 10, panelStock);
+//        jPanelXDerecha(570, 785, 10, 10, panelStock);
     }//GEN-LAST:event_botonCerrarActionPerformed
 
     private void txtNotificacionPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_txtNotificacionPropertyChange
-        JOptionPane.showMessageDialog(this, "Productos con stock bajo");
+//        JOptionPane.showMessageDialog(this, "Productos con stock bajo");
     }//GEN-LAST:event_txtNotificacionPropertyChange
 
     /**
