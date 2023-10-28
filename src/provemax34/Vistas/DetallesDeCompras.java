@@ -28,9 +28,11 @@ public class DetallesDeCompras extends javax.swing.JInternalFrame {
 
     private ArrayList<Proveedor> listaProv;
     private ArrayList<DetalleCompra> listaDetalle;
+    private ArrayList<DetalleCompra> listaDetallePorCompra;
     private ArrayList<Compra> listaCompra;
     private Producto prod = null;
     private ProductoData prodData;
+    private Compra comp;
     private CompraData compData;
     private Proveedor prov;
     private ProveedorData provData = new ProveedorData();
@@ -47,6 +49,7 @@ public class DetallesDeCompras extends javax.swing.JInternalFrame {
         prodData = new ProductoData();
         prov = new Proveedor();
         prod = new Producto();
+        comp = new Compra();
         compData = new CompraData();
         dcd = new DetalleCompraData();
 
@@ -346,6 +349,17 @@ public class DetallesDeCompras extends javax.swing.JInternalFrame {
             }
         });
 
+        jcbCompra.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jcbCompraMouseClicked(evt);
+            }
+        });
+        jcbCompra.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jcbCompraActionPerformed(evt);
+            }
+        });
+
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Proveedor");
 
@@ -619,6 +633,30 @@ public class DetallesDeCompras extends javax.swing.JInternalFrame {
 //        jcbProveedor.setSelectedIndex(-1);
     }//GEN-LAST:event_jcbProveedorMouseClicked
 
+    private void jcbCompraMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jcbCompraMouseClicked
+        jcbCompra.removeAllItems();
+        cargarComboBoxcomp();
+        
+    }//GEN-LAST:event_jcbCompraMouseClicked
+
+    private void jcbCompraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jcbCompraActionPerformed
+       borrarFilas();
+        try {
+            comp = (Compra) jcbCompra.getSelectedItem();
+            int id = comp.getIdCompra();
+            listaDetallePorCompra = dcd.listarDetallesPorCompra(id);
+            if (listaDetallePorCompra != null) {            
+                for (DetalleCompra i : listaDetallePorCompra) {
+                   modelo.addRow(new Object[]{i.getIdDetalle(), i.getCantidad(), i.getPrecioCosto(), i.getCompra().getIdCompra(), i.getProducto().getNombreProducto(), i.getCompra().getFecha()});
+                 }
+            } else {
+                JOptionPane.showMessageDialog(this,"Todavia no hay compras registradas a este proveedor");
+            }
+        }catch (NullPointerException ex){
+            JOptionPane.showMessageDialog(this, "No se encontro el Detalle " + ex.getMessage());
+    }                                   
+    }//GEN-LAST:event_jcbCompraActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel PanelSalir;
@@ -649,7 +687,7 @@ public class DetallesDeCompras extends javax.swing.JInternalFrame {
     private javax.swing.JTable jTable2;
     private javax.swing.JTextField jTextField2;
     private com.toedter.calendar.JYearChooser jYearChooser1;
-    private javax.swing.JComboBox<Compra> jcbCompra;
+    private javax.swing.JComboBox<provemax34.Entidades.Compra> jcbCompra;
     private javax.swing.JComboBox<Proveedor> jcbProveedor;
     private javax.swing.JComboBox<Producto> jcbStock;
     private com.toedter.calendar.JDateChooser jdFecha1;
@@ -684,12 +722,7 @@ public class DetallesDeCompras extends javax.swing.JInternalFrame {
             modelo.addRow(new Object[]{i.getIdDetalle(),i.getCantidad(),i.getPrecioCosto(),i.getCompra().getIdCompra(),i.getProducto().getNombreProducto(),i.getCompra().getFecha()});
         }
     }
-    private void cargaDatosPorProveedor(Proveedor prov) {
-        listaCompra = compData.listarComprasPorProveedor(prov.getIdProveedor());
-        for (DetalleCompra i : listaDetalle) {
-            modelo.addRow(new Object[]{i.getIdDetalle(),i.getCantidad(),i.getPrecioCosto(),i.getCompra().getIdCompra(),i.getProducto().getNombreProducto(),i.getCompra().getFecha()});
-        }
-    }
+
     private void borrarFilas(){
         int f = jtCompras.getRowCount()-1;
         for(;f>=0;f--){
