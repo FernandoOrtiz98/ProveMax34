@@ -121,7 +121,7 @@ public class DetalleCompraData {
     }
     public List<Producto> listarProductoPorCompra(int idCompra) {
 
-        List<Producto> productos = new ArrayList<>();                 
+        ArrayList<Producto> productos = new ArrayList<>();                 
         String sql = "SELECT Producto.* " +
         " FROM DetalleCompra " +
         " JOIN Producto ON DetalleCompra.producto = Producto.idProducto " +
