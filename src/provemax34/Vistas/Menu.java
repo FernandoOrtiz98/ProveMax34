@@ -54,11 +54,6 @@ public class Menu extends javax.swing.JFrame {
         panelNotificacion = new javax.swing.JPanel();
         txtNotificacion = new javax.swing.JLabel();
         escritorio = new javax.swing.JPanel();
-        panelStock = new javax.swing.JPanel();
-        jLabel2 = new javax.swing.JLabel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jList1 = new javax.swing.JList<>();
-        botonCerrar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -220,7 +215,7 @@ public class Menu extends javax.swing.JFrame {
         jPanel3.setBackground(new java.awt.Color(0, 0, 0));
         jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        panelNotificacion.setBackground(new java.awt.Color(0, 0, 0));
+        panelNotificacion.setBackground(new java.awt.Color(102, 102, 102));
 
         txtNotificacion.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         txtNotificacion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/provemax34/Imagenes/8666714_bell_icon.png"))); // NOI18N
@@ -253,40 +248,15 @@ public class Menu extends javax.swing.JFrame {
         escritorio.setBackground(new java.awt.Color(255, 255, 255));
         escritorio.setForeground(new java.awt.Color(255, 255, 255));
 
-        panelStock.setBackground(new java.awt.Color(51, 51, 51));
-        panelStock.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jLabel2.setFont(new java.awt.Font("Roboto Light", 1, 12)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel2.setText("Productos con poco Stock");
-        panelStock.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(15, 15, 259, -1));
-
-        jList1.setBackground(new java.awt.Color(51, 51, 51));
-        jList1.setFont(new java.awt.Font("Roboto Light", 1, 12)); // NOI18N
-        jList1.setForeground(new java.awt.Color(255, 255, 255));
-        jScrollPane1.setViewportView(jList1);
-
-        panelStock.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(15, 42, 179, 299));
-
-        botonCerrar.setText("Cerrar");
-        botonCerrar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                botonCerrarActionPerformed(evt);
-            }
-        });
-        panelStock.add(botonCerrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(41, 359, 128, 24));
-
         javax.swing.GroupLayout escritorioLayout = new javax.swing.GroupLayout(escritorio);
         escritorio.setLayout(escritorioLayout);
         escritorioLayout.setHorizontalGroup(
             escritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(escritorioLayout.createSequentialGroup()
-                .addGap(785, 785, 785)
-                .addComponent(panelStock, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGap(0, 780, Short.MAX_VALUE)
         );
         escritorioLayout.setVerticalGroup(
             escritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(panelStock, javax.swing.GroupLayout.PREFERRED_SIZE, 400, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGap(0, 400, Short.MAX_VALUE)
         );
 
         background.add(escritorio, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 140, 780, 400));
@@ -385,15 +355,16 @@ public class Menu extends javax.swing.JFrame {
     }//GEN-LAST:event_txtDetalleCompraMouseClicked
 
     private void txtNotificacionMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtNotificacionMouseClicked
-        jPanelXIzquierda(785, 570, 10, 10, panelStock);
+        Stock stock = new Stock();
+        escritorio.removeAll();
+        escritorio.repaint();
+        escritorio.add(stock);
+        stock.setVisible(true);
+        stock.setLocation(380,0);       
     }//GEN-LAST:event_txtNotificacionMouseClicked
 
-    private void botonCerrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonCerrarActionPerformed
-//        jPanelXDerecha(570, 785, 10, 10, panelStock);
-    }//GEN-LAST:event_botonCerrarActionPerformed
-
     private void txtNotificacionPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_txtNotificacionPropertyChange
-//        JOptionPane.showMessageDialog(this, "Productos con stock bajo");
+
     }//GEN-LAST:event_txtNotificacionPropertyChange
 
     /**
@@ -433,26 +404,21 @@ public class Menu extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel background;
-    private javax.swing.JButton botonCerrar;
     private javax.swing.JPanel escritorio;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
-    private javax.swing.JList<Producto> jList1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
-    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JPanel panelCompras;
     private javax.swing.JPanel panelDetalleCompra;
     private javax.swing.JPanel panelHome;
     private javax.swing.JPanel panelNotificacion;
     private javax.swing.JPanel panelProductos;
     private javax.swing.JPanel panelProveedores;
-    private javax.swing.JPanel panelStock;
     private javax.swing.JLabel txtCompras;
     private javax.swing.JLabel txtDetalleCompra;
     private javax.swing.JLabel txtHome;
@@ -460,43 +426,5 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JLabel txtProductos1;
     private javax.swing.JLabel txtProveedores;
     // End of variables declaration//GEN-END:variables
-public void jPanelXIzquierda(final int start, final int stop, final int delay, final int increment, final JPanel JPanel) {
-        if (JPanel.getX() == start) {
-            new Thread() {
-                public void run() {
-                    while (JPanel.getX() > stop) {
-                        for (int i = start; i >= stop; i -= increment) {
-                            try {
-                                Thread.sleep(delay);
-                                JPanel.setLocation(i, JPanel.getY());
-                            } catch (InterruptedException e) {
-                                System.out.println("Error Thread Interrupted: " + e);
-                            }
-                        }
-                    }
-                    JPanel.setLocation(stop, JPanel.getY());
-                }
-            }.start();
-        }
-    }
-public void jPanelXDerecha(final int start, final int stop, final int delay, final int increment, final JPanel JPanel) {
-        if (JPanel.getX() == start) {
-            new Thread() {
-                public void run() {
-                    while (JPanel.getX() <= start) {
-                        for (int i = start; i <= stop; i += increment) {
-                            try {
-                                Thread.sleep(delay);
 
-                                JPanel.setLocation(i, JPanel.getY());
-                            } catch (InterruptedException e) {
-                                System.out.println("Error Thread Interrupted: " + e);
-                            }
-                        }
-                    }
-                    JPanel.setLocation(stop, JPanel.getY());
-                }
-            }.start();
-        }
-    }
 }
