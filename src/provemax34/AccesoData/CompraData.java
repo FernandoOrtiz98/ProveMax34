@@ -187,5 +187,30 @@ public class CompraData {
         }
         return Compras;
     }
+    public ArrayList<Compra> listarComprasEntreFechas(LocalDate fecha1, LocalDate fecha2) {
+
+        ArrayList<Compra> Compras = new ArrayList<>();                 
+        String sql = "SELECT * FROM Compra WHERE fecha BETWEEN ? AND ?";
+        try {
+            PreparedStatement ps = con.prepareStatement(sql);
+            ps.setDate(1, Date.valueOf(fecha1));
+            ps.setDate(2, Date.valueOf(fecha2));
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                Compra comp=new Compra();
+                ProveedorData provD=new ProveedorData();
+                comp.setIdCompra(rs.getInt("idCompra"));
+                comp.setProveedor(provD.buscarProveedor(rs.getInt("idProveedor")));
+                comp.setFecha(rs.getDate("fecha").toLocalDate());
+                
+                
+                Compras.add(comp);
+            }
+            ps.close();
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Error de conexion..." + ex.getMessage());
+        }
+        return Compras;
+    }
 }
 
