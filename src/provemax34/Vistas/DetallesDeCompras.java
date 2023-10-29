@@ -6,6 +6,8 @@
 package provemax34.Vistas;
 
 import java.awt.Color;
+import java.time.LocalDate;
+import java.time.ZoneId;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JOptionPane;
@@ -29,6 +31,7 @@ public class DetallesDeCompras extends javax.swing.JInternalFrame {
     private ArrayList<Proveedor> listaProv;
     private ArrayList<DetalleCompra> listaDetalle;
     private ArrayList<DetalleCompra> listaDetallePorCompra;
+    private ArrayList<Producto> listaProductos;
     private ArrayList<Compra> listaCompra;
     private Producto prod = null;
     private ProductoData prodData;
@@ -38,6 +41,8 @@ public class DetallesDeCompras extends javax.swing.JInternalFrame {
     private ProveedorData provData = new ProveedorData();
     private DetalleCompra dc = new DetalleCompra();
     private DetalleCompraData dcd;
+//    private LocalDate fecha1;
+//    private LocalDate fecha2;
     public static int idProd;
     private DefaultTableModel modelo = new DefaultTableModel() {
         public boolean isCellEditable(int fila, int columna) {
@@ -52,6 +57,8 @@ public class DetallesDeCompras extends javax.swing.JInternalFrame {
         comp = new Compra();
         compData = new CompraData();
         dcd = new DetalleCompraData();
+//        fecha1 = null;
+//        fecha2 = null;
 
         initComponents();
         armarCabecera();
@@ -90,15 +97,12 @@ public class DetallesDeCompras extends javax.swing.JInternalFrame {
         panelFiltros = new javax.swing.JPanel();
         jcbProveedor = new javax.swing.JComboBox<>();
         jcbCompra = new javax.swing.JComboBox<>();
-        jcbStock = new javax.swing.JComboBox<>();
         jdFecha1 = new com.toedter.calendar.JDateChooser();
         jdFecha2 = new com.toedter.calendar.JDateChooser();
-        jdFechaEspecifica = new com.toedter.calendar.JDateChooser();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        jLabel11 = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         jtCompras = new javax.swing.JTable();
         PanelSalir = new javax.swing.JPanel();
@@ -360,20 +364,33 @@ public class DetallesDeCompras extends javax.swing.JInternalFrame {
             }
         });
 
+        jdFecha1.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
+            public void propertyChange(java.beans.PropertyChangeEvent evt) {
+                jdFecha1PropertyChange(evt);
+            }
+        });
+
+        jdFecha2.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
+            public void propertyChange(java.beans.PropertyChangeEvent evt) {
+                jdFecha2PropertyChange(evt);
+            }
+        });
+
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Proveedor");
 
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("Compra");
 
-        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel4.setText("Stock min");
-
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setText("Enftre fechas");
 
-        jLabel11.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel11.setText("Fechas esp");
+        jButton1.setText("Buscar");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout panelFiltrosLayout = new javax.swing.GroupLayout(panelFiltros);
         panelFiltros.setLayout(panelFiltrosLayout);
@@ -381,29 +398,27 @@ public class DetallesDeCompras extends javax.swing.JInternalFrame {
             panelFiltrosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelFiltrosLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(panelFiltrosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGroup(panelFiltrosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel2)
+                    .addComponent(jLabel3))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 9, Short.MAX_VALUE)
+                .addGroup(panelFiltrosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jcbProveedor, 0, 151, Short.MAX_VALUE)
+                    .addComponent(jcbCompra, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(panelFiltrosLayout.createSequentialGroup()
-                        .addComponent(jLabel5)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 25, Short.MAX_VALUE)
-                        .addComponent(jdFecha1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(panelFiltrosLayout.createSequentialGroup()
-                        .addGroup(panelFiltrosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel2)
-                            .addComponent(jLabel3)
-                            .addComponent(jLabel4))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(panelFiltrosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jcbProveedor, 0, 151, Short.MAX_VALUE)
-                            .addComponent(jcbCompra, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jcbStock, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                    .addGroup(panelFiltrosLayout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(jdFecha2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(panelFiltrosLayout.createSequentialGroup()
-                        .addComponent(jLabel11)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jdFechaEspecifica, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(8, 8, 8)
+                        .addComponent(jLabel5)))
                 .addGap(15, 15, 15))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelFiltrosLayout.createSequentialGroup()
+                .addGap(16, 16, 16)
+                .addComponent(jdFecha1, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jdFecha2, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(15, 15, 15))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelFiltrosLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jButton1)
+                .addGap(83, 83, 83))
         );
         panelFiltrosLayout.setVerticalGroup(
             panelFiltrosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -416,21 +431,15 @@ public class DetallesDeCompras extends javax.swing.JInternalFrame {
                 .addGroup(panelFiltrosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jcbCompra, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel3))
-                .addGap(18, 18, 18)
-                .addGroup(panelFiltrosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jcbStock, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel4))
-                .addGap(26, 26, 26)
-                .addComponent(jdFecha1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(2, 2, 2)
+                .addGap(58, 58, 58)
                 .addComponent(jLabel5)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jdFecha2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addGap(44, 44, 44)
                 .addGroup(panelFiltrosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel11)
-                    .addComponent(jdFechaEspecifica, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(25, Short.MAX_VALUE))
+                    .addComponent(jdFecha2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jdFecha1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 28, Short.MAX_VALUE)
+                .addComponent(jButton1)
+                .addGap(17, 17, 17))
         );
 
         background.add(panelFiltros, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 70, 240, 300));
@@ -657,19 +666,61 @@ public class DetallesDeCompras extends javax.swing.JInternalFrame {
     }                                   
     }//GEN-LAST:event_jcbCompraActionPerformed
 
+    private void jdFecha1PropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_jdFecha1PropertyChange
+ 
+    }//GEN-LAST:event_jdFecha1PropertyChange
+
+    private void jdFecha2PropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_jdFecha2PropertyChange
+ 
+    }//GEN-LAST:event_jdFecha2PropertyChange
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        LocalDate fecha1 = jdFecha1.getDate().toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+        LocalDate fecha2 = jdFecha2.getDate().toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+        borrarFilas();
+//        listaProductos=(ArrayList<Producto>) prodData.listarProductosMasComprados(fecha1, fecha2);
+//        if (listaProductos != null) {            
+//                for (Producto i : listaProductos) {
+//                   modelo.addRow(new Object[]{i.});
+//                 }
+//            } else {
+//                JOptionPane.showMessageDialog(this,"Todavia no hay compras registradas a este proveedor");
+//            }
+        try {
+            listaCompra = compData.listarComprasEntreFechas(fecha1, fecha2);
+            if (listaCompra != null) {
+                for (Compra c : listaCompra) {
+                    listaDetalle = dcd.listarDetallesPorCompra(c.getIdCompra());
+                    for (DetalleCompra i : listaDetalle) {
+                        int x=0;
+                        int x2=0;
+                        int x3=0;
+                        if (i.getCantidad()>x) {
+                            
+                            modelo.addRow(new Object[]{i.getIdDetalle(), i.getCantidad(), i.getPrecioCosto(), i.getCompra().getIdCompra(), i.getProducto().getNombreProducto(), i.getCompra().getFecha()});  
+                        }
+                        
+                    }
+                }
+            } else {
+                JOptionPane.showMessageDialog(this,"Todavia no hay compras registradas a este proveedor");
+            }
+        }catch (NullPointerException ex){
+            JOptionPane.showMessageDialog(this, "No se encontro el Detalle " + ex.getMessage());
+    }//GEN-LAST:event_jButton1ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel PanelSalir;
     private javax.swing.JPanel background;
     private javax.swing.JPanel background1;
+    private javax.swing.JButton jButton1;
     private javax.swing.JFrame jFrame1;
     private javax.swing.JInternalFrame jInternalFrame1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
@@ -689,10 +740,8 @@ public class DetallesDeCompras extends javax.swing.JInternalFrame {
     private com.toedter.calendar.JYearChooser jYearChooser1;
     private javax.swing.JComboBox<provemax34.Entidades.Compra> jcbCompra;
     private javax.swing.JComboBox<Proveedor> jcbProveedor;
-    private javax.swing.JComboBox<Producto> jcbStock;
     private com.toedter.calendar.JDateChooser jdFecha1;
     private com.toedter.calendar.JDateChooser jdFecha2;
-    private com.toedter.calendar.JDateChooser jdFechaEspecifica;
     private javax.swing.JTable jtCompras;
     private javax.swing.JPanel panelEliminar;
     private javax.swing.JPanel panelFiltros;
