@@ -1,19 +1,16 @@
-
 package provemax34.Vistas;
 
 import java.awt.Color;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
-
 
 public class Login extends javax.swing.JFrame {
 
-    
     public Login() {
         initComponents();
         this.setLocationRelativeTo(null);
     }
 
-    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -421,7 +418,7 @@ public class Login extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void txtIniciarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtIniciarMouseEntered
-        btnIniciar.setBackground(new Color(48,48,48));
+        btnIniciar.setBackground(new Color(48, 48, 48));
     }//GEN-LAST:event_txtIniciarMouseEntered
 
     private void txtIniciarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtIniciarMouseExited
@@ -437,24 +434,24 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_txtRegistrarseMouseExited
 
     private void txtUserMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtUserMousePressed
-        if(txtUser.getText().equals("Ingrese su usuario")){
-        txtUser.setText("");
-        txtUser.setForeground(Color.black);
+        if (txtUser.getText().equals("Ingrese su usuario")) {
+            txtUser.setText("");
+            txtUser.setForeground(Color.black);
         }
-        if(String.valueOf(txtPass.getPassword()).isEmpty()){
-        txtPass.setText("********");
-        txtPass.setForeground(Color.gray);
+        if (String.valueOf(txtPass.getPassword()).isEmpty()) {
+            txtPass.setText("********");
+            txtPass.setForeground(Color.gray);
         }
     }//GEN-LAST:event_txtUserMousePressed
 
     private void txtPassMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtPassMousePressed
-        if(String.valueOf(txtPass.getPassword()).equals("********")){
-        txtPass.setText("");
-        txtPass.setForeground(Color.black);
+        if (String.valueOf(txtPass.getPassword()).equals("********")) {
+            txtPass.setText("");
+            txtPass.setForeground(Color.black);
         }
-        if(txtUser.getText().isEmpty()){
-        txtUser.setText("Ingrese su usuario");
-        txtUser.setForeground(Color.gray);
+        if (txtUser.getText().isEmpty()) {
+            txtUser.setText("Ingrese su usuario");
+            txtUser.setForeground(Color.gray);
         }
     }//GEN-LAST:event_txtPassMousePressed
 
@@ -477,9 +474,20 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_txtRegistrarMouseClicked
 
     private void txtIniciarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtIniciarMouseClicked
-        Menu menu= new Menu();
-        menu.setVisible(true);
-        dispose();
+
+        if (txtUser.getText().equals("") || txtPass.getText().equals("")) {
+            JOptionPane.showMessageDialog(this, "Falta completar campos");
+        } else if (txtUser.getText().equals("Admin") & txtPass.getText().equals("Grupo34")) {
+
+            Menu menu = new Menu();
+            menu.setVisible(true);
+            dispose();
+        }else{
+            JOptionPane.showMessageDialog(this, "Usuario o Contraseña invalido.");
+        txtUser.setText("");
+        txtPass.setText("");
+        }
+
     }//GEN-LAST:event_txtIniciarMouseClicked
 
     /**
@@ -571,7 +579,8 @@ public void jPanelXIzquierda(final int start, final int stop, final int delay, f
             }.start();
         }
     }
-public void jPanelXDerecha(final int start, final int stop, final int delay, final int increment, final JPanel JPanel) {
+
+    public void jPanelXDerecha(final int start, final int stop, final int delay, final int increment, final JPanel JPanel) {
         if (JPanel.getX() == start) {
             new Thread() {
                 public void run() {
