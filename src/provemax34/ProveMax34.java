@@ -5,6 +5,7 @@ import java.sql.Date;
 import java.time.LocalDate;
 import java.time.Month;
 import java.time.ZoneId;
+import java.util.List;
 import provemax34.AccesoData.CompraData;
 import provemax34.AccesoData.DetalleCompraData;
 import provemax34.AccesoData.ProductoData;
@@ -19,7 +20,7 @@ public class ProveMax34 {
 
     
     public static void main(String[] args) {
-        //ProductoData prodD=new ProductoData();
+        ProductoData prodD=new ProductoData();
 //       Producto prod=new Producto("Heladera","Electrolux catA",150000, 5, true);
 //        
        Producto prod= new Producto(4,"Lavarropas","Whirlpool",180000, 5, true);
@@ -29,6 +30,8 @@ public class ProveMax34 {
          // ProveedorData provD= new ProveedorData();
 //          String result= provD.buscarProveedor(1)+"";
 //          System.out.println(result);
+//          List <Producto> listaP=prodD.listarProductosMasComprados(LocalDate.of(2023, 10, 1),LocalDate.of(2023, 10, 28));
+//          System.out.println(listaP);
           Proveedor prov=new Proveedor("Marolio","domicilio1","123123" ,true);
           ProveedorData provD=new ProveedorData();
 //          provD.guardarProveedor(prov);
@@ -39,7 +42,7 @@ public class ProveMax34 {
           //compD.guardarCompra(comp);
           //compD.modificarCompra(comp);
           //compD.borrarCompra(1);
-          compD.listarProductoPorFecha(LocalDate.of(2023,10,5));
+          //compD.listarProductoPorFecha(LocalDate.of(2023,10,5));
           DetalleCompra dc= new DetalleCompra(1,5, 15000, comp, prod);
           DetalleCompraData dcd= new DetalleCompraData();
           //dcd.guardarDetalleCompra(dc);
