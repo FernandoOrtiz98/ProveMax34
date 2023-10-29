@@ -142,10 +142,9 @@ public void verStock(){
     for (Producto i : listaStock) {
         modelo.addRow(new Object[]{i.getNombreProducto(),i.getStock()});
     }
-    System.out.println(listaStock);
-//    if (modelo!=null) {
-//        JOptionPane.showMessageDialog(this, "Hay Productos con poco Stock");
-//    }
+    if (modelo!=null) {
+        JOptionPane.showMessageDialog(this, "Hay Productos con poco Stock");
+    }
 }
 private void armarCabecera() {
         ArrayList<Object> filaCabecera = new ArrayList<>();
