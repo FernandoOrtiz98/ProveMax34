@@ -33,7 +33,7 @@ public class ProveedorData {
             PreparedStatement ps = con.prepareStatement(query, Statement.RETURN_GENERATED_KEYS);
             ps.setString(1, prov.getRazonSocial());
             ps.setString(2, prov.getDomicilio());
-            ps.setString(3, prov.getTelefono());
+            ps.setInt(3, prov.getTelefono());
             ps.setBoolean(4, prov.getEstado());
             ps.executeUpdate();
 
@@ -72,7 +72,7 @@ public class ProveedorData {
             PreparedStatement ps = con.prepareStatement(query);
             ps.setString(1, prov.getRazonSocial());
             ps.setString(2, prov.getDomicilio());
-            ps.setString(3, prov.getTelefono());
+            ps.setInt(3, prov.getTelefono());
             ps.setBoolean(4, prov.getEstado());
             ps.setInt(5, prov.getIdProveedor());
             int exito = ps.executeUpdate();
@@ -95,7 +95,7 @@ public class ProveedorData {
                 prov.setIdProveedor(rs.getInt("idProveedor"));
                 prov.setRazonSocial(rs.getString("razonSocial"));
                 prov.setDomicilio(rs.getString("domicilio"));
-                prov.setTelefono(rs.getString("telefono"));
+                prov.setTelefono(rs.getInt("telefono"));
                 prov.setEstado(rs.getBoolean("estado"));
                 proveedores.add(prov); 
             }
@@ -117,7 +117,7 @@ public class ProveedorData {
                 prov.setIdProveedor(idProveedor);
                 prov.setRazonSocial(rs.getString("razonSocial"));
                 prov.setDomicilio(rs.getString("domicilio"));
-                prov.setTelefono(rs.getString("telefono"));
+                prov.setTelefono(rs.getInt("telefono"));
                 prov.setEstado(true);
             }else{
                 JOptionPane.showMessageDialog(null, "No existe el Proveedor");
