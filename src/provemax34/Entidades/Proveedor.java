@@ -6,20 +6,20 @@ public class Proveedor {
     private int idProveedor;
     private String razonSocial;
     private String domicilio;
-    private String telefono;
+    private int telefono;
     private boolean estado;
 
     public Proveedor() {
     }
 
-    public Proveedor(String razonSocial, String domicilio, String telefono, Boolean estado) {
+    public Proveedor(String razonSocial, String domicilio, int telefono, Boolean estado) {
         this.razonSocial = razonSocial;
         this.domicilio = domicilio;
         this.telefono = telefono;
         this.estado = estado;
     }
 
-    public Proveedor(int idProveedor, String razonSocial, String domicilio, String telefono, Boolean estado) {
+    public Proveedor(int idProveedor, String razonSocial, String domicilio, int telefono, Boolean estado) {
         this.idProveedor = idProveedor;
         this.razonSocial = razonSocial;
         this.domicilio = domicilio;
@@ -51,11 +51,11 @@ public class Proveedor {
         this.domicilio = domicilio;
     }
 
-    public String getTelefono() {
+    public int getTelefono() {
         return telefono;
     }
 
-    public void setTelefono(String telefono) {
+    public void setTelefono(int telefono) {
         this.telefono = telefono;
     }
 
