@@ -6,8 +6,10 @@
 package provemax34.Vistas;
 
 import java.awt.Color;
+import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import provemax34.AccesoData.ProductoData;
 import provemax34.Entidades.Producto;
 
 /**
@@ -15,11 +17,13 @@ import provemax34.Entidades.Producto;
  * @author Fer
  */
 public class Menu extends javax.swing.JFrame {
-
-
+    ArrayList <Producto> listastock;
+    private ProductoData pd;
     public Menu() {
+        pd=new ProductoData();
         initComponents();
         this.setLocationRelativeTo(null);
+        notificaciones();
         
         
     }
@@ -361,7 +365,7 @@ public class Menu extends javax.swing.JFrame {
         escritorio.repaint();
         escritorio.add(stock);
         stock.setVisible(true);
-        stock.setLocation(380,0);       
+        stock.setLocation(380,0);     
     }//GEN-LAST:event_txtNotificacionMouseClicked
 
     private void txtNotificacionPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_txtNotificacionPropertyChange
@@ -427,5 +431,22 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JLabel txtProductos1;
     private javax.swing.JLabel txtProveedores;
     // End of variables declaration//GEN-END:variables
-
+public void notificaciones(){
+        
+        listastock=pd.listarProductosPorStockMin();
+        if (listastock.isEmpty()) {
+           panelNotificacion.setBackground(Color.gray); 
+        
+    }else{
+        
+        panelNotificacion.setBackground(Color.red);
+        
+        Stock stock = new Stock();
+        escritorio.removeAll();
+        escritorio.repaint();
+        escritorio.add(stock);
+        stock.setVisible(true);
+        stock.setLocation(380,0);
+        }
+}
 }
