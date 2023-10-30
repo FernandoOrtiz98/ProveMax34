@@ -1,5 +1,5 @@
 package provemax34.AccesoData;
-//hola
+
 
 import java.sql.Connection;
 import java.sql.Date;
@@ -85,31 +85,6 @@ public class ProductoData {
         }
     }
 
-//     public  Producto buscarProducto(String nombre,String descripcion){
-//        String sql="SELECT nombreProducto,descripcion,precioActual,stock,estado FROM producto WHERE nombreProducto =? AND descripcion = ?";
-//        try {
-//            PreparedStatement ps= con.prepareStatement(sql);
-//            ps.setString(1, nombre);
-//            ps.setString(2, descripcion);
-//            ResultSet rs=ps.executeQuery();
-//            if(rs.next()){
-//                //prod= new Producto();
-//                prod.setIdProducto(rs.getInt("idProducto"));
-//                prod.setNombreProducto(rs.getString("nombreProducto"));
-//                prod.setDescripcion(rs.getString("descripcion"));
-//                prod.setPrecioActual(rs.getDouble("precioActual"));
-//                prod.setStock(rs.getInt("stock"));
-//                prod.setEstado(true);
-//            
-//            }else{
-//                JOptionPane.showMessageDialog(null, "no existe el Producto");
-//            }
-//            ps.close();
-//        } catch (SQLException ex) {
-//            JOptionPane.showMessageDialog(null,"Error al acceder a la tabla Producto");
-//        }
-//        return prod;      
-//    }
     public Producto buscarProducto(int id) {
         String sql = "SELECT nombreProducto,descripcion,precioActual,stock,estado FROM producto WHERE idProducto=? ";
         try {
@@ -185,27 +160,6 @@ public class ProductoData {
         return productos;
     }
 
-//    public List<Producto> listarProductosMasComprados(LocalDate fechaInicio, LocalDate fechaFin) {
-//        String sql = "SELECT p.idProducto, p.nombreProducto, p.descripcion, p.precioActual, p.stock, p.estado, SUM(d.cantidad) AS totalComprado FROM Producto p, DetalleCompra d, Compra c WHERE c.fecha BETWEEN ? AND ? AND c.idCompra = d.idCompra AND d.idProducto = p.idProducto GROUP BY p.idProducto ORDER BY totalComprado DESC";
-//        List<Producto> productos = new ArrayList<>();
-//        try {
-//            PreparedStatement ps = con.prepareStatement(sql);
-//            ps.setDate(1, Date.valueOf(fechaInicio));
-//            ps.setDate(2, Date.valueOf(fechaFin));
-//            ResultSet rs = ps.executeQuery();
-//            while (rs.next()) {
-//                Producto producto;
-//                producto = new Producto(rs.getInt("idProducto"), rs.getString("nombreProducto"), rs.getString("descripcion"), rs.getDouble("precioActual"), rs.getInt("stock"), rs.getBoolean("estado"));
-//                productos.add(producto);
-//            }
-//        ps.close();
-//    } catch (SQLException ex) {
-//            JOptionPane.showMessageDialog(null, "Error al acceder a la tabla Producto");
-//        }catch (NullPointerException ex){
-//        JOptionPane.showMessageDialog(null, "no se encontro el Producto");
-//    }
-//        return productos;
-//    }
   public List<Producto> listarProductosMasComprados(LocalDate fechaInicio, LocalDate fechaFin) {
     String sql = "SELECT p.idProducto, p.nombreProducto, p.descripcion, p.precioActual, p.stock, p.estado, SUM(d.cantidad) AS totalComprado " +
                  "FROM Producto p, DetalleCompra d, Compra c " +
