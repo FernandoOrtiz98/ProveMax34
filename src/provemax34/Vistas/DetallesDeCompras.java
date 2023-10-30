@@ -103,6 +103,7 @@ public class DetallesDeCompras extends javax.swing.JInternalFrame {
         jLabel3 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         jtCompras = new javax.swing.JTable();
         PanelSalir = new javax.swing.JPanel();
@@ -392,33 +393,47 @@ public class DetallesDeCompras extends javax.swing.JInternalFrame {
             }
         });
 
+        jButton2.setText("Limpiar Filtros");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout panelFiltrosLayout = new javax.swing.GroupLayout(panelFiltros);
         panelFiltros.setLayout(panelFiltrosLayout);
         panelFiltrosLayout.setHorizontalGroup(
             panelFiltrosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelFiltrosLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(panelFiltrosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel2)
-                    .addComponent(jLabel3))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 9, Short.MAX_VALUE)
-                .addGroup(panelFiltrosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jcbProveedor, 0, 151, Short.MAX_VALUE)
-                    .addComponent(jcbCompra, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(panelFiltrosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(panelFiltrosLayout.createSequentialGroup()
-                        .addGap(8, 8, 8)
-                        .addComponent(jLabel5)))
-                .addGap(15, 15, 15))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelFiltrosLayout.createSequentialGroup()
-                .addGap(16, 16, 16)
-                .addComponent(jdFecha1, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jdFecha2, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap()
+                        .addGroup(panelFiltrosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel2)
+                            .addComponent(jLabel3))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 9, Short.MAX_VALUE)
+                        .addGroup(panelFiltrosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jcbProveedor, 0, 151, Short.MAX_VALUE)
+                            .addComponent(jcbCompra, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, panelFiltrosLayout.createSequentialGroup()
+                        .addGap(16, 16, 16)
+                        .addComponent(jdFecha1, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jdFecha2, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(15, 15, 15))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelFiltrosLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton1)
-                .addGap(83, 83, 83))
+                .addGroup(panelFiltrosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelFiltrosLayout.createSequentialGroup()
+                        .addComponent(jLabel5)
+                        .addGap(79, 79, 79))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelFiltrosLayout.createSequentialGroup()
+                        .addComponent(jButton1)
+                        .addGap(82, 82, 82))))
+            .addGroup(panelFiltrosLayout.createSequentialGroup()
+                .addGap(33, 33, 33)
+                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 184, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         panelFiltrosLayout.setVerticalGroup(
             panelFiltrosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -431,15 +446,17 @@ public class DetallesDeCompras extends javax.swing.JInternalFrame {
                 .addGroup(panelFiltrosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jcbCompra, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel3))
-                .addGap(58, 58, 58)
+                .addGap(18, 18, 18)
                 .addComponent(jLabel5)
-                .addGap(44, 44, 44)
+                .addGap(27, 27, 27)
                 .addGroup(panelFiltrosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jdFecha2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jdFecha1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 28, Short.MAX_VALUE)
+                    .addComponent(jdFecha1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jdFecha2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
                 .addComponent(jButton1)
-                .addGap(17, 17, 17))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 31, Short.MAX_VALUE)
+                .addComponent(jButton2)
+                .addGap(21, 21, 21))
         );
 
         background.add(panelFiltros, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 70, 240, 300));
@@ -630,10 +647,10 @@ public class DetallesDeCompras extends javax.swing.JInternalFrame {
                     }
                 }
             } else {
-                JOptionPane.showMessageDialog(this,"Todavia no hay compras registradas a este proveedor");
+                JOptionPane.showMessageDialog(this, "Todavia no hay compras registradas a este proveedor");
             }
-        }catch (NullPointerException ex){
-            JOptionPane.showMessageDialog(this, "No se encontro el Detalle " + ex.getMessage());
+        } catch (NullPointerException ex) {
+            JOptionPane.showMessageDialog(this, "No se encontro el Detalle ");
     }//GEN-LAST:event_jcbProveedorActionPerformed
     }
     private void jcbProveedorMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jcbProveedorMouseClicked
@@ -645,69 +662,71 @@ public class DetallesDeCompras extends javax.swing.JInternalFrame {
     private void jcbCompraMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jcbCompraMouseClicked
         jcbCompra.removeAllItems();
         cargarComboBoxcomp();
-        
+
     }//GEN-LAST:event_jcbCompraMouseClicked
 
     private void jcbCompraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jcbCompraActionPerformed
-       borrarFilas();
+        borrarFilas();
         try {
             comp = (Compra) jcbCompra.getSelectedItem();
             int id = comp.getIdCompra();
             listaDetallePorCompra = dcd.listarDetallesPorCompra(id);
-            if (listaDetallePorCompra != null) {            
+            if (listaDetallePorCompra != null) {
                 for (DetalleCompra i : listaDetallePorCompra) {
-                   modelo.addRow(new Object[]{i.getIdDetalle(), i.getCantidad(), i.getPrecioCosto(), i.getCompra().getIdCompra(), i.getProducto().getNombreProducto(), i.getCompra().getFecha()});
-                 }
+                    modelo.addRow(new Object[]{i.getIdDetalle(), i.getCantidad(), i.getPrecioCosto(), i.getCompra().getIdCompra(), i.getProducto().getNombreProducto(), i.getCompra().getFecha()});
+                }
             } else {
-                JOptionPane.showMessageDialog(this,"Todavia no hay compras registradas a este proveedor");
+                JOptionPane.showMessageDialog(this, "Todavia no hay compras registradas a este proveedor");
             }
-        }catch (NullPointerException ex){
-            JOptionPane.showMessageDialog(this, "No se encontro el Detalle " + ex.getMessage());
-    }                                   
+        } catch (NullPointerException ex) {
+            JOptionPane.showMessageDialog(this, "No se encontro la Compra ");
+        }
     }//GEN-LAST:event_jcbCompraActionPerformed
 
     private void jdFecha1PropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_jdFecha1PropertyChange
- 
+
     }//GEN-LAST:event_jdFecha1PropertyChange
 
     private void jdFecha2PropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_jdFecha2PropertyChange
- 
+
     }//GEN-LAST:event_jdFecha2PropertyChange
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        LocalDate fecha1 = jdFecha1.getDate().toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
-        LocalDate fecha2 = jdFecha2.getDate().toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
-        borrarFilas();
-//        listaProductos=(ArrayList<Producto>) prodData.listarProductosMasComprados(fecha1, fecha2);
-//        if (listaProductos != null) {            
-//                for (Producto i : listaProductos) {
-//                   modelo.addRow(new Object[]{i.});
-//                 }
-//            } else {
-//                JOptionPane.showMessageDialog(this,"Todavia no hay compras registradas a este proveedor");
-//            }
+        
         try {
-            listaCompra = compData.listarComprasEntreFechas(fecha1, fecha2);
-            if (listaCompra != null) {
-                for (Compra c : listaCompra) {
-                    listaDetalle = dcd.listarDetallesPorCompra(c.getIdCompra());
-                    for (DetalleCompra i : listaDetalle) {
-                        int x=0;
-                        int x2=0;
-                        int x3=0;
-                        if (i.getCantidad()>x) {
-                            
-                            modelo.addRow(new Object[]{i.getIdDetalle(), i.getCantidad(), i.getPrecioCosto(), i.getCompra().getIdCompra(), i.getProducto().getNombreProducto(), i.getCompra().getFecha()});  
+            LocalDate fecha1 = jdFecha1.getDate().toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+            LocalDate fecha2 = jdFecha2.getDate().toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+            borrarFilas();
+            if (fecha1 != null || fecha2 != null) {
+
+                listaCompra = compData.listarComprasEntreFechas(fecha1, fecha2);
+                if (listaCompra != null) {
+                    for (Compra c : listaCompra) {
+                        listaDetalle = dcd.listarDetallesPorCompra(c.getIdCompra());
+                        for (DetalleCompra i : listaDetalle) {
+                            modelo.addRow(new Object[]{i.getIdDetalle(), i.getCantidad(), i.getPrecioCosto(), i.getCompra().getIdCompra(), i.getProducto().getNombreProducto(), i.getCompra().getFecha()});
+
                         }
-                        
                     }
+                } else {
+                    JOptionPane.showMessageDialog(this, "Todavia no hay compras registradas en estas fechas");
                 }
-            } else {
-                JOptionPane.showMessageDialog(this,"Todavia no hay compras registradas a este proveedor");
+            }else{
+                JOptionPane.showMessageDialog(this, "Seleccione ambas Fechas");
             }
-        }catch (NullPointerException ex){
-            JOptionPane.showMessageDialog(this, "No se encontro el Detalle " + ex.getMessage());
+        } catch (NullPointerException ex) {
+            JOptionPane.showMessageDialog(this, "Completar ambos campos ");
+        }
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        borrarFilas();
+        cargaDatosDetalles();
+        jcbProveedor.removeAllItems();
+        jcbCompra.removeAllItems();
+        jdFecha1.setDate(null);
+        jdFecha2.setDate(null);
+    }//GEN-LAST:event_jButton2ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -715,6 +734,7 @@ public class DetallesDeCompras extends javax.swing.JInternalFrame {
     private javax.swing.JPanel background;
     private javax.swing.JPanel background1;
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JFrame jFrame1;
     private javax.swing.JInternalFrame jInternalFrame1;
     private javax.swing.JLabel jLabel1;
@@ -768,76 +788,26 @@ public class DetallesDeCompras extends javax.swing.JInternalFrame {
     private void cargaDatosDetalles() {
         listaDetalle = dcd.listarDetalles();
         for (DetalleCompra i : listaDetalle) {
-            modelo.addRow(new Object[]{i.getIdDetalle(),i.getCantidad(),i.getPrecioCosto(),i.getCompra().getIdCompra(),i.getProducto().getNombreProducto(),i.getCompra().getFecha()});
+            modelo.addRow(new Object[]{i.getIdDetalle(), i.getCantidad(), i.getPrecioCosto(), i.getCompra().getIdCompra(), i.getProducto().getNombreProducto(), i.getCompra().getFecha()});
         }
     }
 
-    private void borrarFilas(){
-        int f = jtCompras.getRowCount()-1;
-        for(;f>=0;f--){
+    private void borrarFilas() {
+        int f = jtCompras.getRowCount() - 1;
+        for (; f >= 0; f--) {
             modelo.removeRow(f);
         }
     }
-    public void jPanelYArriba(final int start, final int stop, final int delay, final int increment, final JPanel jPabel)
-  {
-    if (jPabel.getY() == start) {
-      new Thread()
-      {
-        public void run()
-        {
-          while (jPabel.getY() > stop) {
-            for (int i = start; i >= stop; i -= increment) {
-              try
-              {
-                Thread.sleep(delay);
-                jPabel.setLocation(jPabel.getX(), i);
-              }
-              catch (InterruptedException e)
-              {
-                System.out.println("Error Thread Interrupted: " + e);
-              }
-            }
-          }
-          jPabel.setLocation(jPabel.getX(), stop);
-        }
-      }.start();
-    }
-  }
-  
-  public void jPanelYAbajo(final int start, final int stop, final int delay, final int increment, final JPanel jPanel)
-  {
-    if (jPanel.getY() == start) {
-      new Thread()
-      {
-        public void run()
-        {
-          while (jPanel.getY() <= start) {
-            for (int i = start; i <= stop; i += increment) {
-              try
-              {
-                Thread.sleep(delay);
-                
-                jPanel.setLocation(jPanel.getX(), i);
-              }
-              catch (InterruptedException e)
-              {
-                System.out.println("Error Thread Interrupted: " + e);
-              }
-            }
-          }
-          jPanel.setLocation(jPanel.getX(), stop);
-        }
-      }.start();
-    }
-  }
-  private void cargarComboBoxprov() {
+
+    private void cargarComboBoxprov() {
         listaProv = provData.listarProveedores();
         for (Proveedor item : listaProv) {
             jcbProveedor.addItem(item);
         }
 
     }
-  private void cargarComboBoxcomp() {
+
+    private void cargarComboBoxcomp() {
         listaCompra = compData.listarCompras();
         for (Compra item : listaCompra) {
             jcbCompra.addItem(item);
