@@ -580,7 +580,6 @@ public class Productos extends javax.swing.JInternalFrame {
         filaCabecera.add("Descripcion");
         filaCabecera.add("Precio Actual");
         filaCabecera.add("Stock");
-        filaCabecera.add("Estado");
         for (Object it : filaCabecera) {
             modelo.addColumn(it);
         }
@@ -591,7 +590,7 @@ public class Productos extends javax.swing.JInternalFrame {
     private void cargaDatosInscriptas() {
         listaProd = prodData.listarProductos();
         for (Producto i : listaProd) {
-            modelo.addRow(new Object[]{i.getIdProducto(), i.getNombreProducto(), i.getDescripcion(), i.getPrecioActual(), i.getStock(), true});
+            modelo.addRow(new Object[]{i.getIdProducto(), i.getNombreProducto(), i.getDescripcion(), i.getPrecioActual(), i.getStock()});
         }
     }
     private void borrarFilas(){
