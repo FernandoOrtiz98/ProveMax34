@@ -37,11 +37,9 @@ public class AgregarProveedor extends javax.swing.JFrame {
         jLRazonSocial = new javax.swing.JLabel();
         jLDomicilio = new javax.swing.JLabel();
         jLTelefono = new javax.swing.JLabel();
-        jLEstado = new javax.swing.JLabel();
         jTRazonSocial = new javax.swing.JTextField();
         jTDomicilio = new javax.swing.JTextField();
         jTTelefono = new javax.swing.JTextField();
-        jCBEstado = new javax.swing.JCheckBox();
         btnAgregarProv = new javax.swing.JPanel();
         txtAgregarProv = new javax.swing.JLabel();
 
@@ -71,12 +69,6 @@ public class AgregarProveedor extends javax.swing.JFrame {
         jLTelefono.setText("Telefono");
         jPanel1.add(jLTelefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 160, -1, -1));
 
-        jLEstado.setFont(new java.awt.Font("Roboto Light", 1, 14)); // NOI18N
-        jLEstado.setForeground(new java.awt.Color(255, 255, 255));
-        jLEstado.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLEstado.setText("Estado");
-        jPanel1.add(jLEstado, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 240, -1, -1));
-
         jTRazonSocial.setForeground(new java.awt.Color(0, 0, 0));
         jTRazonSocial.setSelectedTextColor(new java.awt.Color(0, 0, 0));
         jPanel1.add(jTRazonSocial, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 50, 324, -1));
@@ -86,7 +78,6 @@ public class AgregarProveedor extends javax.swing.JFrame {
 
         jTTelefono.setForeground(new java.awt.Color(0, 0, 0));
         jPanel1.add(jTTelefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 190, 323, -1));
-        jPanel1.add(jCBEstado, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 240, -1, -1));
 
         btnAgregarProv.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -142,9 +133,9 @@ public class AgregarProveedor extends javax.swing.JFrame {
         try {
             String razonSocial = jTRazonSocial.getText();
             String domicilio = jTDomicilio.getText();
-            String telefono = jTTelefono.getText();
+            int telefono = Integer.parseInt(jTTelefono.getText());
 
-            if (razonSocial.isEmpty() || domicilio.isEmpty() || telefono.isEmpty()) {
+            if (razonSocial.isEmpty() || domicilio.isEmpty() || telefono<=0) {
                 JOptionPane.showMessageDialog(this, "No puedo haber campos vacios");
                 return;
             }
@@ -195,9 +186,7 @@ public static void main(String args[]) {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel btnAgregarProv;
-    private javax.swing.JCheckBox jCBEstado;
     private javax.swing.JLabel jLDomicilio;
-    private javax.swing.JLabel jLEstado;
     private javax.swing.JLabel jLRazonSocial;
     private javax.swing.JLabel jLTelefono;
     private javax.swing.JPanel jPanel1;
@@ -211,7 +200,7 @@ public void limpiarCampos(){
         jTRazonSocial.setText("");
         jTDomicilio.setText("");
         jTTelefono.setText("");
-        jCBEstado.setEnabled(false);
+        
         prov=null;
     }
 }
