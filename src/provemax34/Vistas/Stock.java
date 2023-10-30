@@ -141,10 +141,11 @@ public void verStock(){
     listaStock=pd.listarProductosPorStockMin();
     for (Producto i : listaStock) {
         modelo.addRow(new Object[]{i.getNombreProducto(),i.getStock()});
-    }
-    if (modelo!=null) {
+    if (i.getStock()<1) {
         JOptionPane.showMessageDialog(this, "Hay Productos con poco Stock");
     }
+    }
+    
 }
 private void armarCabecera() {
         ArrayList<Object> filaCabecera = new ArrayList<>();
