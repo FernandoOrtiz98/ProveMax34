@@ -32,7 +32,7 @@ public class ProveMax34 {
 //          System.out.println(result);
 //          List <Producto> listaP=prodD.listarProductosMasComprados(LocalDate.of(2023, 10, 1),LocalDate.of(2023, 10, 28));
 //          System.out.println(listaP);
-          Proveedor prov=new Proveedor("Marolio","domicilio1","123123" ,true);
+          Proveedor prov=new Proveedor("Marolio","domicilio1",123123 ,true);
           ProveedorData provD=new ProveedorData();
 //          provD.guardarProveedor(prov);
           provD.modificarProveedor(prov);
