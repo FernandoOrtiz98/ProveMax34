@@ -149,7 +149,7 @@ public class AgregarProducto extends javax.swing.JFrame {
             double precio = Double.parseDouble(jTPrecio.getText());
             int cantidad = Integer.parseInt(jTCantidad.getText());
             
-            if (nombre.isEmpty() || descr.isEmpty() || precio <= 0 || cantidad <= 0 || !(Character.isDigit((int) precio)) || !(Character.isDigit((int) cantidad))) {
+            if (nombre.isEmpty() || descr.isEmpty() || precio <= 0 || cantidad <= 0 ) {
                 JOptionPane.showMessageDialog(this, "Error al llenar el formulario, verificar campos...");
             } else {
                 prod = new Producto(nombre, descr, precio, cantidad, true);
